@@ -1,0 +1,687 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ website }}{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css"
+  href="http://fonts.googleapis.com/css?family=Raleway:200,400%7CLato:300,400,300italic,700%7CMontserrat:900" />
+<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/mdi.css') }}" />
+<link rel="stylesheet" href="{{ asset('css/fl-bigmug-line.css') }}" />
+{% endblock %}
+
+{% block body %}
+<!-- Page preloader-->
+<div class="page-loader">
+  <div class="page-loader-body">
+    <div class="page-loader__brand"><img src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198"
+        height="42" />
+    </div>
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+      <div class="spinner-layer spinner-red">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"> </div>
+        </div>
+      </div>
+      <div class="spinner-layer spinner-yellow">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+      <div class="spinner-layer spinner-green">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Page-->
+<div class="page">
+  <!-- Page Header-->
+  <header class="section page-header">
+    <!-- RD Navbar -->
+    <div class="rd-navbar-wrap rd-navbar-centered">
+      <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+        data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+        data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
+        data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+        <div class="rd-navbar-inner">
+          <div class="rd-navbar-aside-left">
+            <div class="rd-navbar-nav-wrap">
+              <ul class="rd-navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="modern-blog.html">Blog</a></li>
+                <li class="rd-navbar--has-megamenu rd-navbar-submenu"><a href="#">Pages</a>
+                  <!-- RD Navbar Megamenu -->
+                  <ul class="rd-navbar-megamenu">
+                    <li>
+                      <ul class="rd-megamenu-list">
+                        <li><a href="about-me.html">About Me</a></li>
+                        <li><a href="our-history.html">Our History</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="single-service.html">Single Service</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="single-job.html">Single Job</a></li>
+                        <li><a href="contacts.html">Contacts</a></li>
+                        <li><a href="grid-gallery.html">Grid Gallery</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="rd-megamenu-list">
+                        <li><a href="grid-album-gallery.html">Grid Album Gallery</a></li>
+                        <li><a href="fullwidth-gallery.html">Fullwidth Gallery</a></li>
+                        <li><a href="masonry-gallery.html">Masonry Gallery</a></li>
+                        <li><a href="single-project.html">Single Project</a></li>
+                        <li><a href="login-page.html">Login Page</a></li>
+                        <li><a href="registration-page.html">Registration Page</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="404-page.html">404 Page</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="rd-megamenu-list">
+                        <li><a href="503-page.html">503 Page</a></li>
+                        <li><a href="coming-soon.html">Coming Soon</a></li>
+                        <li><a href="under-construction.html">Under Construction</a></li>
+                        <li><a href="accordions.html">Accordions</a></li>
+                        <li><a href="forms.html">Forms</a></li>
+                        <li><a href="countdown.html">Countdown</a></li>
+                        <li><a href="grid-system.html">Grid System</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="rd-megamenu-list">
+                        <li><a href="tables.html">Tables</a></li>
+                        <li><a href="tabs.html">Tabs</a></li>
+                        <li><a href="typography.html">Typography</a></li>
+                        <li><a href="radials.html">Radials</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="tooltips.html">Tooltips</a></li>
+                        <li><a href="search-results.html">Search Results</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- RD Navbar Panel-->
+          <div class="rd-navbar-panel">
+            <!-- RD Navbar Toggle-->
+            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+            <!-- RD Navbar Brand-->
+            <div class="rd-navbar-brand"><a class="brand-name" href="index.html"> <img class="logo-default"
+                  src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" /><img
+                  class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198"
+                  height="42" /></a></div>
+          </div>
+          <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+          <div class="rd-navbar-aside-right rd-navbar-collapse">
+            <!-- RD Navbar Search-->
+            <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search"
+                href="#"><span></span></a>
+              <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live"
+                method="GET">
+                <div class="form-wrap">
+                  <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
+                  <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text"
+                    name="s" autocomplete="off" />
+                  <div class="rd-search-results-live"></div>
+                </div>
+                <button class="rd-search-form-submit mdi mdi-magnify"></button>
+              </form>
+            </div><a class="button button-sm button-default-outline" href="contacts.html">request a quote </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Inspirational technologies-->
+  <section class="section bg-gray-darker text-center">
+    <div class="section-xl bg-vide" data-vide-bg="mp4: video/office-day, poster: video/office-day"
+      data-vide-options="posterType: jpg, position: 0% 50%">
+      <div class="shell shell-wide">
+        <div class="range range-50 range-sm-center">
+          <div class="cell-sm-10 cell-lg-9">
+            <h1>Inspirational Technologies </h1>
+            <p class="big">Compuhelp! Enterprises was created with the idea of bringing you multipurpose and flexible IT
+              Solutions. We use various innovative technologies that make your work not only easier but more productive
+              without unnecessary coding.</p><a class="button button-primary" href="about-us.html">learn more</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services-->
+  <section class="section section-lg bg-white text-center">
+    <div class="shell-wide">
+      <div class="text-center">
+        <h3>Our Services</h3>
+        <div class="divider divider-default"></div>
+      </div>
+      <div class="range range-50 range-xs-center offset-custom-2">
+        <div class="cell-xs-10 cell-md-4 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical thumbnail-classic-primary">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-cellphone-android"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Mobile Apps Development</h6>
+              <hr class="divider divider-default divider-sm" />
+              <p class="thumbnail-classic-text">At Effective, we work for our customers every day to deliver the best
+                mobile applications for any purposes. We work both with individual and corporate customers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-xs-10 cell-md-4 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical thumbnail-classic-primary">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-television-guide"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Website Design</h6>
+              <hr class="divider divider-default divider-sm" />
+              <p class="thumbnail-classic-text">Our expert team can design a website of any complexity, from a landing
+                page to a corporate multipage website. Everything depends on what you are looking for.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-xs-10 cell-md-4 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical thumbnail-classic-primary">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-headset"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">IT Consulting</h6>
+              <hr class="divider divider-default divider-sm" />
+              <p class="thumbnail-classic-text">Our team is glad to provide you with professional IT consulting services
+                24/7. We have been helping lots of companies since our establishment.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-xs-10 cell-md-4 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical thumbnail-classic-primary">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-web"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Internet Marketing</h6>
+              <hr class="divider divider-default divider-sm" />
+              <p class="thumbnail-classic-text">In the modern world of rapid web development, internet marketing plays a
+                vital role in your company’s promotion. We are happy to assist you with it.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Projects-->
+  <section class="section section-lg section-bottom-0 bg-gray-lighter text-center">
+    <h3>Our Projects</h3>
+    <div class="isotope-wrap range range-50">
+      <!-- Isotope Filters-->
+      <div class="cell-lg-12">
+        <ul class="isotope-filters isotope-filters-horizontal">
+          <li class="block-top-level">
+            <p class="big">Choose your category:</p>
+            <!-- Isotope Filters-->
+            <button class="isotope-filters-toggle button button-xs button-primary"
+              data-custom-toggle=".isotope-filters-list" data-custom-toggle-hide-on-blur="true">Filter<span
+                class="caret"></span></button>
+            <ul class="isotope-filters-list">
+              <li><a class="active" data-isotope-filter="*" data-isotope-group="gallery-01" href="#">All Categories</a>
+              </li>
+              <li><a data-isotope-filter="type 1" data-isotope-group="gallery-01" href="#">Type 1</a></li>
+              <li><a data-isotope-filter="type 2" data-isotope-group="gallery-01" href="#">Type 2</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <!-- Isotope Content-->
+      <div class="cell-lg-12">
+        <div class="isotope" data-isotope-layout="fitRows" data-isotope-group="gallery-01" data-lightgallery="group">
+          <div class="row row-condensed row-no-gutter">
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 1">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-01-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Eric Howard</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 1">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-02-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Basketball Team</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 1">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-03-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Political Candidate</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 2">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-04-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Industrial Company</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 2">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-05-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Construction Company</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-4 isotope-item" data-filter="type 2">
+              <div class="gallery-item title-inside-gallery-item gallery-item-fullwidth">
+                <div class="gallery-item-image">
+                  <figure><img src="{{asset('images/compuhelp/title-inside-gallery-06-640x430.jpg')}}" alt="" width="640" height="430" />
+                  </figure>
+                  <div class="title-inside-gallery-caption"><a class="title-inside-gallery-title"
+                      href="single-project.html">Boxing Club</a>
+                    <p class="title-inside-gallery-text">Our qualified team is ready to design, develop, and support
+                      your website.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Team-->
+  <section class="section section-lg bg-white text-center">
+    <div class="shell shell-wide">
+      <h3>Our Team</h3>
+      <hr class="divider divider-default" />
+      <!-- Owl Carousel-->
+      <div class="owl-carousel owl-carousel-team" data-items="1" data-xs-items="2" data-sm-items="3" data-lg-items="4"
+        data-xl-items="6" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false"
+        data-dots="true">
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-01-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Sandra Ferguson</a></h5>
+            <p class="team-classic-job-position">Senior Manager</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-02-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Ronald Chen</a></h5>
+            <p class="team-classic-job-position">Marketer</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-03-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Frances Watson</a></h5>
+            <p class="team-classic-job-position">Support Operator</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-04-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Joe Myers</a></h5>
+            <p class="team-classic-job-position">Developer</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-05-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Deborah Stewart</a></h5>
+            <p class="team-classic-job-position">Manager</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+        <div class="team-classic">
+          <div class="team-classic-image">
+            <figure><img src="{{asset('images/compuhelp/team-06-270x270.jpg')}}" alt="" width="270" height="270" />
+            </figure>
+            <div class="team-classic-image-caption">
+              <ul class="list-inline list-team">
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-facebook" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-twitter" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-instagram" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-google-plus" href="#"></a></li>
+                <li><a class="icon icon-sm-bigger icon-white mdi mdi-linkedin" href="#"></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="team-classic-caption">
+            <h5><a class="team-classic-title" href="about-me.html">Patrick Douglas</a></h5>
+            <p class="team-classic-job-position">Designer</p><a class="button button-xs button-default-outline"
+              href="about-me.html">get in touch</a>
+          </div>
+        </div>
+      </div><a class="button button-primary" href="about-us.html">view all team</a>
+    </div>
+  </section>
+
+  <!-- Our Advantages -->
+  <section class="section section-wrap section-wrap-lg section-reverse bg-gray-darker">
+    <div class="section-wrap-inner">
+      <div class="shell shell-wide">
+        <div class="range range-50 range-sm-center range-lg-left">
+          <div class="cell-sm-12 cell-md-10 cell-lg-7 cell-xl-6">
+            <div class="section-lg">
+              <h3>Our Advantages</h3>
+              <div class="divider divider-default"></div>
+              <div class="range range-30">
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-thumb-up-outline"></div>
+                    <p class="big box-minimal-title">Individual Approach</p>
+                    <hr />
+                    <div class="box-minimal-text">We use an individual approach to each client and we never offer you a
+                      set of standard decisions for your business.</div>
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-account-multiple"></div>
+                    <p class="big box-minimal-title">Qualified Employers</p>
+                    <hr />
+                    <div class="box-minimal-text">Effective is a team of designers, developers, marketing experts and
+                      managers who are ready to work for a personalized web solution.</div>
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-headset"></div>
+                    <p class="big box-minimal-title">24/7 Online Support</p>
+                    <hr />
+                    <div class="box-minimal-text">Our online support is available 24 hours a day to answer your every
+                      question and help you solve any issue you may have with our products and services.</div>
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-credit-card"></div>
+                    <p class="big box-minimal-title">Various Payment Methods</p>
+                    <hr />
+                    <div class="box-minimal-text">We provide a variety of payment methods that include Paypal,
+                      Visa/Mastercard/American Express and lots of others, which can be customized.</div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-wrap-aside section-wrap-image"><img src="{{asset('images/compuhelp/landing-it-company-6-942x1250.jpg')}}" alt=""
+          width="942" height="1250" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog posts-->
+  <section class="section section-lg bg-gray-lighter text-center">
+    <div class="shell-wide">
+      <div class="range">
+        <div class="cell-xs-12">
+          <h3>Latest Blog Posts</h3>
+          <div class="divider divider-default"></div>
+          <!-- Owl Carousel-->
+          <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="2"
+            data-lg-items="3" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false"
+            data-dots="true">
+            <article class="post-blog"><a class="post-blog-image" href="single-post.html"><img
+                  src="{{asset('images/compuhelp/landing-it-company-7-570x415.jpg')}}" alt="" width="570" height="415" /></a>
+              <div class="post-blog-caption">
+                <div class="post-blog-caption-header">
+                  <ul class="post-blog-tags">
+                    <li><a class="button-tags" href="single-post.html">Tips & Tricks</a></li>
+                  </ul>
+                  <ul class="post-blog-meta">
+                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen</a></li>
+                  </ul>
+                </div>
+                <div class="post-blog-caption-body">
+                  <h5><a class="post-blog-title" href="single-post.html">Why Outsourcing IT Services for Small Business
+                      Owners is Beneficial</a></h5>
+                </div>
+                <div class="post-blog-caption-footer">
+                  <time datetime="2017">Feb 27, 2017 at 6:53 pm</time><a class="post-comment"
+                    href="single-post.html"><span
+                      class="icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>3</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="post-blog"><a class="post-blog-image" href="image-post.html"><img
+                  src="{{asset('images/compuhelp/landing-it-company-8-570x415.jpg')}}" alt="" width="570" height="415" /></a>
+              <div class="post-blog-caption">
+                <div class="post-blog-caption-header">
+                  <ul class="post-blog-tags">
+                    <li><a class="button-tags" href="image-post.html">Information</a></li>
+                  </ul>
+                  <ul class="post-blog-meta">
+                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen</a></li>
+                  </ul>
+                </div>
+                <div class="post-blog-caption-body">
+                  <h5><a class="post-blog-title" href="image-post.html">Important Info: Know These Types of Malware and
+                      Stay Protected</a></h5>
+                </div>
+                <div class="post-blog-caption-footer">
+                  <time datetime="2017">Feb 27, 2017 at 6:53 pm</time><a class="post-comment"
+                    href="image-post.html"><span
+                      class="icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>3</span></a>
+                </div>
+              </div>
+            </article>
+            <article class="post-blog"><a class="post-blog-audio" href="audio-post.html"><img
+                  src="{{asset('images/compuhelp/landing-it-company-9-570x415.jpg')}}" alt="" width="570" height="415" /></a>
+              <div class="post-blog-caption">
+                <div class="post-blog-caption-header">
+                  <ul class="post-blog-tags">
+                    <li><a class="button-tags" href="audio-post.html">Tips & Tricks</a></li>
+                  </ul>
+                  <ul class="post-blog-meta">
+                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen </a></li>
+                  </ul>
+                </div>
+                <div class="post-blog-caption-body">
+                  <h5><a class="post-blog-title" href="audio-post.html">Tips and Tricks for Avoiding IoT (Internet of
+                      Things) Threats</a></h5>
+                </div>
+                <div class="post-blog-caption-footer">
+                  <time datetime="2017">Feb 27, 2017 at 6:53 pm</time><a class="post-comment"
+                    href="audio-post.html"><span
+                      class="icon icon-md-middle icon-gray-1 mdi mdi-comment"></span><span>3</span></a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div><a class="button button-primary" href="modern-blog.html">view all blog posts </a>
+    </div>
+  </section>
+  <!-- Page Footer-->
+  <!-- Footer Default-->
+  <footer class="section page-footer page-footer-default text-left bg-gray-darker">
+    <div class="shell-wide">
+      <div class="range range-50 range-xs-center">
+        <div class="cell-sm-6 cell-lg-3">
+          <div class="inset-xl">
+            <h6>About Us</h6>
+            <p class="text-spacing-sm">We at Compuhelp! Enterprises know how to design and develop a website or app of
+              any complexity. Regardless of what you are looking for, our experts can deliver a solution, which will
+              elevate your business to unbelievable heights.</p>
+          </div>
+        </div>
+        <div class="cell-sm-6 cell-lg-2">
+          <h6>Quick Links</h6>
+          <ul class="list-marked list-marked-primary">
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="modern-blog.html">Blog</a></li>
+            <li><a href="grid-gallery.html">Portfolio</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+          </ul>
+        </div>
+        <div class="cell-sm-6 cell-lg-3">
+          <h6>Contact Us</h6>
+          <!-- RD Mailform-->
+          <form class="rd-mailform rd-mailform-sm" data-form-output="form-output-global" data-form-type="contact"
+            method="post" action="bat/rd-mailform.php">
+            <div class="form-wrap form-wrap-validation">
+              <input class="form-input" id="form-footer-name" type="text" name="name" data-constraints="@Required"
+                autocomplete="name" />
+              <label class="form-label" for="form-footer-name">Name</label>
+            </div>
+            <div class="form-wrap form-wrap-validation">
+              <input class="form-input" id="form-footer-email" type="email" name="email"
+                data-constraints="@Email @Required" autocomplete="email" />
+              <label class="form-label" for="form-footer-email">E-mail</label>
+            </div>
+            <div class="form-wrap form-wrap-validation">
+              <label class="form-label" for="form-footer-message">Message</label>
+              <textarea class="form-input" id="form-footer-message" name="message"
+                data-constraints="@Required"></textarea>
+            </div>
+            <div class="form-button">
+              <button class="button button-sm button-primary" type="submit">Send message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <p class="right">&#169;&nbsp;<span class="copyright-year"></span> All Rights Reserved&nbsp;<a href="#">Terms of
+          Use</a>&nbsp;and&nbsp;<a href="privacy-policy.html">Privacy Policy</a></p>
+    </div>
+  </footer>
+</div>
+<!-- Global Mailform Output-->
+<div class="snackbars" id="form-output-global"></div>
+{% block javascripts %}
+<!-- Javascript-->
+<script src="{{asset('js/core.min.js')}}"></script>
+<script src="{{asset('js/script.js')}}"></script>
+{% endblock %}
+{% endblock %}
