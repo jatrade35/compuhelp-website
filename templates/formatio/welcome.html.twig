@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+{% block title %}Site web Formatio !{% endblock %}
+  <link rel="icon" href="{{ icon }}" type="image/x-icon">
+{% endblock %}
+
+{% block body %}
+<img src="{{ asset('images/formatio/logo.png') }}" alt="Logo">
+<p>Welcome to {{ website }} website!</p>
+{% endblock %}

@@ -1,173 +1,7 @@
-{% extends 'base.html.twig' %}
+{% extends 'compuhelp/base.html.twig' %}
 
-{% block title %}{{ website }}{% endblock %}
-{% block stylesheets %}
-<link rel="stylesheet" type="text/css"
-  href="http://fonts.googleapis.com/css?family=Raleway:200,400%7CLato:300,400,300italic,700%7CMontserrat:900" />
-<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/mdi.css') }}" />
-<link rel="stylesheet" href="{{ asset('css/fl-bigmug-line.css') }}" />
-{% endblock %}
-
-{% block body %}
-<!-- Page preloader-->
-<div class="page-loader">
-  <div class="page-loader-body">
-    <div class="page-loader__brand"><img src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198"
-        height="42" />
-    </div>
-    <div class="preloader-wrapper big active">
-      <div class="spinner-layer spinner-blue">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-      <div class="spinner-layer spinner-red">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"> </div>
-        </div>
-      </div>
-      <div class="spinner-layer spinner-yellow">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-      <div class="spinner-layer spinner-green">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Page-->
-<div class="page">
-  <!-- Page Header-->
-  <header class="section page-header">
-    <!-- RD Navbar -->
-    <div class="rd-navbar-wrap rd-navbar-centered">
-      <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-        data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-        data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
-        data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-        <div class="rd-navbar-inner">
-          <div class="rd-navbar-aside-left">
-            <div class="rd-navbar-nav-wrap">
-              <ul class="rd-navbar-nav">
-                <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="modern-blog.html">Blog</a></li>
-                <li class="rd-navbar--has-megamenu rd-navbar-submenu"><a href="#">Pages</a>
-                  <!-- RD Navbar Megamenu -->
-                  <ul class="rd-navbar-megamenu">
-                    <li>
-                      <ul class="rd-megamenu-list">
-                        <li><a href="about-me.html">About Me</a></li>
-                        <li><a href="our-history.html">Our History</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="single-service.html">Single Service</a></li>
-                        <li><a href="careers.html">Careers</a></li>
-                        <li><a href="single-job.html">Single Job</a></li>
-                        <li><a href="contacts.html">Contacts</a></li>
-                        <li><a href="grid-gallery.html">Grid Gallery</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul class="rd-megamenu-list">
-                        <li><a href="grid-album-gallery.html">Grid Album Gallery</a></li>
-                        <li><a href="fullwidth-gallery.html">Fullwidth Gallery</a></li>
-                        <li><a href="masonry-gallery.html">Masonry Gallery</a></li>
-                        <li><a href="single-project.html">Single Project</a></li>
-                        <li><a href="login-page.html">Login Page</a></li>
-                        <li><a href="registration-page.html">Registration Page</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="404-page.html">404 Page</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul class="rd-megamenu-list">
-                        <li><a href="503-page.html">503 Page</a></li>
-                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                        <li><a href="under-construction.html">Under Construction</a></li>
-                        <li><a href="accordions.html">Accordions</a></li>
-                        <li><a href="forms.html">Forms</a></li>
-                        <li><a href="countdown.html">Countdown</a></li>
-                        <li><a href="grid-system.html">Grid System</a></li>
-                      </ul>
-                    </li>
-                    <li>
-                      <ul class="rd-megamenu-list">
-                        <li><a href="tables.html">Tables</a></li>
-                        <li><a href="tabs.html">Tabs</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="radials.html">Radials</a></li>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <li><a href="tooltips.html">Tooltips</a></li>
-                        <li><a href="search-results.html">Search Results</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-            <!-- RD Navbar Brand-->
-            <div class="rd-navbar-brand"><a class="brand-name" href="index.php"> <img class="logo-default"
-                  src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" /><img
-                  class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198"
-                  height="42" /></a></div>
-          </div>
-          <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
-          <div class="rd-navbar-aside-right rd-navbar-collapse">
-            <!-- RD Navbar Search-->
-            <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search"
-                href="#"><span></span></a>
-              <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live"
-                method="GET">
-                <div class="form-wrap">
-                  <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
-                  <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text"
-                    name="s" autocomplete="off" />
-                  <div class="rd-search-results-live"></div>
-                </div>
-                <button class="rd-search-form-submit mdi mdi-magnify"></button>
-              </form>
-            </div><a class="button button-sm button-default-outline" href="contacts.html">request a quote </a>
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
-
+{% block title %}Home{% endblock %}
+{% block page %}
   <!-- Inspirational technologies-->
   <section class="section bg-gray-darker text-center">
     <div class="section-xl bg-vide" data-vide-bg="mp4: video/office-day, poster: video/office-day"
@@ -176,9 +10,11 @@
         <div class="range range-50 range-sm-center">
           <div class="cell-sm-10 cell-lg-9">
             <h1>Inspirational Technologies </h1>
-            <p class="big">Compuhelp! Enterprises was created with the idea of bringing you multipurpose and flexible IT
-              Solutions. We use various innovative technologies that make your work not only easier but more productive
-              without unnecessary coding.</p><a class="button button-primary" href="about-us.html">learn more</a>
+            <p class="big">Compuhelp! Enterprises is a one-person company created with the idea of bringing you multipurpose and flexible IT
+            Solutions. With a wealth of experience in the field, René Lanteigne offers a personalized and hands-on approach to address all your IT needs.
+            From troubleshooting technical issues to implementing strategic IT solutions, He is your go-to expert for efficient and effective IT consulting.
+            He is also a veteran software designer, developer and database administrator. He uses various innovative technologies that make your work not only
+            easier but more productive without unnecessary coding.</p><a class="button button-primary" href="index.php/about-me">learn more</a>
           </div>
         </div>
       </div>
@@ -560,7 +396,7 @@
                     <li><a class="button-tags" href="single-post.html">Tips & Tricks</a></li>
                   </ul>
                   <ul class="post-blog-meta">
-                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen</a></li>
+                    <li><span>by</span>&nbsp;<a href="index.php/about-me">René Lanteigne</a></li>
                   </ul>
                 </div>
                 <div class="post-blog-caption-body">
@@ -582,7 +418,7 @@
                     <li><a class="button-tags" href="image-post.html">Information</a></li>
                   </ul>
                   <ul class="post-blog-meta">
-                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen</a></li>
+                    <li><span>by</span>&nbsp;<a href="index.php/about-me">René Lanteigne</a></li>
                   </ul>
                 </div>
                 <div class="post-blog-caption-body">
@@ -604,7 +440,7 @@
                     <li><a class="button-tags" href="audio-post.html">Tips & Tricks</a></li>
                   </ul>
                   <ul class="post-blog-meta">
-                    <li><span>by</span>&nbsp;<a href="about-me.html">Ronald Chen </a></li>
+                    <li><span>by</span>&nbsp;<a href="index.php/about-me">René Lanteigne</a></li>
                   </ul>
                 </div>
                 <div class="post-blog-caption-body">
@@ -620,68 +456,7 @@
             </article>
           </div>
         </div>
-      </div><a class="button button-primary" href="modern-blog.html">view all blog posts </a>
+      </div><a class="button button-primary" href="index.php/blog">view all blog posts </a>
     </div>
   </section>
-  <!-- Page Footer-->
-  <!-- Footer Default-->
-  <footer class="section page-footer page-footer-default text-left bg-gray-darker">
-    <div class="shell-wide">
-      <div class="range range-50 range-xs-center">
-        <div class="cell-sm-6 cell-lg-3">
-          <div class="inset-xl">
-            <h6>About Us</h6>
-            <p class="text-spacing-sm">We at Compuhelp! Enterprises know how to design and develop a website or app of
-              any complexity. Regardless of what you are looking for, our experts can deliver a solution, which will
-              elevate your business to unbelievable heights.</p>
-          </div>
-        </div>
-        <div class="cell-sm-6 cell-lg-2">
-          <h6>Quick Links</h6>
-          <ul class="list-marked list-marked-primary">
-            <li><a href="about-us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="modern-blog.html">Blog</a></li>
-            <li><a href="grid-gallery.html">Portfolio</a></li>
-            <li><a href="contacts.html">Contacts</a></li>
-          </ul>
-        </div>
-        <div class="cell-sm-6 cell-lg-3">
-          <h6>Contact Us</h6>
-          <!-- RD Mailform-->
-          <form class="rd-mailform rd-mailform-sm" data-form-output="form-output-global" data-form-type="contact"
-            method="post" action="bat/rd-mailform.php">
-            <div class="form-wrap form-wrap-validation">
-              <input class="form-input" id="form-footer-name" type="text" name="name" data-constraints="@Required"
-                autocomplete="name" />
-              <label class="form-label" for="form-footer-name">Name</label>
-            </div>
-            <div class="form-wrap form-wrap-validation">
-              <input class="form-input" id="form-footer-email" type="email" name="email"
-                data-constraints="@Email @Required" autocomplete="email" />
-              <label class="form-label" for="form-footer-email">E-mail</label>
-            </div>
-            <div class="form-wrap form-wrap-validation">
-              <label class="form-label" for="form-footer-message">Message</label>
-              <textarea class="form-input" id="form-footer-message" name="message"
-                data-constraints="@Required"></textarea>
-            </div>
-            <div class="form-button">
-              <button class="button button-sm button-primary" type="submit">Send message</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <p class="right">&#169;&nbsp;<span class="copyright-year"></span> All Rights Reserved&nbsp;<a href="#">Terms of
-          Use</a>&nbsp;and&nbsp;<a href="privacy-policy.html">Privacy Policy</a></p>
-    </div>
-  </footer>
-</div>
-<!-- Global Mailform Output-->
-<div class="snackbars" id="form-output-global"></div>
-{% block javascripts %}
-<!-- Javascript-->
-<script src="{{asset('js/core.min.js')}}"></script>
-<script src="{{asset('js/script.js')}}"></script>
-{% endblock %}
 {% endblock %}

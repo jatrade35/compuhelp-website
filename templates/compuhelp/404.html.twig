@@ -1,17 +1,39 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}404{% endblock %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css"
+href="http://fonts.googleapis.com/css?family=Raleway:200,400%7CLato:300,400,300italic,700%7CMontserrat:900" />
+<link rel="stylesheet" href="{{ asset('styles/bootstrap.css') }}" />
+<link rel="stylesheet" href="{{ asset('styles/style.css') }}" />
+<link rel="stylesheet" href="{{ asset('styles/mdi.css') }}" />
+<link rel="stylesheet" href="{{ asset('styles/fl-bigmug-line.css') }}" />
+{% endblock %}
 
 {% block body %}
-{% extends 'navbar.html.twig' %}
-<p>Whoops! Looks like there has been an accident in the vast ocean of cyberspace. Our digital divers were unable to retrieve your page and now need rescuing. </p>
-<br>
-<p>Keep Calm!<\p>
-<p>How to Stay Afloat:</p>
-<ol>
-<li>Double-check the URL – Typos happen, even to the best of us.</li>
-<li>Take a deep breath and try again – Sometimes, a digital hiccup is just a hiccup.</li>
-<li>Call the digital coast guard – If all else fails, alert the nearest tech-savvy dolphin.</li>
+<twig:navbar />
+<div style="position: relative; z-index: 2; inset: 0px; overflow: hidden; background-size: cover; background-color: transparent; background-repeat: no-repeat; background-position: 0% 50%; background-image: none;">
+  <img src="{{asset('images/compuhelp/lifebuoy.jpg')}}" style="margin: auto; position: absolute; z-index: -1; top: 0%; left: 0%; visibility: visible; opacity: 1; width: 100%;">
+      <div class="mask text-light d-flex justify-content-left flex-column" style="width: 35%; margin: 2vw; padding: 2vw; height:40vw; color: white; font-weight: bold; background-color: rgba(24, 41, 192, 0.5); border-radius: 25px; overflow-y: auto;">
+        <h1 style="color: white; text-align:center">Whoops!!!</h1>
+        <h5 style="color: white; text-align:center; font-size: small;">(404 page not found!)</h5>
+        <p>Looks like there has been an accident in the vast ocean of cyberspace. Our digital divers were unable to retrieve your page and now need rescuing. </p>
+        <br>
+        <p>How to Stay Afloat:</p>
+        <ol style="list-style: decimal; margin-left: 20px; display: list-item;">
+          <li style="list-style: decimal; display: list-item;">Double-check the URL - Typos happen, even to the best of us.</li>
+          <li style="list-style: decimal; display: list-item;">Take a deep breath and try again - Sometimes, a digital hiccup is just a hiccup.</li>
+          <li style="list-style: decimal; display: list-item;">Call the digital coast guard - If all else fails, alert the nearest tech-savvy dolphin.</li>
+        </ol>
+      </div>
+    </div>
+
+<twig:footer />
+{% block javascripts %}
+<!-- Javascript-->
+<script src="{{asset('js/core.min.js')}}"></script>
+<script src="{{asset('js/script.js')}}"></script>
+{% endblock %}
 {% endblock %}
 
 

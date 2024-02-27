@@ -1,0 +1,262 @@
+{% extends 'compuhelp/base.html.twig' %}
+
+{% block title %}About Me{% endblock %}
+
+{% block page %}
+  <!-- Breadcrumbs-->
+  <section class="breadcrumbs-custom bg-image">
+    <div class="shell">
+      <p class="heading-1 breadcrumbs-custom-title">About Me</p>
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li class="active">About Me</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Ronald Chen-->
+  <section class="section section-lg bg-white text-left">
+    <div class="shell shell-bigger">
+      <div class="range range-ten range-lg-justify">
+        <div class="cell-lg-3">
+          <div class="range range-70 range-sm-middle">
+            <div class="cell-sm-6 cell-lg-12"><img src="{{asset('images/compuhelp/ronald-chen-1-420x420.jpg')}}" alt="" width="420" height="420"/>
+            </div>
+            <div class="cell-sm-6 cell-lg-12 text-sm-left">
+              <h6>Get in Touch</h6>
+              <!-- RD Mailform-->
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+                <div class="range range-20">
+                  <div class="cell-sm-12">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-name">First name</label>
+                      <input class="form-input" id="form-1-name" type="text" name="name" data-constraints="@Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-sm-12">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-email">E-mail</label>
+                      <input class="form-input" id="form-1-email" type="email" name="email" data-constraints="@Email @Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-xs-12">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-message">Message</label>
+                      <textarea class="form-input" id="form-1-message" name="message" data-constraints="@Required"></textarea>
+                    </div>
+                  </div>
+                  <div class="cell-xs-12 offset-custom-1">
+                    <div class="form-button">
+                      <button class="button button-primary" type="submit">send message</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="cell-lg-6">
+          <div class="range range-120">
+            <div class="cell-xs-12">
+              <div class="heading-5">Consultant</div>
+              <h3>René Lanteigne</h3>
+              <div class="divider divider-default"></div>
+              <p class="text-spacing-sm">I’m a highly skilled and versatile IT professional with a robust 25-year track record in software development, UX/UI design, and project/product management. My ability to merge deep technical expertise with strategic business acumen makes me an exceptional consultant. René’s extensive experience in leading cross-functional teams to deliver innovative solutions is evident from my successful tenure at companies like Cloudli Communications and Omnivigil Solutions, where he managed and developed critical products that significantly enhanced user experiences and operational efficiency.</p>
+              <p class="text-spacing-sm">I possess a unique blend of skills, including advanced proficiency in a wide range of programming languages and technologies, exceptional graphic design capabilities, and a comprehensive understanding of both SQL and NoSQL databases. My leadership in developing transactional APIs for 911 call centres and launching key VoIP solutions showcases my ability to drive projects from conceptualization through to market success, while always prioritizing customer satisfaction and business value.</p>
+              <p class="text-spacing-sm">My educational background, with an MBA specializing in Science and Engineering organizations as well as a Bachelor in Computer Science and Software Engineering, complemented by multiple certifications in Agile and Lean Six Sigma methodologies, equips me with the knowledge to optimize project delivery and team performance effectively. Fluent in French, and English, I am also an excellent communicator, capable of engaging with stakeholders at all levels to drive collaborative success.</p>
+              <p class="text-spacing-sm">Hiring me as a consultant will bring a seasoned leader and innovator to your team, capable of delivering high-impact solutions that align with strategic business goals and adapt seamlessly to the ever-evolving IT landscape.</p>
+              <div class="range text-center range-md range-30 range-xxs-center">
+                <div class="cell-xxs-6 cell-xs-4">
+                  <div class="progress-bar-circle" data-value="0.75" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+                  <div class="heading-5">Marketing</div>
+                </div>
+                <div class="cell-xxs-6 cell-xs-4">
+                  <div class="progress-bar-circle" data-value="0.50" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+                  <div class="heading-5">Strategy</div>
+                </div>
+                <div class="cell-xxs-6 cell-xs-4">
+                  <div class="progress-bar-circle" data-value="0.25" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+                  <div class="heading-5">Design</div>
+                </div>
+              </div>
+            </div>
+            <div class="cell-xs-12">
+              <div class="range range-70">
+                <div class="cell-sm-6">
+                  <h6>Skills</h6>
+                  <p>Marketing, advertising, sales, management,<br class="veil reveal-xl-block"/> strategy, communication, coaching, PR
+                  </p>
+                </div>
+                <div class="cell-sm-6">
+                  <h6>Awards</h6>
+                  <ul class="list list-xxs text-spacing-sm">
+                    <li>2017 — The Best Marketer</li>
+                    <li>2016 — The Best Employer of the Year</li>
+                    <li>2015 — The Best PR Expert</li>
+                  </ul>
+                </div>
+                <div class="cell-sm-6">
+                  <h6>Certificates</h6>
+                  <ul class="list list-xxs text-spacing-sm">
+                    <li>2017 — New Ways of Sales</li>
+                    <li>2016 — Modern Methods of Promotion</li>
+                    <li>2015 — Public Relations in Business</li>
+                  </ul>
+                </div>
+                <div class="cell-sm-6">
+                  <h6>Contact information</h6>
+                  <ul class="list-xs">
+                    <li class="box-inline box-inline-gray"><span class="icon icon-md-smaller icon-primary mdi mdi-map-marker"></span>
+                      <div><a href="#">2130 Fulton Street, San Diego, CA<br/>94117-1080 USA</a></div>
+                    </li>
+                    <li class="box-inline box-inline-gray"><span class="icon icon-md-smaller icon-primary mdi mdi-phone"></span>
+                      <ul class="list-comma">
+                        <li><a href="callto:#">1-800-1234-567</a></li>
+                      </ul>
+                    </li>
+                    <li>
+                      <ul class="inline-list-xs">
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-facebook" href="#"></a></li>
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-twitter" href="#"></a></li>
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-instagram" href="#"></a></li>
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-google" href="#"></a></li>
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-linkedin" href="#"></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Projects-->
+  <section class="section section-lg text-center bg-gray-darker">
+    <div class="shell shell-wide">
+      <div class="range range-50 range-sm-center">
+        <div class="cell-xs-12 cell-sm-10 cell-md-8 cell-lg-7 cell-xl-6">
+          <h3>Projects</h3>
+          <div class="divider divider-default"></div>
+          <p>Ronald not only provides great marketing services, he  also works on a variety of IT consulting, software promotion and advertising projects that make the life of our clients and community better. Below are some of them.</p>
+        </div>
+      </div>
+      <div class="range range-50" data-lightgallery="group">
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/project-1-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-1-570x380.jpg')}}"alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">Recruiting Project</a></div>
+        </div>
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/project-2-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-2-570x380.jpg')}}"alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">SEO Project</a></div>
+        </div>
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/compuhelp/project-3-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-3-570x380.jpg')}}"alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">Payment Service Project</a></div>
+        </div>
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/project-4-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-4-570x380.jpg')}}" alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">Coworking Center</a></div>
+        </div>
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/project-5-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-5-570x380.jpg')}}"alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">Consulting Project</a></div>
+        </div>
+        <div class="cell-xs-12 cell-sm-6 cell-md-4"><a class="gallery-item titled-gallery-item" href="{{asset('images/compuhelp/project-6-1200x800-original.jpg')}}" data-lightgallery="group-item">
+            <div class="gallery-item-image">
+              <figure><img src="{{asset('images/compuhelp/project-6-570x380.jpg')}}"alt="" width="570" height="380"/>
+              </figure>
+              <div class="caption">
+              </div>
+            </div></a>
+          <div class="titled-gallery-caption"><a href="single-project.html">Marketing School</a></div>
+        </div>
+      </div>
+    </div><a class="button button-primary" href="#">view all projects</a>
+  </section>
+
+  <!-- Testimonials-->
+  <section class="section section-lg text-center bg-gray-lighter">
+    <div class="shell shell-wide">
+      <div class="range range-50 range-sm-center">
+        <div class="cell-sm-11 cell-md-10 cell-xl-7 cell-xxl-6">
+          <h3>Testimonials</h3>
+          <div class="divider divider-default"></div>
+          <!-- Owl Carousel-->
+          <div class="owl-carousel owl-layout-2" data-items="1" data-dots="true" data-nav="false" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false">
+            <article class="quote-vertical"><img class="quote-vertical-image" src="{{asset('images/compuhelp/quote-user-1-210x210.jpg')}}" alt="" width="210" height="210"/>
+              <div class="quote-vertical-text">
+                <p>Every writer needs to refresh the look of his/hers website from time to time, and that’s why I was looking for a new design for my website. I am so glad I found Effective to help me! Thier designers understood what my website was lacking immediately and our cooperation brought amazing results. Thank you!</p>
+              </div>
+              <div class="quote-vertical-meta">
+                <p class="quote-vertical-cite">Philip Lawrence</p>
+                <p class="quote-vertical-small">Regular Customer</p>
+              </div>
+            </article>
+            <article class="quote-vertical"><img class="quote-vertical-image" src="{{asset('images/compuhelp/quote-user-2-210x210.jpg')}}" alt="" width="210" height="210"/>
+              <div class="quote-vertical-text">
+                <p>Working with your company on our 3rd Solar project was a great success and I must say that you have a good team of people who helped us when the initial consultation started and listened to our wishes. You also gave us important SEO tips for our website. I personally hope to work with you again later this year.</p>
+              </div>
+              <div class="quote-vertical-meta">
+                <p class="quote-vertical-cite">Debra Ortega</p>
+                <p class="quote-vertical-small">Regular Customer</p>
+              </div>
+            </article>
+            <article class="quote-vertical"><img class="quote-vertical-image" src="{{asset('images/compuhelp/quote-user-3-210x210.jpg')}}" alt="" width="210" height="210"/>
+              <div class="quote-vertical-text">
+                <p>Effective worked hard before the project to come up with a strategic  IT planning solution that met our requirements. We hope to cooperate with them in the future as they are wonderful specialists when it comes to information technologies consulting and customer support. </p>
+              </div>
+              <div class="quote-vertical-meta">
+                <p class="quote-vertical-cite">Jose Gutierrez</p>
+                <p class="quote-vertical-small">Regular Customer</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Gradient-->
+  <section class="section section-md text-center text-sm-left bg-gray-darker">
+    <div class="shell-wide">
+      <div class="range range-50 range-xs-center">
+        <div class="cell-xl-8">
+          <div class="box-cta box-cta-inline">
+            <div class="box-cta-inner">
+              <h3 class="box-cta-title">Do you need a consultation?</h3>
+              <p>Brave can give you lots of advantages, from which you will surely benefit.</p>
+            </div>
+            <div class="box-cta-inner"><a class="button button-primary" href="about-us.html">learn more</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

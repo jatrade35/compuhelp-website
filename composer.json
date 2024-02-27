@@ -14,10 +14,12 @@
         "symfony/framework-bundle": "7.0.*",
         "symfony/runtime": "7.0.*",
         "symfony/twig-bundle": "7.0.*",
-        "symfony/yaml": "7.0.*"
+        "symfony/ux-twig-component": "^2.15",
+        "symfony/yaml": "7.0.*",
+        "twbs/bootstrap": "5.3.3"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.54"
+        "symfony/maker-bundle": "^1.55"
     },
     "config": {
         "allow-plugins": {
