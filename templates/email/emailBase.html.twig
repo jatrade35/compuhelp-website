@@ -1,0 +1,18 @@
+{% set image = asset('/images/compuhelp/logo.png') %}
+    <container>
+        <row class="header">
+            <columns>
+                <a href="/index.php/">
+                    <img src="" class="logo" alt="Logo">
+                </a>
+            </columns>
+        </row>
+        {% block content %}
+        {% endblock %}
+        <row class="footer">
+            <columns>
+                <p>Syncerely,</p>
+                <p>Your friendly <em>Hostmaster</em></p>
+            </columns>
+        </row>
+    </container>

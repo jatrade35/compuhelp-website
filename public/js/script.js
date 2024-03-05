@@ -1384,6 +1384,7 @@ $document.ready(function () {
           var form = $(plugins.rdMailForm[this.extraData.counter]),
             output = $("#" + form.attr("data-form-output")),
             select = form.find('select');
+            var buttons = form.find('button');
 
           form
             .addClass('success')
@@ -1416,6 +1417,10 @@ $document.ready(function () {
             select.select2("val", "");
           }
 
+          buttons.each( function( i ){
+            if (this.type == "submit" ) this.disabled = false;
+          });
+          
           form.find('input, textarea').trigger('blur');
 
           setTimeout(function () {

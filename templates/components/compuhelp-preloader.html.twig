@@ -1,4 +1,6 @@
-<div class="page-loader" {{ attributes }}>
+{% props preloader_class = null %} 
+ 
+ <div class="page-loader {{preloader_class}}">
   <div class="page-loader-body">
     <div class="page-loader__brand"><img src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198"
         height="42" />

@@ -1,0 +1,15 @@
+{% props post %}
+{% set imagepath = asset(post.imagepath)%}
+
+<!-- Post-light -->
+<div class="cell-xs-10 cell-sm-6 post-light-wrap">
+  <article class="post-light">
+    <div class="unit unit-horizontal">
+      <div class="unit-left"><a href="/index.php/blog?post={{post.id}}"><img src="{{imagepath}}" alt="" width="120" height="80"/></a></div>
+      <div class="unit-body">
+        <p class="post-light-title"><a href="/index.php/blog?post={{post.id}}">{{post.title}}</a></p>
+        <time class="post-light-time">{{post.getTimePosted()}}</time>
+      </div>
+    </div>
+  </article>
+</div>

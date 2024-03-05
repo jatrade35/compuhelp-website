@@ -1,0 +1,10 @@
+{
+  "sshfs.configs": [
+    {
+      "name": "remote-xdebug-org"
+    }
+  ],
+  "files.watcherExclude": {
+    "**/target": true
+  }
+}

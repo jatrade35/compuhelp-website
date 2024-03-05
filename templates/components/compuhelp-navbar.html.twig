@@ -1,49 +1,85 @@
-  <!-- Page Header-->
-  <header class="section page-header">
-    <!-- RD Navbar -->
-    <div class="rd-navbar-wrap rd-navbar-centered">
-      <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-        data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-        data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
-        data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-        <div class="rd-navbar-inner">
-          <div class="rd-navbar-aside-left">
-            <div class="rd-navbar-nav-wrap">
-              <ul class="rd-navbar-nav">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="index.php/about-me">About Me</a></li>
-                <li><a href="index.php/blog">Blog</a></li>
-            </div>
-          </div>
-          <!-- RD Navbar Panel-->
-          <div class="rd-navbar-panel">
-            <!-- RD Navbar Toggle-->
-            <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
-            <!-- RD Navbar Brand-->
-            <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default"
-                  src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" /><img
-                  class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198"
-                  height="42" /></a></div>
-          </div>
-          <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
-          <div class="rd-navbar-aside-right rd-navbar-collapse">
-            <!-- RD Navbar Search-->
-            <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search"
-                href="#"><span></span></a>
-              <form class="rd-search" action="search-results.html" data-search-live="rd-search-results-live"
-                method="GET">
-                <div class="form-wrap">
-                  <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
-                  <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text"
-                    name="s" autocomplete="off" />
-                  <div class="rd-search-results-live"></div>
-                </div>
-                <button class="rd-search-form-submit mdi mdi-magnify"></button>
-              </form>
-            </div><a class="button button-sm button-default-outline" href="contacts.html">request a quote </a>
+{% props breadcrumbs = null,  posttitle = null, image = null, postauthor = null, activepage = "Home" %}
+{% set homeactive = "" %}
+{% set aboutactive = "" %}
+{% set blogactive = "" %}
+{% set pagesactive = "" %}
+
+
+{% if activepage == "Home" %}
+  {% set homeactive = 'active' %}
+{% elseif activepage == "AboutMe" %}
+  {% set aboutactive = 'active' %}
+{% elseif activepage == "Blog" %}
+  {% set blogactive = 'active' %}
+{% elseif activepage == "Pages" %}
+  {% set pagesactive = 'active' %}
+{% endif %}
+<!-- Page Header-->
+<header>
+  <!-- RD Navbar -->
+  <div class="rd-navbar-wrap rd-navbar-centered">
+    <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+      data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
+      data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
+      data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+      <div class="rd-navbar-inner">
+        <div class="rd-navbar-aside-left">
+          <div class="rd-navbar-nav-wrap">
+            <ul class="rd-navbar-nav">
+              <li class="{{homeactive}}"><a href="/">Home</a></li>
+              <li class="{{aboutactive}}"><a href="/index.php/about-me">About Me</a></li>
+              <li class="{{blogactive}}"><a href="/index.php/blog">Blog</a></li>
+              <li class="{{pagesactive}}"><a href="#">Pages</a>
+                <ul class="rd-navbar-dropdown">
+                  <li><a href="/index.php/services">Services</a></li>
+                  <li><a href="/index.php/contacts">Contacts</a></li>
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
-      </nav>
+        <!-- RD Navbar Panel-->
+        <div class="rd-navbar-panel">
+          <!-- RD Navbar Toggle-->
+          <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+          <!-- RD Navbar Brand-->
+          <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default"
+                src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" />
+          <img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
+        </div>
+        <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+        <div class="rd-navbar-aside-right rd-navbar-collapse">
+          <!-- RD Navbar Search-->
+          <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+            <form class="rd-search" action="/index.php/search-result" data-search-live="rd-search-results-live" method="GET">
+              <div class="form-wrap">
+                <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
+                <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off" />
+                <div class="rd-search-results-live"></div>
+              </div>
+              <button class="rd-search-form-submit mdi mdi-magnify"></button>
+            </form>
+          </div><a class="button button-sm button-default-outline" href="/index.php/contacts">REQUEST A QUOTE</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  {% if breadcrumbs %}
+  <!-- Blog article -->
+  <section class="breadcrumbs-custom breadcrumbs-blog-post bg-image" style="background-image: url(../images/compuhelp/bg-blog-1.jpg);" >
+    <div class="shell">
+      <p class="breadcrumbs-custom-subtitle"></p>
+      <p class="heading-3 breadcrumbs-custom-title">{{posttitle}}</p>
+      <div class="box-inline"><span class="icon icon-md-middle mdi mdi-account"></span><a class="event-default-link" href="#">by {{postauthor}}</a></div>
     </div>
-  </header>
+    <div class="shell">
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li><a href="/blog">René's Blog</a></li>
+        <li class="active">post</li>
+      </ul>
+    </div>
+  </section>
+  {% endif %}
+</header>
   

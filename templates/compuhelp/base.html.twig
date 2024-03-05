@@ -12,15 +12,23 @@
   <link rel="stylesheet" href="{{ asset('styles/mdi.css') }}" />
   <link rel="stylesheet" href="{{ asset('styles/fl-bigmug-line.css') }}" />
   {% endblock %}
+  <link rel="icon" href="{{ asset('images/compuhelp/favicon.ico') }}" type="image/x-icon">
 {% endblock %}
+{% if breadcrumbs %}
+  {% set image = asset(imagepath) %}
+{% else %}
+  {% set posttitle = "" %}
+  {% set postauthor = "" %}
+  {% set image = "" %}
+{% endif %}
 
 {% block body %}
-  <twig:compuhelp-preloader />
+  <twig:compuhelp-preloader class="page-loader {{preloader_class}}" />
   <div class="page">
-    <twig:compuhelp-navbar />
+    <twig:compuhelp-navbar class="page-header {{header_class}}" activepage="{{activepage}}" breadcrumbs="{{breadcrumbs}}" posttitle="{{posttitle}}" postauthor="{{postauthor}}" image="{{image}}" />
     {% block page %}
     {% endblock %}
-    <twig:compuhelp-footer />
+    <twig:compuhelp-footer recaptchakey="{{ha3key}}"/>
   </div>
   <!-- Global Mailform Output-->
   <div class="snackbars" id="form-output-global"></div>

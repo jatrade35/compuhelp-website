@@ -1,0 +1,126 @@
+{% extends 'compuhelp/base.html.twig' %}
+
+{% block title %}René's Blog{% endblock %}
+
+{% block page %}
+<!-- Single post-->
+<section class="section section-lg bg-white">
+<div class="shell-wide">
+  <div class="range range-xs-center">
+    <div class="cell-md-10 cell-lg-8 cell-xl-6 sections-collapsable">
+      <article class="post-blog-article">
+        <ul class="post-blog-article-meta group-xl">
+          <li>
+            <div class="box-inline"><span class="icon icon-md icon-primary mdi mdi-calendar-clock"></span>
+              <time datetime="2017">{{postdatetime}}</time>
+            </div>
+          </li>
+        </ul>
+        {% for paragraph in postparagraphs %}
+          {% if loop.index == 1 %}
+            <p class="big">{{paragraph.content}}</p><img src="{{image}}" alt="" width="870" height="580"/>
+          {% elseif postquote != null and loop.index == 4 %}
+            <article class="quote-primary">
+              <svg class="quote-primary-mark" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35px" height="25px" viewbox="0 0 35 25">
+                <path d="M27.461,10.206h7.5v15h-15v-15L25,0.127h7.5L27.461,10.206z M7.539,10.206h7.5v15h-15v-15L4.961,0.127h7.5                            L7.539,10.206z"></path>
+              </svg>
+              <div class="quote-primary-text">
+                <p>The abbreviated term for malicious software, “malware,” is a generic term used to describe any type of software or code specifically designed to exploit a computer/mobile device or the data it contains, without consent. Most malware is designed to have some financial gain for the cybercriminal.</p>
+              </div>
+              <p class="quote-primary-meta"><span>by</span><span class="cite">Ronald Chen</span></p>
+            </article>
+            <p>{{paragraph.content}}</p>
+          {% else %}
+            <p>{{paragraph.content}}</p>
+          {% endif %}
+        {% endfor %}
+      </article>
+      <div class="section-md">
+        <p class="h3-alternate">Comments</p>
+        <div class="comment-group">
+            {% for comment in comments %}
+              {% set avatar = asset(comment.avatar) %}
+              {% set datetime = comment.getAge() %}
+              <twig:compuhelp-comment datetime="{{datetime}}" author="{{comment.author}}" avatar="{{avatar}}" content="{{comment.content}}" replies="{{comment.replies}}" />
+            {% endfor %}
+        </div>
+      </div>
+      <div class="section-lg">
+        <p class="h3-alternate">Send a Comment</p>
+        <!-- RD Mailform-->
+        <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="bat/rd-mailform.php">
+          <div class="range range-20">
+            <div class="cell-sm-6">
+              <div class="form-wrap form-wrap-validation">
+                <label class="form-label-outside" for="form-comment-name">First name</label>
+                <input class="form-input" id="form-comment-name" type="text" name="name" data-constraints="@Required"/>
+              </div>
+            </div>
+            <div class="cell-sm-6">
+              <div class="form-wrap form-wrap-validation">
+                <label class="form-label-outside" for="form-comment-last-name">Last name</label>
+                <input class="form-input" id="form-comment-last-name" type="text" name="last-name" data-constraints="@Required"/>
+              </div>
+            </div>
+            <div class="cell-sm-6">
+              <div class="form-wrap form-wrap-validation">
+                <label class="form-label-outside" for="form-comment-email">E-mail</label>
+                <input class="form-input" id="form-comment-email" type="email" name="email" data-constraints="@Email @Required"/>
+              </div>
+            </div>
+            <div class="cell-sm-6">
+              <div class="form-wrap form-wrap-validation">
+                <label class="form-label-outside" for="form-comment-phone">Phone</label>
+                <input class="form-input" id="form-comment-phone" type="text" name="phone" data-constraints="@Numeric @Required"/>
+              </div>
+            </div>
+            <div class="cell-xs-12">
+              <div class="form-wrap form-wrap-validation">
+                <label class="form-label-outside" for="form-comment-message">Message</label>
+                <textarea class="form-input" id="form-comment-message" name="message" data-constraints="@Required"></textarea>
+              </div>
+            </div>
+            <div class="cell-xs-12 offset-custom-1">
+              <div class="form-button">
+                <button class="button button-primary" type="submit">send comment</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="section-sm">
+        <p class="h3-alternate">Recent Posts </p>
+        <div class="range range-30 range-lg-50">
+          {% for post in recentposts %}
+            <twig:compuhelp-postlight post="{{post}}"/> 
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- NewsLetter-->
+<section class="section section-lg bg-gray-lighter">
+<div class="shell">
+  <div class="range range-50 range-sm-center">
+    <div class="cell-sm-9 cell-md-7 cell-lg-6">
+      <h3 class="text-center">NewsLetter</h3>
+      <p>Keep up with our always upcoming product features and technologies. <br/> Enter your e-mail and subscribe to our newsletter.</p>
+      <!-- RD Mailform: Subscribe-->
+      <form class="rd-mailform rd-mailform-inline rd-mailform-sm rd-mailform-inline-modern" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="bat/rd-mailform.php">
+        <div class="rd-mailform-inline-inner">
+          <div class="form-wrap">
+            <input class="form-input" type="email" name="email" data-constraints="@Email @Required" id="subscribe-form-email-1"/>
+            <label class="form-label" for="subscribe-form-email-1">Enter your e-mail</label>
+          </div>
+          <button class="button form-button button-sm button-primary" type="submit">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</section>
+
+{% endblock %}

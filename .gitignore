@@ -17,3 +17,9 @@
 .phpunit.result.cache
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
+config/secrets/dev/dev.DATABASE_PASSWORD.b77cc3.php
+config/secrets/dev/dev.decrypt.private.php
+config/secrets/dev/dev.encrypt.public.php
+config/secrets/dev/dev.HA3_KEY.eab0ce.php
+config/secrets/dev/dev.HA3_SECRET.8f9039.php
+config/secrets/dev/dev.MAILER_DSN.97e321.php

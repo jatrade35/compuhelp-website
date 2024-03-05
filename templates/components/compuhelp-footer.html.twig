@@ -1,3 +1,5 @@
+{% props recaptchakey = null %}
+
 <div{{ attributes }}>
   <!-- Page Footer-->
   <!-- Footer Default-->
@@ -15,17 +17,17 @@
         <div class="cell-sm-6 cell-lg-2">
           <h6>Quick Links</h6>
           <ul class="list-marked list-marked-primary">
-            <li><a href="about-me">About Me</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="blog">Blog</a></li>
-            <li><a href="contact">Contact Me</a></li>
+            <li><a href="/index.php/about-me">About Me</a></li>
+            <li><a href="/index.php/services">Services</a></li>
+            <li><a href="/index.php/blog">Blog</a></li>
+            <li><a href="/index.php/contact">Contact Me</a></li>
           </ul>
         </div>
         <div class="cell-sm-6 cell-lg-3">
           <h6>Contact Me</h6>
           <!-- RD Mailform-->
           <form class="rd-mailform rd-mailform-sm" data-form-output="form-output-global" data-form-type="contact"
-            method="post" action="bat/rd-mailform.php">
+            method="post" action="/index.php/email" onsubmit="if(checkValidity()) myButton.disabled = true; return true;">
             <div class="form-wrap form-wrap-validation">
               <input class="form-input" id="form-footer-name" type="text" name="name" data-constraints="@Required"
                 autocomplete="name" />
@@ -41,8 +43,17 @@
               <textarea class="form-input" id="form-footer-message" name="message"
                 data-constraints="@Required"></textarea>
             </div>
+            <input type="hidden" id="form_captcha" name="form[captcha]" />
+            <script>
+              var recaptchaCallback_form_captcha = function() {
+                grecaptcha.execute('{{recaptchakey}}', {action: 'landing'}).then(function(token) {
+                document.getElementById('form_captcha').value = token;
+                });
+              };
+            </script>
+            <script src="https://www.google.com/recaptcha/api.js?render={{recaptchakey}}&onload=recaptchaCallback_form_captcha" async defer></script> 
             <div class="form-button">
-              <button class="button button-sm button-primary" type="submit">Send message</button>
+              <button id="myButton" class="button button-sm button-primary" type="submit">Send message</button>
             </div>
           </form>
         </div>

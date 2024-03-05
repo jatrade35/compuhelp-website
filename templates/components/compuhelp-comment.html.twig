@@ -1,0 +1,27 @@
+{% props datetime = null, author = null, avatar = null, content = null,  replies = null %}
+
+<!-- Comment-->
+<article class="comment">
+  <div class="comment-avatar">
+    <img src="{{avatar}}" alt="" width="80" height="80"/>
+  </div>
+  <div class="comment-body">
+    <div class="comment-header">
+      <p class="comment-title">{{author}}</p>
+      <time class="comment-time">{{datetime}}</time>
+    </div>
+    <div class="comment-text">
+      <p>{{content}}</p>
+    </div>
+    <div class="comment-footer"><a class="comment-link-reply" href="#">Reply</a></div>
+  </div>
+</article>
+{% if replies != null %}
+  {% for reply in replies %}
+    {% set avatar = asset(reply.avatar) %}
+    {% set datetime = reply.getAge() %}
+    <div class="comment-group">
+      <twig:compuhelp-comment datetime="{{datetime}}" author="{{reply.author}}" avatar="{{avatar}}" content="{{reply.content}}" />
+    </div>
+  {% endfor %}
+{% endif %}
