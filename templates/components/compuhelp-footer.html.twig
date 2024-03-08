@@ -43,15 +43,6 @@
               <textarea class="form-input" id="form-footer-message" name="message"
                 data-constraints="@Required"></textarea>
             </div>
-            <input type="hidden" id="form_captcha" name="form[captcha]" />
-            <script>
-              var recaptchaCallback_form_captcha = function() {
-                grecaptcha.execute('{{recaptchakey}}', {action: 'landing'}).then(function(token) {
-                document.getElementById('form_captcha').value = token;
-                });
-              };
-            </script>
-            <script src="https://www.google.com/recaptcha/api.js?render={{recaptchakey}}&onload=recaptchaCallback_form_captcha" async defer></script> 
             <div class="form-button">
               <button id="myButton" class="button button-sm button-primary" type="submit">Send message</button>
             </div>

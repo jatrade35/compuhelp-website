@@ -45,6 +45,9 @@ class Post
     #[ORM\JoinColumn(nullable: false)]
     private ?PostType $type = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $authorImagepath = null;
+
     public function __construct()
     {
         $this->paragraphs = new ArrayCollection();
@@ -208,6 +211,18 @@ class Post
     public function setType(PostType $type): static
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getAuthorImagepath(): ?string
+    {
+        return $this->authorImagepath;
+    }
+
+    public function setAuthorImagepath(?string $authorImagepath): static
+    {
+        $this->authorImagepath = $authorImagepath;
 
         return $this;
     }

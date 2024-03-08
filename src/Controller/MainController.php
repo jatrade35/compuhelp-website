@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Post;
 use App\Entity\Service;
+use App\Entity\Testimonial;
 use Doctrine\ORM\EntityManagerInterface;
 
 class MainController extends AbstractController
@@ -48,10 +49,17 @@ class MainController extends AbstractController
     }
 
     #[Route('/about-me', name: 'about me')]
-    public function about(): Response
+    public function about(EntityManagerInterface $entityManager): Response
     {
         $ha3key = $_ENV['HA3_KEY'];
         $page = 'about-me.html.twig';
+        $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>""];
+
+
+        $repository = $entityManager->getRepository(Testimonial::class);
+        $testimonials = $repository->findAll();
+        $parameters['testimonials'] = $testimonials;
+
         switch ($_SERVER['SERVER_NAME']) {
             case 'compuhelp-webdesign.ca':
                 $path = "compuhelp/";
@@ -60,11 +68,12 @@ class MainController extends AbstractController
                 $path = "compuhelp/";
                 $page = '404.html.twig';
         }            
-        return $this->render($path . $page, ['preloader_class'=>"rd-navbar-fixed-linked",
-                                             'header_class'=>"",
-                                             'activepage'=>"AboutMe",
-                                             'ha3key'=>$ha3key,
-                                             'breadcrumbs'=>false,]);
+
+        $parameters['breadcrumbs'] = false;        
+        $parameters['activepage'] = "AboutMe";
+        $parameters['ha3key'] = $ha3key;
+
+        return $this->render($path . $page, $parameters);
     }
 
     #[Route('/blog', name: 'blog')]
