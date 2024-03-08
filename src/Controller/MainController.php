@@ -6,40 +6,45 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use App\Entity\Post;
+use App\Entity\Service;
 use Doctrine\ORM\EntityManagerInterface;
-use Psr\Log\LoggerInterface;
 
 class MainController extends AbstractController
 {
 
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
-        $ha3key = $_ENV['HA3_KEY'];
+        $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
         $page = 'welcome.html.twig';
         switch ($_SERVER['SERVER_NAME']) {
             case 'compuhelp-webdesign.ca':
                 $path = "compuhelp/";
-                $icon = "images/compuhelp/favicon.ico";
+                $parameters['ha3key'] = $_ENV['HA3_KEY'];
+                $repository = $entityManager->getRepository(Service::class);
+                $parameters['services'] = $repository->findAll();
+                $repository = $entityManager->getRepository(Post::class);
+                $parameters['recent_posts'] = $repository->findBy( 
+                                                                   [],
+                                                                   ['datetimePosted' => 'DESC'],
+                                                                   3,
+                                                                   0);
+                $parameters['activepage'] = "Home";
                 break;
             case 'health2wealthcoaching.compuhelp-webdesign.ca':
                 $path = "health2wealth/";
-                $icon = "images/health2wealth/favicon.ico";
                 break;
             case 'formatio.compuhelp-webdesign.ca':
                 $path = "formatio/";
-                $icon = "images/formatio/favicon.ico";
                 break;
             default:
                 $page = '404.html.twig';
                 $path = "/error/compuhelp/";
-                $icon = "images/compuhelp/favicon.ico";
         }            
-        return $this->render($path . $page, ['preloader_class'=>"rd-navbar-fixed-linked",
-                                             'header_class'=>"",
-                                             'activepage'=>"Home",
-                                             'ha3key'=>$ha3key,
-                                             'breadcrumbs'=>false,]);
+
+        $parameters['breadcrumbs'] = false;        
+
+        return $this->render($path . $page, $parameters );
     }
 
     #[Route('/about-me', name: 'about me')]
@@ -63,7 +68,7 @@ class MainController extends AbstractController
     }
 
     #[Route('/blog', name: 'blog')]
-    public function blog(EntityManagerInterface $entityManager, LoggerInterface $logger): Response
+    public function blog(EntityManagerInterface $entityManager): Response
     {
         $ha3key = $_ENV['HA3_KEY'];
         switch ($_SERVER['SERVER_NAME']) {

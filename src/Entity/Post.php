@@ -34,8 +34,16 @@ class Post
     #[ORM\OneToMany(targetEntity: Paragraph::class, mappedBy: 'post', orphanRemoval: true)]
     private Collection $paragraphs;
 
-    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'post')]
+    #[ORM\OneToMany(targetEntity: Comment::class, mappedBy: 'post', orphanRemoval: true)]
     private Collection $comments;
+
+    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PostCategory $category = null;
+
+    #[ORM\ManyToOne(inversedBy: 'posts')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?PostType $type = null;
 
     public function __construct()
     {
@@ -176,6 +184,30 @@ class Post
                 $comment->setPost(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCategory(): PostCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(PostCategory $category): static
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getType(): PostType
+    {
+        return $this->type;
+    }
+
+    public function setType(PostType $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
