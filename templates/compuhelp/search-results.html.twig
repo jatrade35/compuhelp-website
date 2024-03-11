@@ -1,0 +1,38 @@
+{% extends 'compuhelp-base.html.twig' %}
+
+{% block title %}Search Results{% endblock %}
+
+{% block page %}
+  <!-- Breadcrumbs-->
+  <section class="breadcrumbs-custom bg-image">
+    <div class="shell">
+      <p class="heading-1 breadcrumbs-custom-title">Search Results</p>
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Pages</a></li>
+        <li class="active">Search Results</li>
+      </ul>
+    </div>
+  </section>
+
+  <!--Search results-->
+  <section class="section section-lg bg-white">
+    <div class="shell-wide">
+      <div class="range range-center">
+        <div class="cell-md-9 cell-xl-6">
+          <form class="rd-search rd-mailform-inline rd-mailform-sm rd-mailform-inline-modern" action="/index.php/search-results" method="GET">
+            <div class="rd-mailform-inline-inner">
+              <div class="form-wrap">
+                <label class="form-label form-label" for="rd-navbar-search-form-input-1">Search...</label>
+                <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input-1" type="text" name="s" autocomplete="off"/>
+
+              </div>
+              <button class="rd-search-form-submit button button-primary button-xs">search</button>
+            </div>
+          </form>
+          <div class="rd-search-results"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+  <!-- Site Title-->
+  <title>{% block title %}{% endblock %}</title>
+
+  <meta name="format-detection" content="telephone=no"/>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta charset="utf-8">
+  <link rel="icon" href="{{ asset('images/compuhelp/favicon.ico') }}" type="image/x-icon">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Raleway:200,400%7CLato:300,400,300italic,700%7CMontserrat:900" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('styles/bootstrap.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('styles/style.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('styles/mdi.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ asset('styles/fl-bigmug-line.css') }}" />
+
+  <!--[if lt IE 10]>
+    <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."/></a></div>
+    <script src="js/html5shiv.min.js"></script>
+  <![endif]--> 
+{% endblock %}
+{% if breadcrumbs %}
+  {% set posttitle = post.title %}
+  {% set postauthor = post.author %}
+  {% set image = asset(post.imagepath) %}
+{% else %}
+  {% set posttitle = "" %}
+  {% set postauthor = "" %}
+  {% set image = "" %}
+{% endif %}
+
+{% block body %}
+  <twig:compuhelp-preloader class="page-loader {{preloader_class}}" />
+  <!-- Page-->
+  <div class="page">
+    <twig:compuhelp-navbar class="page-header {{header_class}}" activepage="{{activepage}}" breadcrumbs="{{breadcrumbs}}" posttitle="{{posttitle}}" postauthor="{{postauthor}}" image="{{image}}" />
+    {% block page %}
+    {% endblock %}
+    <twig:compuhelp-footer recaptchakey="{{ha3key}}"/>
+  </div>
+  <!-- Global Mailform Output-->
+  <div class="snackbars" id="form-output-global"></div>
+  <!-- Javascript-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="{{ asset('js/core.min.js') }}"></script>
+  <script src="{{ asset('js/script.js') }}"></script>
+  
+{% endblock %}

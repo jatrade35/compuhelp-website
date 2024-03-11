@@ -1,4 +1,4 @@
-{% extends 'compuhelp/base.html.twig' %}
+{% extends 'compuhelp-base.html.twig' %}
 
 {% block title %}About Me{% endblock %}
 
@@ -111,7 +111,7 @@
   </section>
 
   {% if not testimonials is empty   %}
-    <twig:compuhelp-testimonials testimonials="{{testimonials}}" />
+    <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="2" />
   {% endif %}
   <!-- CTA Gradient-->
   <section class="section section-md text-center text-sm-left bg-gray-darker">

@@ -1,8 +1,12 @@
-{% extends 'compuhelp/base.html.twig' %}
+{% extends 'compuhelp-base.html.twig' %}
 
 {% block title %}René's Blog{% endblock %}
 
 {% block page %}
+
+{% set datetime = post.getTimePosted() %}
+{% set image = asset(post.imagePath) %}
+
 <!-- Single post-->
 <section class="section section-lg bg-white">
 <div class="shell-wide">
@@ -12,33 +16,24 @@
         <ul class="post-blog-article-meta group-xl">
           <li>
             <div class="box-inline"><span class="icon icon-md icon-primary mdi mdi-calendar-clock"></span>
-              <time datetime="2017">{{postdatetime}}</time>
+              <time>{{datetime}}</time>
             </div>
           </li>
         </ul>
-        {% for paragraph in postparagraphs %}
+        {% for paragraph in post.paragraphs %}
           {% if loop.index == 1 %}
             <p class="big">{{paragraph.content}}</p><img src="{{image}}" alt="" width="870" height="580"/>
-          {% elseif postquote != null and loop.index == 4 %}
-            <article class="quote-primary">
-              <svg class="quote-primary-mark" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="35px" height="25px" viewbox="0 0 35 25">
-                <path d="M27.461,10.206h7.5v15h-15v-15L25,0.127h7.5L27.461,10.206z M7.539,10.206h7.5v15h-15v-15L4.961,0.127h7.5                            L7.539,10.206z"></path>
-              </svg>
-              <div class="quote-primary-text">
-                <p>The abbreviated term for malicious software, “malware,” is a generic term used to describe any type of software or code specifically designed to exploit a computer/mobile device or the data it contains, without consent. Most malware is designed to have some financial gain for the cybercriminal.</p>
-              </div>
-              <p class="quote-primary-meta"><span>by</span><span class="cite">Ronald Chen</span></p>
-            </article>
-            <p>{{paragraph.content}}</p>
-          {% else %}
-            <p>{{paragraph.content}}</p>
           {% endif %}
+          {% if post.quote != null and loop.index == 4 %}
+            <twig:compuhelp-quote quote="{{post.quote}}" />
+          {% endif %}
+          <p>{{paragraph.content}}</p>
         {% endfor %}
       </article>
       <div class="section-md">
         <p class="h3-alternate">Comments</p>
         <div class="comment-group">
-            {% for comment in comments %}
+            {% for comment in post.comments %}
               {% set avatar = asset(comment.avatar) %}
               {% set datetime = comment.getAge() %}
               <twig:compuhelp-comment datetime="{{datetime}}" author="{{comment.author}}" avatar="{{avatar}}" content="{{comment.content}}" replies="{{comment.replies}}" />

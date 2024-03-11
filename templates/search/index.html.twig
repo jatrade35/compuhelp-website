@@ -1,0 +1,30 @@
+<div id="search-results">
+    {% if quickresult %}
+        <div class='search-quick-result'>Quick Results</div>
+    {% endif %}    
+    <ol class="search_list">
+        {% if count == 0  %}
+            <li>
+                <div class="search_error">
+                    No results found for <span class="search">{{search_term}}</span>
+                </div>
+            </li>
+
+        {% else %}
+            {% for resultItem in resultItems %}
+                <twig:compuhelp-resultitem  title="{{resultItem.title}}" tokenparts="{{resultItem.token}}" count="{{resultItem.count}}" href="{{resultItem.href}}" searchterm="{{search_term|lower}}"/>
+            {% endfor %}
+            {% if quickresult %}
+                <li class="search_all">
+                    <a href='/index.php/search-results?s={{s}}&filter=*.html' class="search_submit">
+                        {% if sum_of_results > 1 %}
+                            See all {{sum_of_results}} results
+                        {% else %}
+                            See full result
+                        {% endif %}
+                    </a>
+                </li>
+            {% endif %}
+        {% endif %}
+    </ol>
+</div>

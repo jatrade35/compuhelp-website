@@ -876,7 +876,7 @@ $document.ready(function () {
    * @description Enables search
    */
   if (plugins.search.length || plugins.searchResults) {
-    var handler = "bat/rd-search.php";
+    var handler = "search";
     var defaultTemplate = '<h5 class="search_title"><a target="_top" href="#{href}" class="search_link">#{title}</a></h5>' +
       '<p>...#{token}...</p>' +
       '<p class="match"><em>Terms matched: #{count} - URL: #{href}</em></p>';
@@ -1384,7 +1384,6 @@ $document.ready(function () {
           var form = $(plugins.rdMailForm[this.extraData.counter]),
             output = $("#" + form.attr("data-form-output")),
             select = form.find('select');
-            var buttons = form.find('button');
 
           form
             .addClass('success')
@@ -1417,10 +1416,6 @@ $document.ready(function () {
             select.select2("val", "");
           }
 
-          buttons.each( function( i ){
-            if (this.type == "submit" ) this.disabled = false;
-          });
-          
           form.find('input, textarea').trigger('blur');
 
           setTimeout(function () {

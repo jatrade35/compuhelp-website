@@ -23,6 +23,18 @@ class Service
     #[ORM\Column(type: Types::TEXT)]
     private ?string $text = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $imagepath = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $description = null;
+
+    #[ORM\Column(type: Types::TEXT)]
+    private ?string $salesPitch = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $quote = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +72,54 @@ class Service
     public function setText(string $text): static
     {
         $this->text = $text;
+
+        return $this;
+    }
+
+    public function getImagepath(): ?string
+    {
+        return $this->imagepath;
+    }
+
+    public function setImagepath(string $imagepath): static
+    {
+        $this->imagepath = $imagepath;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): static
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSalesPitch(): ?string
+    {
+        return $this->salesPitch;
+    }
+
+    public function setSalesPitch(string $salesPitch): static
+    {
+        $this->salesPitch = $salesPitch;
+
+        return $this;
+    }
+
+    public function getQuote(): ?string
+    {
+        return $this->quote;
+    }
+
+    public function setQuote(string $quote): static
+    {
+        $this->quote = $quote;
 
         return $this;
     }

@@ -12,7 +12,16 @@ class MailerController extends AbstractController
     #[Route('/email', name: 'app_email')]
     public function sendEmail(MailerInterface $mailer)
     {
-        $name = $_POST['name'];
+        $name = "";
+        if(isset($_POST['name']))
+        {
+            $name = $_POST['name'];
+        }
+        elseif(isset($_POST['first-name']))
+        {
+            $name = $_POST['first-name'] . " " . $_POST['last-name'];
+        }
+
         $from= $_POST['email'];
         $message = $_POST['message'];
 
@@ -31,8 +40,17 @@ class MailerController extends AbstractController
                     $subject = "A message from your site visitor ($name)";
                     break;
             }
-        }else{
-            die('MF004');
+        }
+        else
+        {
+            if(isset($_POST['subject']))
+            {
+                $subject = $_POST['subject'];
+            }
+            else
+            {
+                DIE('MF004');
+            }
         }
 
         $email = (new TemplatedEmail())

@@ -48,6 +48,15 @@ class Post
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $authorImagepath = null;
 
+    #[ORM\Column]
+    private ?int $views = null;
+
+    #[ORM\Column]
+    private ?int $commentCount = null;
+
+    #[ORM\OneToOne(mappedBy: 'post', cascade: ['persist', 'remove'])]
+    private ?Quote $quote = null;
+
     public function __construct()
     {
         $this->paragraphs = new ArrayCollection();
@@ -223,6 +232,52 @@ class Post
     public function setAuthorImagepath(?string $authorImagepath): static
     {
         $this->authorImagepath = $authorImagepath;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function setViews(int $views): static
+    {
+        $this->views = $views;
+
+        return $this;
+    }
+
+    public function getCommentCount(): ?int
+    {
+        return $this->commentCount;
+    }
+
+    public function setCommentCount(int $commentCount): static
+    {
+        $this->commentCount = $commentCount;
+
+        return $this;
+    }
+
+    public function getQuote(): ?Quote
+    {
+        return $this->quote;
+    }
+
+    public function setQuote(?Quote $quote): static
+    {
+        // unset the owning side of the relation if necessary
+        if ($quote === null && $this->quote !== null) {
+            $this->quote->setPost(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($quote !== null && $quote->getPost() !== $this) {
+            $quote->setPost($this);
+        }
+
+        $this->quote = $quote;
 
         return $this;
     }

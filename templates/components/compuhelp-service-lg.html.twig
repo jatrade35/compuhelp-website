@@ -1,0 +1,22 @@
+{% props service = null, reverse = null %}
+{%  set image = asset(service.imagePath) %}
+
+
+<section class="section section-wrap section-wrap-equal {{reverse}}">
+    <div class="section-wrap-inner">
+        <div class="shell shell-bigger">
+            <div class="range range-ten range-sm-center range-md-left range-lg-justify">
+                <div class="cell-sm-8 cell-md-4">
+                    <div class="section-lg">
+                        <h3>{{service.title}}</h3>
+                        <div class="divider divider-default"></div>
+                        <p>{{service.text}}</p><a class="button button-primary" href="/index.php/services?id={{service.id}}">learn more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-wrap-aside section-wrap-image">
+            <img src="{{image}}" alt="" width="960" height="660"/>
+        </div>
+    </div>
+</section>

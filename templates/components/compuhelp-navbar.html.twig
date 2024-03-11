@@ -3,8 +3,6 @@
 {% set aboutactive = "" %}
 {% set blogactive = "" %}
 {% set pagesactive = "" %}
-
-
 {% if activepage == "Home" %}
   {% set homeactive = 'active' %}
 {% elseif activepage == "AboutMe" %}
@@ -15,13 +13,9 @@
   {% set pagesactive = 'active' %}
 {% endif %}
 <!-- Page Header-->
-<header>
   <!-- RD Navbar -->
   <div class="rd-navbar-wrap rd-navbar-centered">
-    <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-      data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static"
-      data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px"
-      data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+    <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
       <div class="rd-navbar-inner">
         <div class="rd-navbar-aside-left">
           <div class="rd-navbar-nav-wrap">
@@ -43,15 +37,13 @@
           <!-- RD Navbar Toggle-->
           <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
           <!-- RD Navbar Brand-->
-          <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default"
-                src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" />
-          <img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
+          <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default" src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" /><img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
         </div>
         <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
         <div class="rd-navbar-aside-right rd-navbar-collapse">
           <!-- RD Navbar Search-->
           <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
-            <form class="rd-search" action="/index.php/search-result" data-search-live="rd-search-results-live" method="GET">
+            <form class="rd-search" action="/index.php/search-results" data-search-live="rd-search-results-live" method="GET">
               <div class="form-wrap">
                 <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
                 <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off" />
@@ -80,6 +72,4 @@
       </ul>
     </div>
   </section>
-  {% endif %}
-</header>
-  
+  {% endif %} 

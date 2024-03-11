@@ -1,0 +1,107 @@
+{% extends 'compuhelp-base.html.twig' %}
+
+{% block title %}Contacts{% endblock %}
+
+{% block page %}
+
+      <!-- Breadcrumbs-->
+      <section class="breadcrumbs-custom bg-image">
+        <div class="shell">
+          <p class="heading-1 breadcrumbs-custom-title">Contacts</p>
+          <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Pages</a></li>
+            <li class="active">Contacts</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Contact information-->
+      <section class="section section-lg bg-white">
+        <div class="shell shell-bigger">
+          <div class="range range-ten range-50 range-sm-center range-lg-justify">
+            <div class="cell-sm-9 cell-md-6">
+              <h3>Contact me</h3>
+              <hr class="divider divider-left divider-default"/>
+              <p class="big">You can contact me any way that is convenient for you. I are available via phone or email. You can also use a quick contact form below.</p>
+              <!-- RD Mailform-->
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="/index.php/email">
+                <div class="range range-20">
+                  <div class="cell-sm-6">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-name">First name</label>
+                      <input class="form-input" id="form-1-name" type="text" name="first-name" data-constraints="@Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-sm-6">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-last-name">Last name</label>
+                      <input class="form-input" id="form-1-last-name" type="text" name="last-name" data-constraints="@Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-sm-6">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-email">E-mail</label>
+                      <input class="form-input" id="form-1-email" type="email" name="email" data-constraints="@Email @Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-sm-6">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-phone">Phone</label>
+                      <input class="form-input" id="form-1-phone" type="text" name="phone" data-constraints="@Numeric @Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-xs-12">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-subject">Subject</label>
+                      <input class="form-input" id="form-1-message" type="text" name="subject" data-constraints="@Required"/>
+                    </div>
+                  </div>
+                  <div class="cell-xs-12">
+                    <div class="form-wrap form-wrap-validation">
+                      <label class="form-label-outside" for="form-1-message">Message</label>
+                      <textarea class="form-input" id="form-1-message" type="text" name="message" data-constraints="@Required"></textarea>
+                    </div>
+                  </div>
+                  <div class="cell-xs-12 offset-custom-1">
+                    <div class="form-button">
+                      <button class="button button-primary" type="submit">send message</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="cell-sm-9 cell-md-4 cell-lg-3">
+              <div class="column-aside">
+                <div class="range">
+                  <div class="cell-xs-10 cell-sm-6 cell-md-12">
+                    <h6>E-mail </h6>
+                    <hr class="divider-thin"/>
+                    <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-email-open"></span><span><a href="mailto:info@compuhelp-enterprises.ca">info@compuhelp-enterprises.ca</a></span></article>
+                  </div>
+                  <div class="cell-xs-10 cell-sm-6 cell-md-12">
+                    <h6>Phone</h6>
+                    <hr class="divider-thin"/>
+                    <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-phone"></span>
+                      <ul class="list-comma">
+                        <li><a href="callto:+15148062982">1-514-806-2982</a></li>
+                      </ul>
+                    </article>
+                  </div>
+                  <div class="cell-xs-10 cell-sm-6 cell-md-12">
+                    <h6>Opening hours </h6>
+                    <hr class="divider-thin"/>
+                    <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-calendar-clock"></span>
+                      <ul class="list-0">
+                        <li>Mon–Fri: 9:00 am–6:00 pm</li>
+                      </ul>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends 'compuhelp/base.html.twig' %}
+{% extends 'compuhelp-base.html.twig' %}
 
 {% block title %}René's Blog{% endblock %}
 
@@ -19,104 +19,18 @@
     <div class="shell shell-bigger">
       <div class="range range-ten range-50 range-sm-90 range-sm-center range-lg-justify">
         <div class="cell-sm-9 cell-md-6 blog-modern-main text-center">
-          <!-- Post modern-->
-          <article class="post-modern">
-            <div class="post-modern-aside">
-              <time datetime="2017">Feb 27, 2017 at 5:47 pm </time>
-              <figure class="post-modern-avatar-wrap"><img class="post-modern-avatar" src="{{asset('images/compuhelp/post-author-1-108x108.jpg')}}" alt="" width="108" height="108"/>
-              </figure>
-              <p class="post-modern-author"><a href="about-me.html">Ronald Chen </a></p>
-            </div>
-            <div class="post-modern-main"><a class="post-modern-image" href="single-post.html"><img src="{{asset('images/compuhelp/blog-post-1-870x580.jpg')}}" alt="" width="870" height="580"/></a>
-              <div class="post-modern-body">
-                <h5 class="post-modern-title"><a href="single-post.html">Important Info: Know These Types of Malware and Stay Protected</a></h5>
-                <p>Computer threats have been around for decades. In fact, one of the first computer viruses was detected in the early 70s. Technology has come a long way since then, but so have online threats: Spyware, ransomware, virus, trojans, and all types of malware designed to wreak havoc. Here’s how different types of malware work and how you can avoid...</p>
-                <div class="post-modern-footer">
-                  <div>
-                    <ul class="post-modern-meta">
-                      <li><span class="icon mdi mdi-tag"></span><a href="#">News</a></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul class="post-modern-info">
-                      <li><span class="icon mdi mdi-eye"></span><span>193</span></li>
-                      <li><a href="single-post.html"><span class="icon mdi mdi-comment"></span><span>3</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- Post modern-->
-          <article class="post-modern">
-            <div class="post-modern-aside">
-              <time datetime="2017">Feb 27, 2017 at 5:47 pm </time>
-              <figure class="post-modern-avatar-wrap"><img class="post-modern-avatar" src="{{asset('images/compuhelp/post-author-1-108x108.jpg')}}" alt="" width="108" height="108"/>
-              </figure>
-              <p class="post-modern-author"><a href="about-me.html">Ronald Chen</a></p>
-            </div>
-            <div class="post-modern-main"><a class="post-modern-image"><img src="{{asset('images/compuhelp/blog-post-2-870x580.jpg')}}" alt="" width="870" height="580"/></a>
-              <div class="post-modern-body">
-                <h5 class="post-modern-title"><a href="image-post.html">Why Outsourcing IT Services for Small Business Owners is Beneficial</a></h5>
-                <p>If you are a business owner, there is so much to gain from outsourcing your IT support services to a professionally managed IT company. Simply speaking, a managed IT services company is one that offers and manages multiple different IT services, from cloud based data protection to office 365 support. Each of them offers unique opportunities for...</p>
-                <div class="post-modern-footer">
-                  <div>
-                    <ul class="post-modern-meta">
-                      <li><span class="icon mdi mdi-tag"></span><a href="#">News</a></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul class="post-modern-info">
-                      <li><span class="icon mdi mdi-eye"></span><span>193</span></li>
-                      <li><a href="image-post.html"><span class="icon mdi mdi-comment"></span><span>3</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- Post modern-->
-          <article class="post-modern">
-            <div class="post-modern-aside">
-              <time datetime="2017">Feb 27, 2017 at 5:47 pm </time>
-              <figure class="post-modern-avatar-wrap"><img class="post-modern-avatar" src="{{asset('images/compuhelp/post-author-1-108x108.jpg')}}" alt="" width="108" height="108"/>
-              </figure>
-              <p class="post-modern-author"><a href="about-me.html">Ronald Chen</a></p>
-            </div>
-            <div class="post-modern-main"><a class="post-blog-video post-modern-video" href="video-post.html">
-                <figure><img src="{{asset('images/compuhelp/blog-post-3-870x580.jpg')}}" alt="" width="870" height="580"/>
-                </figure><span class="icon mdi mdi-play-circle-outline"></span></a>
-              <div class="post-modern-body">
-                <h5 class="post-modern-title"><a href="video-post.html">Tips and Tricks for Avoiding IoT (Internet of Things) Threats</a></h5>
-                <p>Internet of Things (IoT) devices have become more popular with businesses in recent years. This is largely because they can keep track of large amounts of information, analyze data patterns, and streamline business processes. But as you introduce more internet-connected devices into the office space, you may be exposing your business to attacks.</p>
-                <div class="post-modern-footer">
-                  <div>
-                    <ul class="post-modern-meta">
-                      <li><span class="icon mdi mdi-tag"></span><a href="#">News</a></li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul class="post-modern-info">
-                      <li><span class="icon mdi mdi-eye"></span><span>193</span></li>
-                      <li><a href="video-post.html"><span class="icon mdi mdi-comment"></span><span>3</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="#">Load more posts</a>
-          <ul class="pagination-custom">
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-          </ul>
-        </div>
+          {% for postObject in posts %}
+            <twig:compuhelp-postmodern post="{{postObject}}" />
+          {% endfor %}
+          {% if postCount == count %}
+            {% set newCount = count + 3 %}
+            <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="/index.php/blog?count={{newCount}}">Load more posts</a>
+          {% endif %}
+          </div>
         <div class="cell-sm-9 cell-md-4 cell-lg-3 blog-aside">
           <div class="blog-aside-item">
             <h6>Search</h6>
-            <form class="rd-search rd-search-modern" action="search-results.html" method="GET">
+            <form class="rd-search rd-search-modern" action="/index.php/search-result" method="GET">
               <div class="form-wrap">
                 <input class="rd-search-input form-input" id="rd-search-input" type="text" name="s" autocomplete="off"/>
                 <label class="form-label form-label" for="rd-search-input">Search</label>
@@ -125,46 +39,9 @@
             </form>
           </div>
           <div class="blog-aside-item">
-            <h6>Archive</h6>
-            <ul class="list-marked list-marked-primary">
-              <li><a href="#">January 2017</a></li>
-              <li><a href="#">February 2017</a></li>
-              <li><a href="#">March 2017</a></li>
-              <li><a href="#">April 2017</a></li>
-              <li><a href="#">May 2017</a></li>
-            </ul>
-          </div>
-          <div class="blog-aside-item">
-            <h6>About Us</h6>
-            <p>We’re the leading provider of IT services for companies all over the USA. We operate on a managed services model that offers proactive outsourced IT services aswell as design, development, and management services at affordable, consistent rates.</p><a class="button button-xs button-default-outline" href="about-us.html">learn more</a>
-          </div>
-          <div class="blog-aside-item">
-            <h6>Categories</h6>
-            <ul class="list-marked list-marked-primary">
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">Tips & Tricks</a></li>
-              <li><a href="#">Reviews</a></li>
-              <li><a href="#">News</a></li>
-              <li><a href="#">Information</a></li>
-            </ul>
-          </div>
-          <div class="blog-aside-item">
-            <h6>Recent blog posts</h6>
-            <!-- Post minimal-->
-            <article class="post-minimal">
-              <p class="post-minimal-title"><a href="single-post.html">How to Turn Small Talk Into Smart Conversation</a></p>
-              <time class="post-minimal-time" datetime="2017">Feb 27, 2017 at 5:47 pm</time>
-            </article>
-            <!-- Post minimal-->
-            <article class="post-minimal">
-              <p class="post-minimal-title"><a href="single-post.html">The Top 5 Reasons Why ‘The Customer Is Always Right’ Is Wrong</a></p>
-              <time class="post-minimal-time" datetime="2017">Feb 27, 2017 at 5:47 pm</time>
-            </article>
-            <!-- Post minimal-->
-            <article class="post-minimal">
-              <p class="post-minimal-title"><a href="single-post.html">It’s 10 AM. Do You Know What Your Sales Reps Are Doing?</a></p>
-              <time class="post-minimal-time" datetime="2017">Feb 27, 2017 at 5:47 pm</time>
-            </article>
+            <h6>About Me</h6>
+            <p>I specialize in delivering cutting-edge software solutions and expert IT consulting services, ensuring that your business not only meets but exceeds its technological goals with innovation, efficiency, and seamless integration.</p>
+            <a class="button button-xs button-default-outline" href="/index.php/about-me">learn more</a>
           </div>
         </div>
       </div>

@@ -24,15 +24,25 @@ class PostRepository extends ServiceEntityRepository
     /**
     * @return Post[] Returns an array of Post objects
     */
-    public function getRecentPosts($PostId = 0, $limit = 4): array
+    public function getRecentPosts($criterias = [], $limit = null): array
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere("p.id != $PostId")
-            ->orderBy('p.id', 'DESC')
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult()
-        ;
+        $posts = $this->createQueryBuilder('p');
+        if( count($criterias) > 0)
+        {
+            foreach($criterias as $criteria)
+            {
+                $posts->andWhere($criteria);
+            }
+        }
+
+        $posts->orderBy('p.id', 'DESC');
+
+        if(! is_null($limit))
+        {
+            $posts->setMaxResults($limit);
+        }
+
+        return $posts->getQuery()->getResult();
     }
 
     //    public function findOneBySomeField($value): ?Post

@@ -1,0 +1,162 @@
+{% extends 'compuhelp-base.html.twig' %}
+
+{% block title %}{{service.title}}{% endblock %}
+
+{% block page %}
+
+  <!-- Breadcrumbs-->
+  <section class="breadcrumbs-custom bg-image">
+    <div class="shell">
+      <p class="heading-1 breadcrumbs-custom-title">{{service.title}}</p>
+      <ul class="breadcrumbs-custom-path">
+        <li><a href="/">Home</a></li>
+        <li><a href="/index.php/services">Services</a></li>
+        <li class="active">{{service.title}}</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- about this service-->
+  <section class="section section-lg text-center text-sm-left bg-white">
+    <div class="shell shell-bigger">
+      <div class="range range-ten range-50 range-sm-center range-lg-justify">
+        <div class="cell-sm-8 cell-lg-4"> 
+          <h3>About this Service</h3>
+          <div class="divider divider-default"></div>
+          <p>{{service.description}}</p>
+          <!-- Quote minimal-->
+          <article class="quote-minimal">
+            <p class="quote-minimal-text">{{service.quote}}</p>
+          </article>
+          <p>{{service.salesPitch}}</p><a class="button button-primary" href="/index.php/contacts">request a quote now</a>
+        </div>
+        <div class="cell-lg-5 text-center">
+          <div class="image-position-01">
+            <div class="blick-wrap"><img class="image-wrap" src="{{asset('images/compuhelp/ipad-01-1360x1233.png')}}" alt="" width="1360" height="1233"/>
+              <div class="blick-overlay" data-blick-overlay="ipad"></div>
+              <div class="blick-content"><img src="{{asset('images/compuhelp/blick-content-01.png')}}" alt=""/></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-lg text-center bg-image bg-image-7">
+    <div class="shell-wide">
+      <div class="range range-xs-center range-50">
+        <div class="cell-sm-9 cell-md-6 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-thumb-up-outline"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Individual Approach</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-sm-9 cell-md-6 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-account-multiple"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Extensive Expertise</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">Whether its designing, software development, database administration, marketing or server maintenance/migration, I am ready to help you with a personalized IT solution to suit your needs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-sm-9 cell-md-6 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-headset"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Online Support</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">I answer every online support request within 24 hours and help you solve any issue you may have with my products and services.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cell-sm-9 cell-md-6 cell-lg-3">
+          <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
+            <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-credit-card"></span></div>
+            <div class="thumbnail-classic-caption unit-body">
+              <h6 class="thumbnail-classic-title">Various Payment Methods</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="1" />
+
+  <section class="section section-lg bg-white">
+    <div class="shell shell-bigger">
+      <div class="range range-ten range-50 range-sm-center range-lg-justify">
+        <div class="cell-sm-9 cell-md-5 cell-xl-5">
+          <h3>Frequently Asked Questions</h3>
+          <!-- Bootstrap collapse-->
+          <div class="panel-group panel-group-custom panel-group-corporate" id="accordion1" role="tablist" aria-multiselectable="false">
+            <!-- Bootstrap panel-->
+            <div class="panel panel-custom panel-corporate">
+              <div class="panel-heading" id="accordion1Heading1" role="tab">
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse1" aria-controls="accordion1Collapse1" >Do you work mostly on-site or remote?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse in" id="accordion1Collapse1" role="tabpanel" aria-labelledby="accordion1Heading1">
+                <div class="panel-body">
+                  <p>I find that remote work is a lot more efficient than working on-site. That said, in some cases on-site work is preferable and so I also do on-site work. After all, technology is moving mind-numbingly fast. It’s my job to guarantee your company is always on the leading edge of technological leveraging.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Bootstrap panel-->
+            <div class="panel panel-custom panel-corporate">
+              <div class="panel-heading" id="accordion1Heading2" role="tab">
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse2" aria-controls="accordion1Collapse2">What industries do you specialize in?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse2" role="tabpanel" aria-labelledby="accordion1Heading2">
+                <div class="panel-body">
+                  <p>I have worked with a wide range of companies. The industries I've worked in include (but certainly aren’t limited to): Real Estate, UCaaS, Aerospace, Education, E-Commerce, Non-Profit, Publishing, Municpal Government, Advertising, Chiropractic, etc.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Bootstrap panel-->
+            <div class="panel panel-custom panel-corporate">
+              <div class="panel-heading" id="accordion1Heading3" role="tab">
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse3" aria-controls="accordion1Collapse3">How can I utilize your Business IT Solutions?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse3" role="tabpanel" aria-labelledby="accordion1Heading3">
+                <div class="panel-body">
+                  <p>I've created comprehensive packages that fulfill all of your Business IT needs. And depending on the size of your company, you can choose the package that has the amount of Help Desk, On-Site Management hours, Software and Web design and expert consultation as you want... or your budget allows.</p>
+                </div>
+              </div>
+            </div>
+            <!-- Bootstrap panel-->
+            <div class="panel panel-custom panel-corporate">
+              <div class="panel-heading" id="accordion1Heading4" role="tab">
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse4" aria-controls="accordion1Collapse4">Will I benefit from professional Business IT?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse4" role="tabpanel" aria-labelledby="accordion1Heading4">
+                <div class="panel-body">
+                  <p>The real answer is... Every business benefits from receiving my IT Solutions. If you want to differentiate your company in the market, you require the best possible foundation to make it a reality.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cell-sm-9 cell-md-5 cell-xl-4"> 
+          <figure class="image-default"><img src="{{asset('images/compuhelp/business-1839191_1920.png')}}" alt="" width="570" height="600"/>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

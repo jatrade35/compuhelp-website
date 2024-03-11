@@ -1,33 +1,45 @@
-{% props testimonials = null %}
+{% props testimonials = null, layout = null %}
+
 <!-- Testimonials-->
-<section class="section section-lg text-center bg-gray-lighter">
-<div class="shell shell-wide">
-    <div class="range range-50 range-sm-center">
-    <div class="cell-sm-11 cell-md-10 cell-xl-7 cell-xxl-6">
-        <h3>Testimonials</h3>
-        <div class="divider divider-default"></div>
-        {% if testimonials|length > 1 %}
-            <!-- Owl Carousel-->
-            <div class="owl-carousel owl-layout-2" data-items="1" data-dots="true" data-nav="false" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false">
+
+{% if layout == 1 %}
+	{% set bg = "white" %}
+	{% set shell = "bigger" %}
+	{% set dataNav = "true" %}
+	{% set quotestyle = "boxed" %}
+{% elseif layout == 2 %}
+	{% set bg = "gray-lighter" %}
+	{% set shell = "wide" %}
+    {% set dataNav = "false" %}
+  	{% set quotestyle = "vertical" %}
+{% endif %}
+  <section class="section section-lg text-center bg-{{bg}}">
+    <div class="shell shell-{{shell}}">
+    {% if layout == 2 %}<div class="range range-50 range-sm-center"><div class="cell-sm-11 cell-md-10 cell-xl-7 cell-xxl-6">{% endif %}
+      <h3>Testimonials</h3>
+      <div class="divider divider-default"></div>
+      {% if testimonials|length > 1 %}
+      <!-- Owl Carousel-->
+            <div class="owl-carousel owl-layout-{{layout}}" data-items="1" data-dots="true" data-nav="{{dataNav}}" data-stage-padding="0" data-loop="true" data-margin="30" data-mouse-drag="false">
         {% else %}
             <div class="p-5" >
         {% endif %}
 
         {% for testimonial in testimonials %}
             {% set image = asset(testimonial.imagepath) %}
-            <article class="quote-vertical">
-                <img class="quote-vertical-image" src="{{image}}" alt="" width="210" height="210"/>
-                <div class="quote-vertical-text">
+            <article class="quote-{{quotestyle}}">
+                {% if layout ==1 %}<div class="quote-boxed-aside">{% endif %}<img class="quote-{{quotestyle}}-image" src="{{image}}" alt="" width="210" height="210"/>{% if layout ==1 %}</div>{% endif %}
+        		{% if layout ==1 %}<div class="quote-boxed-main">{% endif %}
+                <div class="quote-{{quotestyle}}-text">
                     <p>{{testimonial.content}}</p>
                 </div>
-                <div class="quote-vertical-meta">
-                    <p class="quote-vertical-cite">{{testimonial.author}}</p>
-                    <p class="quote-vertical-small">{{testimonial.position}}</p>
+                <div class="quote-{{quotestyle}}-meta">
+                    <p class="quote-{{quotestyle}}-cite">{{testimonial.author}}</p>
+                    <p class="quote-{{quotestyle}}-small">{{testimonial.position}}</p>
                 </div>
+        		{% if layout ==1 %}</div>{% endif %}
             </article>
         {% endfor %}
         </div>
     </div>
-    </div>
-</div>
 </section>

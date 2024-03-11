@@ -1,0 +1,34 @@
+{% props  post = null %}
+
+<!-- Post modern-->
+<article class="post-modern">
+    <div class="post-modern-aside">
+        {% set datetime = post.getTimePosted() %}
+        {% set authorImg = asset(post.authorImagePath) %}
+        {% set postImg = asset(post.imagePath) %}
+
+        <time>{{datetime}}</time>
+        <figure class="post-modern-avatar-wrap"><img class="post-modern-avatar" src="{{authorImg}}" alt="" width="108" height="108"/>
+        </figure>
+        <p class="post-modern-author"><a href="/index.php/about-me">{{post.author}}</a></p>
+    </div>
+    <div class="post-modern-main"><a class="post-modern-image" href="/index.php/blog?post={{post.id}}"><img src="{{postImg}}" alt="" width="870" height="580"/></a>
+        <div class="post-modern-body">
+        <h5 class="post-modern-title"><a href="/index.php/blog?post={{post.id}}">{{post.title}}</a></h5>
+        <p style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;">{{post.paragraphs|first.content}}</p>
+        <div class="post-modern-footer">
+            <div>
+            <ul class="post-modern-meta">
+                <li><span class="icon mdi mdi-tag"></span><a href="/index.php/blog?category={{post.category.id}}">{{post.category.name}}</a></li>
+            </ul>
+            </div>
+            <div>
+            <ul class="post-modern-info">
+                <li><span class="icon mdi mdi-eye"></span><span>{{post.views}}</span></li>
+                <li><a href="/index.php/blog?post={{post.id}}"><span class="icon mdi mdi-comment"></span><span>{{post.commentCount}}</span></a></li>
+            </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+</article>

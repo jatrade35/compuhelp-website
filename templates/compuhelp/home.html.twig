@@ -1,4 +1,4 @@
-{% extends 'compuhelp/base.html.twig' %}
+{% extends 'compuhelp-base.html.twig' %}
 
 {% block title %}Home{% endblock %}
 {% block page %}
@@ -81,8 +81,7 @@
                     <div class="box-minimal-icon mdi mdi-thumb-up-outline"></div>
                     <p class="big box-minimal-title">Individual Approach</p>
                     <hr />
-                    <div class="box-minimal-text">I use an individual approach to each client and I never offer you a
-                      set of standard decisions for your business.</div>
+                    <div class="box-minimal-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</div>
                   </article>
                 </div>
                 <div class="cell-sm-6">
@@ -106,8 +105,7 @@
                     <div class="box-minimal-icon mdi mdi-credit-card"></div>
                     <p class="big box-minimal-title">Various Payment Methods</p>
                     <hr />
-                    <div class="box-minimal-text">I provide a variety of payment methods that include Paypal,
-                      Visa/Mastercard debit and credit cards and others.</div>
+                    <div class="box-minimal-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</div>
                   </article>
                 </div>
               </div>
@@ -134,7 +132,7 @@
             data-dots="true">
             {% for post in recent_posts %}
               {% set image = asset(post.imagePath) %}
-              <twig:compuhelp-postblog link="/index.php/blog?post={{post.id}}&type={{post.type.id}}" image="{{image}}" category="{{post.category.name}}" title="{{post.title}}" datetime="{{post.getTimePosted()}}" /> 
+              <twig:compuhelp-postblog link="/index.php/blog?post={{post.id}}" image="{{image}}" category="{{post.category.name}}" title="{{post.title}}" datetime="{{post.getTimePosted()}}" /> 
             {% endfor %}
           </div>
         </div>
