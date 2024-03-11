@@ -23,12 +23,13 @@ class MailerController extends AbstractController
         }
 
         $from= $_POST['email'];
-        $message = $_POST['message'];
+        $message = "";
 
         if (isset($_POST['form-type'])) {
             switch ($_POST['form-type']){
                 case 'contact':
                     $subject = "A message from your site visitor ($name)";
+                    $message = $_POST['message'];
                     break;
                 case 'subscribe':
                     $subject = "Subscribe request ($name)";
@@ -38,6 +39,7 @@ class MailerController extends AbstractController
                     break;
                 default:
                     $subject = "A message from your site visitor ($name)";
+                    $message = $_POST['message'];
                     break;
             }
         }
