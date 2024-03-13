@@ -3,15 +3,19 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Routing\Attribute\Route;
+use PHPMailer;
+use phpmailerException;
+Use Exception;
+
+require '/var/www/html/compuhelp/src/Librairies/phpmailer/class.phpmailer.php';
 
 class MailerController extends AbstractController
 {
     #[Route('/email', name: 'app_email')]
-    public function sendEmail(MailerInterface $mailer)
+    public function sendEmail()
     {
+
         $name = "";
         if(isset($_POST['name']))
         {
@@ -55,25 +59,30 @@ class MailerController extends AbstractController
             }
         }
 
-        $email = (new TemplatedEmail())
-        ->from('hostmaster@compuhelp-enterprises.ca')
-        ->to('rene.lanteigne@compuhelp-enterprises.ca')
-        //->cc('cc@example.com')
-        //->bcc('bcc@example.com')
-        //->replyTo('fabien@example.com')
-        //->priority(Email::PRIORITY_HIGH)
-        ->subject($subject)
-        ->text($from . ": " . $message)
-        ->htmlTemplate('/email/contact.html.twig')
-        ->context([
-                                                           'subject'=>$subject,
-                                                           'name'=>$name,
-                                                           'fromEmail'=>$from,
-                                                           'message'=>$message
-                                                        ]);
+        $mail = new PHPMailer(true);
 
-    $mailer->send($email);
+        try{
+            $mail->SetFrom("hostmaster@compuhelp-enterprises.ca", "Compuhelp Webmaster", 0);
+            $mail->addAddress("rene.lanteigne@compuhelp-enterprises.ca");
+            $mail->CharSet = 'utf-8';
+            $mail->Subject = $subject;
 
-    DIE('MF000');
+            $template = $this->render('email/contact.html.twig',
+                                      [ 'name' => $name,
+                                        'fromEmail' => $from,
+                                        'subject' => $subject,
+                                        'message' => $message])->getContent();
+
+            $mail->MsgHTML($template);
+
+            $mail->send();            
+
+            DIE('MF000');
+
+        } catch (phpmailerException $e) {
+            die('MF254: '.$e);
+        } catch (Exception $e) {
+            die($e.'MF255');
+        }
     }
 }
