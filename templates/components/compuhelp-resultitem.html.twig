@@ -2,7 +2,7 @@
 
 <li class="result-item">
 	<h5 class="search_title">
-		<a target="_top" href="/index.php{{href}}" class="search_link">{{title}}</a>
+		<a target="_top" href="{{href}}" class="search_link">{{title}}</a>
 	</h5>
 	<p>...{% for token in tokenparts %}{% if token|lower == searchterm %}<span class="search">{{token}}</span>{% else %}{{token}}{% endif %}{% endfor %}...</p>
 	<p class="match">

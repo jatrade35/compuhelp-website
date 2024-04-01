@@ -24,13 +24,13 @@
           {% endfor %}
           {% if postCount == count %}
             {% set newCount = count + 3 %}
-            <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="/index.php/blog?count={{newCount}}">Load more posts</a>
+            <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="/blog?count={{newCount}}">Load more posts</a>
           {% endif %}
           </div>
         <div class="cell-sm-9 cell-md-4 cell-lg-3 blog-aside">
           <div class="blog-aside-item">
             <h6>Search</h6>
-            <form class="rd-search rd-search-modern" action="/index.php/search-result" method="GET">
+            <form class="rd-search rd-search-modern" action="/search-result" method="GET">
               <div class="form-wrap">
                 <input class="rd-search-input form-input" id="rd-search-input" type="text" name="s" autocomplete="off"/>
                 <label class="form-label form-label" for="rd-search-input">Search</label>
@@ -41,7 +41,7 @@
           <div class="blog-aside-item">
             <h6>About Me</h6>
             <p>I specialize in delivering cutting-edge software solutions and expert IT consulting services, ensuring that your business not only meets but exceeds its technological goals with innovation, efficiency, and seamless integration.</p>
-            <a class="button button-xs button-default-outline" href="/index.php/about-me">learn more</a>
+            <a class="button button-xs button-default-outline" href="/about-me">learn more</a>
           </div>
         </div>
       </div>

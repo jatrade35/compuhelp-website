@@ -14,7 +14,7 @@
             Solutions. With a wealth of experience in the field, René Lanteigne offers a personalized and hands-on approach to address all your IT needs.
             From troubleshooting technical issues to implementing strategic IT solutions, He is your go-to expert for efficient and effective IT consulting.
             He is also a veteran software designer, developer and database administrator. He uses various innovative technologies that make your work not only
-            easier but more productive without unnecessary coding.</p><a class="button button-primary" href="index.php/about-me">learn more</a>
+            easier but more productive without unnecessary coding.</p><a class="button button-primary" href="/about-me">learn more</a>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@
     </div>
     <div class="row g-5 text-center">
       <div class="col align-self-center p-5 text-center">
-        <a class="button button-primary" href="/index.php/about-me">Learn more</a>
+        <a class="button button-primary" href="/about-me">Learn more</a>
       </div>
     </div>
   </section>
@@ -132,11 +132,11 @@
             data-dots="true">
             {% for post in recent_posts %}
               {% set image = asset(post.imagePath) %}
-              <twig:compuhelp-postblog link="/index.php/blog?post={{post.id}}" image="{{image}}" category="{{post.category.name}}" title="{{post.title}}" datetime="{{post.getTimePosted()}}" /> 
+              <twig:compuhelp-postblog link="/blog?post={{post.id}}" image="{{image}}" category="{{post.category.name}}" title="{{post.title}}" datetime="{{post.getTimePosted()}}" /> 
             {% endfor %}
           </div>
         </div>
-      </div><a class="button button-primary" href="index.php/blog">view all blog posts </a>
+      </div><a class="button button-primary" href="/blog">view all blog posts </a>
     </div>
   </section>
 {% endblock %}
