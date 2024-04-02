@@ -1,4 +1,4 @@
-{% props link = null, image = null, category = null, title = null, datetime = null %}
+{% props link = null, image = null, category = null, title = null, datetime = null, langSelector = "Français" %}
 <div class="" >
     <article class="post-blog"><a class="post-blog-image" href="{{link}}"><img
             src="{{image}}" alt="" width="570" height="auto" /></a>
@@ -8,7 +8,11 @@
             <li><a class="button-tags" href="{{link}}">{{category}}</a></li>
             </ul>
             <ul class="post-blog-meta">
+{% if langSelector == "Français" %}
             <li><span>by</span>&nbsp;<a href="/about-me">René Lanteigne</a></li>
+{% else %}
+            <li><span>par</span>&nbsp;<a href="/fr/about-me">René Lanteigne</a></li>
+{% endif %}
             </ul>
         </div>
         <div class="post-blog-caption-body">

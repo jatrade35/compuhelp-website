@@ -66,7 +66,7 @@ class FrenchMainController extends AbstractController
         $breadcrumbs = false;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/blog";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Blog à René";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
         $repository = $entityManager->getRepository(Post::class);
 

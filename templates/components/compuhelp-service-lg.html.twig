@@ -10,7 +10,11 @@
                     <div class="section-lg">
                         <h3>{{service.title}}</h3>
                         <div class="divider divider-default"></div>
+{% if langSelector == "Français" %}
                         <p>{{service.text}}</p><a class="button button-primary" href="/services?id={{service.id}}">learn more</a>
+{% else %}
+                        <p>{{service.text}}</p><a class="button button-primary" href="/services?id={{service.id}}">En apprendre davantage</a>
+{% endif %}
                     </div>
                 </div>
             </div>
