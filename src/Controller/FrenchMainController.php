@@ -178,7 +178,7 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/services";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Services";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/" . $page, $parameters);

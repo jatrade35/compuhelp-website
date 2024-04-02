@@ -1,0 +1,84 @@
+{% props langSelector = "Français" %}
+
+  <!-- Our Advantages -->
+  <section class="section section-wrap section-wrap-lg section-reverse bg-gray-darker">
+    <div class="section-wrap-inner">
+      <div class="shell shell-wide">
+        <div class="range range-50 range-sm-center range-lg-left">
+          <div class="cell-sm-12 cell-md-10 cell-lg-7 cell-xl-6">
+            <div class="section-lg">
+{% if langSelector == "Français" %}
+              <h3>My Advantages</h3>
+{% else %}
+              <h3>Mes Advantages</h3>
+{% endif %}
+              <div class="divider divider-default"></div>
+              <div class="range range-30">
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-thumb-up-outline"></div>
+{% if langSelector == "Français" %}
+                    <p class="big box-minimal-title">Individual Approach</p>
+{% else %}
+                    <p class="big box-minimal-title">Approche individuelle</p>
+{% endif %}
+                    <hr />
+{% if langSelector == "Français" %}
+                    <div class="box-minimal-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</div>
+{% else %}
+                    <div class="box-minimal-text">J'utilise une approche individuelle pour chaque client et je ne vous propose jamais un ensemble de décisions standards pour votre entreprise.</div>
+{% endif %}
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-account-multiple"></div>
+{% if langSelector == "Français" %}
+                    <p class="big box-minimal-title">Extensive Expertise</p>
+                    <hr />
+                    <div class="box-minimal-text">Whether its designing, software development, database administration, marketing or server maintenance/migration, I am ready to help you with a personalized IT solution to suit your needs.</div>
+{% else %}
+                    <p class="big box-minimal-title">Une vaste expertise</p>
+                    <hr />
+                    <div class="box-minimal-text">Qu'il s'agisse de conception, de développement de logiciels, d'administration de bases de données, de marketing ou de maintenance/migration de serveurs, je suis prêt à vous aider avec une solution informatique personnalisée adaptée à vos besoins.</div>
+{% endif %}
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-headset"></div>
+{% if langSelector == "Français" %}
+                    <p class="big box-minimal-title">Online Support</p>
+                    <hr />
+                    <div class="box-minimal-text">I answer every online support request within 24 hours and help you solve any issue you may have with my products and services.</div>
+{% else %}
+                    <p class="big box-minimal-title">Support en ligne</p>
+                    <hr />
+                    <div class="box-minimal-text">Je réponds à chaque demande d'assistance en ligne dans les 24 heures et vous aide à résoudre tout problème que vous pourriez rencontrer avec mes produits et services.</div>
+{% endif %}
+                  </article>
+                </div>
+                <div class="cell-sm-6">
+                  <article class="box-minimal box-minimal-border">
+                    <div class="box-minimal-icon mdi mdi-credit-card"></div>
+{% if langSelector == "Français" %}
+                    <p class="big box-minimal-title">Various Payment Methods</p>
+                    <hr />
+                    <div class="box-minimal-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</div>
+{% else %}
+                    <p class="big box-minimal-title">Différents modes de paiement</p>
+                    <hr />
+                    <div class="box-minimal-text">Je propose une variété de méthodes de paiement, notamment Paypal, les cartes de débit et de crédit Visa/Mastercard et autres.</div>
+{% endif %}
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section-wrap-aside section-wrap-image"><img src="{{asset('images/compuhelp/landing-it-company-6-942x1250.jpg')}}" alt=""
+          width="942" height="1250" />
+      </div>
+    </div>
+  </section>

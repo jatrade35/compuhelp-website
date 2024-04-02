@@ -57,7 +57,11 @@
           <!-- RD Navbar Toggle-->
           <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
           <!-- RD Navbar Brand-->
+{% if langSelector == "Français" %}
           <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default" src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="335" /><img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
+{% else %}
+          <div class="rd-navbar-brand"><a class="brand-name" href="/fr/accueil"> <img class="logo-default" src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="335" /><img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
+{% endif %}
         </div>
         <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
         <div class="rd-navbar-aside-right rd-navbar-collapse">

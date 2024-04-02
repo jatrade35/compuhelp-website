@@ -1,14 +1,13 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{title}}{% endblock %}
 {% block page %}
   <!-- Breadcrumbs-->
   <section class="breadcrumbs-custom bg-image">
     <div class="shell">
       <p class="heading-1 breadcrumbs-custom-title">Services</p>
       <ul class="breadcrumbs-custom-path">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="#">Pages</a></li>
+        <li><a href="/">{{title}}</a></li>
         <li class="active">Services</li>
       </ul>
     </div>
@@ -20,10 +19,17 @@
       <div class="range range-50 range-sm-center range-lg-right range-lg-reverse range-xl-right">
         <div class="cell-sm-9 cell-md-8 cell-lg-6 cell-xl-5">
           <div class="box-range-content">
+{% if langSelector == "Français" %}
             <h3>A few words About Me</h3>
             <div class="divider divider-default"></div>
             <p class="heading-5">I am an IT expert bringing you innovative web and IT solutions that combine captivating design and flawless functionality in every project.</p>
             <p class="text-spacing-sm">I know how to design and develop a website or app of any complexity. Regardless of what you are looking for, I can deliver a solution, which will elevate your business to unbelievable heights.</p><a class="button button-primary" href="/about-me">learn more</a>
+{% else %}
+            <h3>Quelques mots sur moi</h3>
+            <div class="divider divider-default"></div>
+            <p class="heading-5">Je suis un expert en informatique qui vous propose des solutions Web et informatiques innovantes qui combinent un design captivant et des fonctionnalités sans faille dans chaque projet.</p>
+            <p class="text-spacing-sm">Je me spécialise dans la production de solutions logicielles de pointe et de services de conseil informatiques experts, garantissant que votre entreprise non seulement atteint, mais dépasse ses objectifs technologiques avec l'innovation, l'efficacité et une intégration transparente.</p><a class="button button-primary" href="/fr/about-me">En apprendre davantage</a>
+{% endif %}
           </div>
         </div>
         <div class="cell-sm-9 cell-md-8 cell-lg-6 cell-xl-6 jp-video-init">
@@ -83,56 +89,14 @@
       </div>
     </div>
   </section>
-
-  <!-- Our Advantages-->
-  <section class="section section-lg text-center bg-gray-darker">
-    <div class="shell-wide">
-      <h3>Our Advantages</h3>
-      <div class="divider divider-default"></div>
-      <div class="range range-50 range-xs-center text-left">
-        <div class="cell-xs-10 cell-sm-6 cell-lg-3">
-          <article class="box-minimal box-minimal-border">
-            <div class="box-minimal-icon mdi mdi-thumb-up-outline"></div>
-            <p class="big box-minimal-title">Individual Approach</p>
-            <hr/>
-            <div class="box-minimal-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</div>
-          </article>
-        </div>
-        <div class="cell-xs-10 cell-sm-6 cell-lg-3">
-          <article class="box-minimal box-minimal-border">
-            <div class="box-minimal-icon mdi mdi-account-multiple"></div>
-            <p class="big box-minimal-title">Extensive Expertise</p>
-            <hr/>
-            <div class="box-minimal-text">Whether its designing, software development, database administration, marketing or server maintenance/migration, I am ready to help you with a personalized IT solution to suit your needs.</div>
-          </article>
-        </div>
-        <div class="cell-xs-10 cell-sm-6 cell-lg-3">
-          <article class="box-minimal box-minimal-border">
-            <div class="box-minimal-icon mdi mdi-headset"></div>
-            <p class="big box-minimal-title">Online Support</p>
-            <hr/>
-            <div class="box-minimal-text">I answer every online support request within 24 hours and help you solve any issue you may have with my products and services.</div>
-          </article>
-        </div>
-        <div class="cell-xs-10 cell-sm-6 cell-lg-3">
-          <article class="box-minimal box-minimal-border">
-            <div class="box-minimal-icon mdi mdi-credit-card"></div>
-            <p class="big box-minimal-title">Various Payment Methods</p>
-            <hr/>
-            <div class="box-minimal-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <twig:compuhelp-advantagesTwo langSelector="{{langSelector}}" />
   {% for service in services %}
     {% if loop.index % 2 == 0 %}
       {% set reverse = "section-md-reverse" %}
     {% else %}
       {% set reverse = "" %}
     {% endif %}
-    <twig:compuhelp-service-lg service="{{service}}" reverse="{{reverse}}" />
+    <twig:compuhelp-service-lg service="{{service}}" reverse="{{reverse}}" langSelector="{{langSelector}}" />
   {% endfor %}
-  <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="2" />
+  <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="2" langSelector="{{langSelector}}"/>
 {% endblock %}
