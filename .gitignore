@@ -23,3 +23,5 @@ config/secrets/dev/dev.encrypt.public.php
 config/secrets/dev/dev.HA3_KEY.eab0ce.php
 config/secrets/dev/dev.HA3_SECRET.8f9039.php
 config/secrets/dev/dev.MAILER_DSN.97e321.php
+xdebug.log
+.env

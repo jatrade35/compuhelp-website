@@ -1,4 +1,4 @@
-{% props breadcrumbs = null,  posttitle = null, image = null, postauthor = null, activepage = "Home" %}
+{% props breadcrumbs = null,  posttitle = null, image = null, postauthor = null, activepage = "Home", langSelector = "Français", langSelectorURL = "/fr/accueil", quote = "REQUEST A QUOTE" %}
 {% set homeactive = "" %}
 {% set aboutactive = "" %}
 {% set blogactive = "" %}
@@ -14,12 +14,17 @@
 {% endif %}
 <!-- Page Header-->
   <!-- RD Navbar -->
+  <div class="position-absolute top-0 end-0" style="min-width:100%;text-align:right;z-index:10;padding:5px 40px;text-decoration:underline;text-decoration-color:#20c997;">
+    <a id="language-selector" href="{{langSelectorURL}}">{{langSelector}}
+    </a>
+  </div>
   <div class="rd-navbar-wrap rd-navbar-centered">
     <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static" data-md-stick-up-offset="1px" data-lg-stick-up-offset="1px" data-stick-up="true" data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
       <div class="rd-navbar-inner">
         <div class="rd-navbar-aside-left">
           <div class="rd-navbar-nav-wrap">
             <ul class="rd-navbar-nav">
+{% if langSelector == "Français" %}
               <li class="{{homeactive}}"><a href="/">Home</a></li>
               <li class="{{aboutactive}}"><a href="/about-me">About Me</a></li>
               <li class="{{blogactive}}"><a href="/blog">Blog</a></li>
@@ -31,6 +36,19 @@
                   <li><a href="/privacy-policy">Privacy Policy</a></li>
                 </ul>
               </li>
+{% else %}
+              <li class="{{homeactive}}"><a href="/fr/accueil">Accueil</a></li>
+              <li class="{{aboutactive}}"><a href="/fr/about-me">Qui suis-je ?</a></li>
+              <li class="{{blogactive}}"><a href="/fr/blog">Blog</a></li>
+              <li class="{{pagesactive}}"><a href="#">Pages</a>
+                <ul class="rd-navbar-dropdown">
+                  <li><a href="/fr/services">Services</a></li>
+                  <li><a href="/fr/contacts">Me joindre</a></li>
+                  <li><a href="/fr/terms">Conditions d'utilisation</a></li>
+                  <li><a href="/fr/privacy-policy">Politique de confidentialités</a></li>
+                </ul>
+              </li>
+{% endif %}
             </ul>
           </div>
         </div>
@@ -39,7 +57,7 @@
           <!-- RD Navbar Toggle-->
           <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
           <!-- RD Navbar Brand-->
-          <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default" src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="198" height="42" /><img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
+          <div class="rd-navbar-brand"><a class="brand-name" href="/"> <img class="logo-default" src="{{ asset('images/compuhelp/logo.png') }}" alt="" width="335" /><img class="logo-inverse" src="{{ asset('images/compuhelp/logo-inverse.png') }}" alt="" width="198" height="42" /></a></div>
         </div>
         <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
         <div class="rd-navbar-aside-right rd-navbar-collapse">
@@ -47,13 +65,17 @@
           <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
             <form class="rd-search" action="/search-results" data-search-live="rd-search-results-live" method="GET">
               <div class="form-wrap">
+{% if langSelector == "Français" %}
                 <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
+{% else %}
+                <label class="form-label form-label" for="rd-navbar-search-form-input">Rechercher...</label>
+{% endif %}
                 <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off" />
                 <div class="rd-search-results-live"></div>
               </div>
               <button class="rd-search-form-submit mdi mdi-magnify"></button>
             </form>
-          </div><a class="button button-sm button-default-outline" href="/contacts">REQUEST A QUOTE</a>
+          </div><a class="button button-sm button-default-outline" href="/contacts">{{quote}}</a>
         </div>
       </div>
     </nav>
@@ -64,14 +86,24 @@
     <div class="shell">
       <p class="breadcrumbs-custom-subtitle"></p>
       <p class="heading-3 breadcrumbs-custom-title">{{posttitle}}</p>
+{% if langSelector == "Français" %}
       <div class="box-inline"><span class="icon icon-md-middle mdi mdi-account"></span><a class="event-default-link" href="#">by {{postauthor}}</a></div>
+{% else %}
+      <div class="box-inline"><span class="icon icon-md-middle mdi mdi-account"></span><a class="event-default-link" href="#">par {{postauthor}}</a></div>
+{% endif %}
     </div>
     <div class="shell">
       <ul class="breadcrumbs-custom-path">
+{% if langSelector == "Français" %}
         <li><a href="/">Home</a></li>
         <li><a href="/blog">René's Blog</a></li>
         <li class="active">post</li>
+{% else %}
+        <li><a href="/fr/accueil">Accueil</a></li>
+        <li><a href="/fr/blog">Blog de René</a></li>
+        <li class="active">Article</li>
+{% endif %}
       </ul>
     </div>
   </section>
-  {% endif %} 
+{% endif %} 

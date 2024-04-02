@@ -11,42 +11,33 @@ use App\Entity\Service;
 use App\Entity\Testimonial;
 use Doctrine\ORM\EntityManagerInterface;
 
-class MainController extends AbstractController
+class FrenchMainController extends AbstractController
 {
 
-    #[Route('/', name: 'home')]
+    #[Route('/fr/accueil', name: 'accueil')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-        $locale = locale_accept_from_http($_SERVER['HTTP_ACCEPT_LANGUAGE']);
-        if(substr($locale, 0, 2) == 'fr')
-        {
-            $frenchMainController = new FrenchMainController;
-            return $this->redirect("/fr/accueil");
-        }
-        else
-        {
-            $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
-            $parameters['ha3key'] = $_ENV['HA3_KEY'];
-            $repository = $entityManager->getRepository(Service::class);
-            $parameters['services'] = $repository->findAll();
-            $repository = $entityManager->getRepository(Post::class);
-            $parameters['recent_posts'] = $repository->findBy( 
-                                                                [],
-                                                                ['datetimePosted' => 'DESC'],
-                                                                3,
-                                                                0);
-            $parameters['activepage'] = "Home";
-            $parameters['breadcrumbs'] = false;
-            $parameters['langSelector'] = "Français";
-            $parameters['langSelectorURL'] = "/fr/accueil";
-            $parameters['title'] = "Home";
-            $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
+        $parameters['ha3key'] = $_ENV['HA3_KEY'];
+        $repository = $entityManager->getRepository(Service::class);
+        $parameters['services'] = $repository->findAll();
+        $repository = $entityManager->getRepository(Post::class);
+        $parameters['recent_posts'] = $repository->findBy( 
+                                                            [],
+                                                            ['datetimePosted' => 'DESC'],
+                                                            3,
+                                                            0);
+        $parameters['activepage'] = "Home";
+        $parameters['breadcrumbs'] = false;
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
-            return $this->render("compuhelp/home.html.twig", $parameters );
-        }
+        return $this->render("compuhelp/home.html.twig", $parameters );
     }
 
-    #[Route('/about-me', name: 'about me')]
+    #[Route('/fr/about-me', name: 'qui-suis-je')]
     public function about(EntityManagerInterface $entityManager): Response
     {
         $ha3key = $_ENV['HA3_KEY'];
@@ -60,23 +51,23 @@ class MainController extends AbstractController
         $parameters['breadcrumbs'] = false;        
         $parameters['activepage'] = "AboutMe";
         $parameters['ha3key'] = $ha3key;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/about-me";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/about-me.html.twig", $parameters);
     }
 
-    #[Route('/blog', name: 'blog')]
+    #[Route('/fr/blog', name: 'blogue')]
     public function blog(EntityManagerInterface $entityManager): Response
     {
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
         $breadcrumbs = false;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/blog";
-        $parameters['title'] = "René's blog";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/blog";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
         $repository = $entityManager->getRepository(Post::class);
 
         if( isset($_GET['post']))
@@ -129,7 +120,7 @@ class MainController extends AbstractController
         return $this->render("compuhelp/" . $page, $parameters);
     }
 
-    #[Route('/search-results', name: 'search')]
+    #[Route('/fr/search-results', name: 'recherche')]
     public function search(): Response
     {
         $ha3key = $_ENV['HA3_KEY'];
@@ -139,22 +130,18 @@ class MainController extends AbstractController
         $parameters['breadcrumbs'] = $breadcrumbs;        
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/search-results";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/search-results.html.twig", $parameters);
     }
 
-    #[Route('/services', name: 'services')]
+    #[Route('/fr/services', name: 'fr_services')]
     public function services(EntityManagerInterface $entityManager): Response
     {
         $parameters=[];
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
         $repository = $entityManager->getRepository(Service::class);
 
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
@@ -189,11 +176,15 @@ class MainController extends AbstractController
         $parameters['breadcrumbs'] = $breadcrumbs;        
         $parameters['activepage'] = "Page";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/services";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/" . $page, $parameters);
     }
 
-    #[Route('/contacts', name: 'contacts')]
+    #[Route('/fr/contacts', name: 'fr_contacts')]
     public function contacts(): Response
     {
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
@@ -201,40 +192,40 @@ class MainController extends AbstractController
         $parameters['breadcrumbs'] = $breadcrumbs;        
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/contacts";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render('compuhelp/contacts.html.twig', $parameters);
     }
 
-    #[Route('/terms', name: 'terms')]
+    #[Route('/fr/terms', name: 'termes')]
     public function terms(): Response
     {
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
         $parameters['breadcrumbs'] = false;        
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/terms";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render('compuhelp/terms.html.twig', $parameters);
     }
 
-    #[Route('/privacy-policy', name: 'privacy-policy')]
+    #[Route('/fr/privacy-policy', name: 'politique')]
     public function privacy(): Response
     {
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
         $parameters['breadcrumbs'] = false;        
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
+        $parameters['langSelector'] = "English";
+        $parameters['langSelectorURL'] = "/privacy-policy";
+        $parameters['title'] = "Accueil";
+        $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render('compuhelp/privacy-policy.html.twig', $parameters);
     }

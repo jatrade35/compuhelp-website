@@ -1,4 +1,4 @@
-{% props recaptchakey = null %}
+{% props recaptchakey = null, langSelector = "Français" %}
   <!-- Page Footer-->
   <!-- Footer Default-->
   <footer class="section page-footer page-footer-default text-left bg-gray-darker">
@@ -6,6 +6,7 @@
       <div class="range range-50 range-xs-center">
         <div class="cell-sm-6 cell-lg-3">
           <div class="inset-xl">
+{% if langSelector == "Français" %}
             <h6>About Me</h6>
             <p class="text-spacing-sm">I know how to design and develop a website or app of
               any complexity. Regardless of what you are looking for, I can deliver a solution, which will
@@ -18,36 +19,74 @@
             <li><a href="/about-me">About Me</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact Me</a></li>
+            <li><a href="/contacts">Contact Me</a></li>
           </ul>
         </div>
         <div class="cell-sm-6 cell-lg-3">
           <h6>Contact Me</h6>
+{% else %}
+            <h6>Qui suis-je ?</h6>
+            <p class="text-spacing-sm">Je sais comment concevoir et développer un site Web ou une application peu importe la complexité.
+            Je peux vous proposer une solution qui vous permettra d'élevez votre entreprise à des sommets incroyables.</p>
+          </div>
+        </div>
+        <div class="cell-sm-6 cell-lg-2">
+          <h6>Liens rapides</h6>
+          <ul class="list-marked list-marked-primary">
+            <li><a href="/fr/about-me">Qui suis-je ?</a></li>
+            <li><a href="/fr/services">Services</a></li>
+            <li><a href="/fr/blog">Blog</a></li>
+            <li><a href="/fr/contacts">Me joindre</a></li>
+          </ul>
+        </div>
+        <div class="cell-sm-6 cell-lg-3">
+          <h6>Contactez moi</h6>
+{% endif %}
           <!-- RD Mailform-->
           <form class="rd-mailform rd-mailform-sm" data-form-output="form-output-global" data-form-type="contact"
             method="post" action="/email" onsubmit="if(checkValidity()) myButton.disabled = true; return true;">
             <div class="form-wrap form-wrap-validation">
               <input class="form-input" id="form-footer-name" type="text" name="name" data-constraints="@Required"
                 autocomplete="name" />
+{% if langSelector == "Français" %}
               <label class="form-label" for="form-footer-name">Name</label>
+{% else %}
+              <label class="form-label" for="form-footer-name">Nom</label>
+{% endif %}
             </div>
             <div class="form-wrap form-wrap-validation">
               <input class="form-input" id="form-footer-email" type="email" name="email"
                 data-constraints="@Email @Required" autocomplete="email" />
+{% if langSelector == "Français" %}
               <label class="form-label" for="form-footer-email">E-mail</label>
+{% else %}
+              <label class="form-label" for="form-footer-email">Courriel</label>
+{% endif %}
             </div>
             <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
               <label class="form-label" for="form-footer-message">Message</label>
+{% else %}
+              <label class="form-label" for="form-footer-message">Message</label>
+{% endif %}
               <textarea class="form-input" id="form-footer-message" name="message"
                 data-constraints="@Required"></textarea>
             </div>
             <div class="form-button">
+{% if langSelector == "Français" %}
               <button id="myButton" class="button button-sm button-primary" type="submit">Send message</button>
+{% else %}
+              <button id="myButton" class="button button-sm button-primary" type="submit">Envoyer</button>
+{% endif %}
             </div>
           </form>
         </div>
       </div>
+{% if langSelector == "Français" %}
       <p class="right">&#169;&nbsp;<span class="copyright-year"></span> Compuhelp Enterprises, All Rights Reserved&nbsp;<a href="/terms">Terms of
           Use</a>&nbsp;and&nbsp;<a href="/privacy-policy">Privacy Policy</a></p>
+{% else %}
+      <p class="right">&#169;&nbsp;<span class="copyright-year"></span> Les entreprises Compuhelp, Tous droits réservés&nbsp;<a href="/fr/terms">Conditions d'usage</a>&nbsp;et&nbsp;<a href="/fr/privacy-policy">politiques de confidentialités</a></p>
+{% endif %}
     </div>
   </footer>

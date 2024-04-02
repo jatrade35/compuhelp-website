@@ -1,6 +1,6 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{title}}{% endblock %}
 {% block page %}
   <!--TechSavvy Solutions-->
   <section class="section bg-gray-darker text-center">
@@ -9,12 +9,21 @@
       <div class="shell shell-wide">
         <div class="range range-50 range-sm-center">
           <div class="cell-sm-10 cell-lg-9">
+{% if langSelector == "Français" %}
             <h1>TechSavvy Solutions</h1>
             <p class="big">Compuhelp! Enterprises is a one-person company created with the idea of bringing you multipurpose and flexible IT
             Solutions. With a wealth of experience in the field, René Lanteigne offers a personalized and hands-on approach to address all your IT needs.
             From troubleshooting technical issues to implementing strategic IT solutions, He is your go-to expert for efficient and effective IT consulting.
             He is also a veteran software designer, developer and database administrator. He uses various innovative technologies that make your work not only
             easier but more productive without unnecessary coding.</p><a class="button button-primary" href="/about-me">learn more</a>
+{% else %}
+            <h1>Solutions à la fine pointe de la technologie</h1>
+            <p class="big">Les entreprises Compuhelp! est une compagnie unipersonnelle créée avec l'idée de vous offrir des solutions informatiques polyvalentes et flexibles.
+            Fort d'une riche expérience dans le domaine, René Lanteigne vous propose une approche personnalisée et pratique pour répondre à tous vos besoins informatiques.
+            du dépannage des problèmes techniques à la mise en &#339;uvre de solutions informatiques stratégiques, il est votre expert incontournable pour des conseils informatiques efficaces et efficients.
+            Il est également un concepteur de logiciels, un développeur et un administrateur de bases de données chevronné. Il utilise diverses technologies innovantes qui rendent votre travail non seulement
+            plus facile mais plus productif sans codage inutile.</p><a class="button button-primary" href="/fr/about-me">En apprendre davantage</a>
+{% endif %}
           </div>
         </div>
       </div>
@@ -25,7 +34,11 @@
   <section class="section section-lg bg-white text-center">
     <div class="shell-wide">
       <div class="text-center">
+{% if langSelector == "Français" %}
         <h3>My Services</h3>
+{% else %}
+        <h3>Mes Services</h3>
+{% endif %}
         <div class="divider divider-default"></div>
       </div>
       <div class="range range-50 range-xs-center offset-custom-2">
@@ -40,7 +53,11 @@
   <section class="section section-wrap section-wrap-lg section-reverse bg-image text-center" style="background-image:url('/images/compuhelp/aboutme.png')";>
     <div class="row g-5 text-center">
       <div class="col align-self-center p-5 text-center" >
+{% if langSelector == "Français" %}
         <h3>About Me</h3>
+{% else %}
+        <h3>Qui suis-je ?</h3>
+{% endif %}
         <hr class="divider divider-default" />
       </div>
       <div class="row g-5">
@@ -51,9 +68,15 @@
                 <path d="M27.461,10.206h7.5v15h-15v-15L25,0.127h7.5L27.461,10.206z M7.539,10.206h7.5v15h-15v-15L4.961,0.127h7.5L7.539,10.206z"></path>
               </svg>
               <div class="quote-primary-text" style="opacity: 1;" >
+{% if langSelector == "Français" %}
                 <p>Empowering businesses through technology, I bridge the gap between vision and reality, turning challenges into opportunities, and transforming complexity into simplicity. In the realm of IT, my expertise is your strategic advantage.</p>
               </div>
               <p class="quote-primary-meta" style="opacity:1;" ><span style="opacity:1;" >by</span><span class="cite" style="opacity:1;" >René Lanteigne</span></p>
+{% else %}
+                <p>En donnant aux entreprises les moyens d'agir grâce à la technologie, je comble le fossé entre la vision et la réalité, transformant les défis en opportunités et transformant la complexité en simplicité. Dans le domaine informatique, mon expertise est votre avantage stratégique.</p>
+              </div>
+              <p class="quote-primary-meta" style="opacity:1;" ><span style="opacity:1;" >par</span><span class="cite" style="opacity:1;" >René Lanteigne</span></p>
+{% endif %}
             </article>
           </div>
         </div>
@@ -61,7 +84,11 @@
     </div>
     <div class="row g-5 text-center">
       <div class="col align-self-center p-5 text-center">
+{% if langSelector == "Français" %}
         <a class="button button-primary" href="/about-me">Learn more</a>
+{% else %}
+        <a class="button button-primary" href="/about-me">En apprendre davantage</a>
+{% endif %}
       </div>
     </div>
   </section>
@@ -73,39 +100,69 @@
         <div class="range range-50 range-sm-center range-lg-left">
           <div class="cell-sm-12 cell-md-10 cell-lg-7 cell-xl-6">
             <div class="section-lg">
+{% if langSelector == "Français" %}
               <h3>My Advantages</h3>
+{% else %}
+              <h3>Mes Advantages</h3>
+{% endif %}
               <div class="divider divider-default"></div>
               <div class="range range-30">
                 <div class="cell-sm-6">
                   <article class="box-minimal box-minimal-border">
                     <div class="box-minimal-icon mdi mdi-thumb-up-outline"></div>
+{% if langSelector == "Français" %}
                     <p class="big box-minimal-title">Individual Approach</p>
+{% else %}
+                    <p class="big box-minimal-title">Approche individuelle</p>
+{% endif %}
                     <hr />
+{% if langSelector == "Français" %}
                     <div class="box-minimal-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</div>
+{% else %}
+                    <div class="box-minimal-text">J'utilise une approche individuelle pour chaque client et je ne vous propose jamais un ensemble de décisions standards pour votre entreprise.</div>
+{% endif %}
                   </article>
                 </div>
                 <div class="cell-sm-6">
                   <article class="box-minimal box-minimal-border">
                     <div class="box-minimal-icon mdi mdi-account-multiple"></div>
+{% if langSelector == "Français" %}
                     <p class="big box-minimal-title">Extensive Expertise</p>
                     <hr />
                     <div class="box-minimal-text">Whether its designing, software development, database administration, marketing or server maintenance/migration, I am ready to help you with a personalized IT solution to suit your needs.</div>
+{% else %}
+                    <p class="big box-minimal-title">Une vaste expertise</p>
+                    <hr />
+                    <div class="box-minimal-text">Qu'il s'agisse de conception, de développement de logiciels, d'administration de bases de données, de marketing ou de maintenance/migration de serveurs, je suis prêt à vous aider avec une solution informatique personnalisée adaptée à vos besoins.</div>
+{% endif %}
                   </article>
                 </div>
                 <div class="cell-sm-6">
                   <article class="box-minimal box-minimal-border">
                     <div class="box-minimal-icon mdi mdi-headset"></div>
+{% if langSelector == "Français" %}
                     <p class="big box-minimal-title">Online Support</p>
                     <hr />
                     <div class="box-minimal-text">I answer every online support request within 24 hours and help you solve any issue you may have with my products and services.</div>
+{% else %}
+                    <p class="big box-minimal-title">Support en ligne</p>
+                    <hr />
+                    <div class="box-minimal-text">Je réponds à chaque demande d'assistance en ligne dans les 24 heures et vous aide à résoudre tout problème que vous pourriez rencontrer avec mes produits et services.</div>
+{% endif %}
                   </article>
                 </div>
                 <div class="cell-sm-6">
                   <article class="box-minimal box-minimal-border">
                     <div class="box-minimal-icon mdi mdi-credit-card"></div>
+{% if langSelector == "Français" %}
                     <p class="big box-minimal-title">Various Payment Methods</p>
                     <hr />
                     <div class="box-minimal-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</div>
+{% else %}
+                    <p class="big box-minimal-title">Différents modes de paiement</p>
+                    <hr />
+                    <div class="box-minimal-text">Je propose une variété de méthodes de paiement, notamment Paypal, les cartes de débit et de crédit Visa/Mastercard et autres.</div>
+{% endif %}
                   </article>
                 </div>
               </div>
@@ -124,7 +181,11 @@
     <div class="shell-wide">
       <div class="range">
         <div class="cell-xs-12">
+{% if langSelector == "Français" %}
           <h3>Latest Blog Posts</h3>
+{% else %}
+          <h3>Derniers articles du blog</h3>
+{% endif %}
           <div class="divider divider-default"></div>
           <!-- Owl Carousel-->
           <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="2"
@@ -136,7 +197,11 @@
             {% endfor %}
           </div>
         </div>
-      </div><a class="button button-primary" href="/blog">view all blog posts </a>
+{% if langSelector == "Français" %}
+      </div><a class="button button-primary" href="/blog">view all blog posts</a>
+{% else %}
+      </div><a class="button button-primary" href="/blog">voir tous les articles du blog</a>
+{% endif %}
     </div>
   </section>
 {% endblock %}

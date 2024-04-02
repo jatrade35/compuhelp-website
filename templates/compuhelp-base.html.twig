@@ -35,10 +35,10 @@
   <twig:compuhelp-preloader class="page-loader {{preloader_class}}" />
   <!-- Page-->
   <div class="page">
-    <twig:compuhelp-navbar class="page-header {{header_class}}" activepage="{{activepage}}" breadcrumbs="{{breadcrumbs}}" posttitle="{{posttitle}}" postauthor="{{postauthor}}" image="{{image}}" />
+    <twig:compuhelp-navbar class="page-header {{header_class}}" activepage="{{activepage}}" breadcrumbs="{{breadcrumbs}}" posttitle="{{posttitle}}" postauthor="{{postauthor}}" image="{{image}}" langSelector="{{langSelector}}" langSelectorURL="{{langSelectorURL}}" quote="{{quote}}"/>
     {% block page %}
     {% endblock %}
-    <twig:compuhelp-footer recaptchakey="{{ha3key}}"/>
+    <twig:compuhelp-footer recaptchakey="{{ha3key}}" langSelector="{{langSelector}}"/>
   </div>
   <!-- Global Mailform Output-->
   <div class="snackbars" id="form-output-global"></div>

@@ -1,15 +1,19 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}René's Blog{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block page %}
   <!-- Breadcrumbs-->
   <section class="breadcrumbs-custom bg-image">
     <div class="shell">
-      <p class="heading-1 breadcrumbs-custom-title">René's blog</p>
+      <p class="heading-1 breadcrumbs-custom-title">{{title}}</p>
       <ul class="breadcrumbs-custom-path">
+{% if langSelector == "Français" %}
         <li><a href="/">Home</a></li>
-        <li class="active">René's blog</li>
+{% else %}
+        <li><a href="/">Accueil</a></li>
+{% endif %}
+        <li class="active">{{title}}</li>
       </ul>
     </div>
   </section>
@@ -24,24 +28,42 @@
           {% endfor %}
           {% if postCount == count %}
             {% set newCount = count + 3 %}
+{% if langSelector == "Français" %}
             <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="/blog?count={{newCount}}">Load more posts</a>
+{% else %}
+            <!-- Blog Footer--><a class="button button-default-outline button-block button-blog" href="/fr/blog?count={{newCount}}">Charger plus de publications</a>
+{% endif %}
           {% endif %}
           </div>
         <div class="cell-sm-9 cell-md-4 cell-lg-3 blog-aside">
           <div class="blog-aside-item">
+{% if langSelector == "Français" %}
             <h6>Search</h6>
             <form class="rd-search rd-search-modern" action="/search-result" method="GET">
               <div class="form-wrap">
                 <input class="rd-search-input form-input" id="rd-search-input" type="text" name="s" autocomplete="off"/>
                 <label class="form-label form-label" for="rd-search-input">Search</label>
+{% else %}
+            <h6>Recherche</h6>
+            <form class="rd-search rd-search-modern" action="/fr/search-result" method="GET">
+              <div class="form-wrap">
+                <input class="rd-search-input form-input" id="rd-search-input" type="text" name="s" autocomplete="off"/>
+                <label class="form-label form-label" for="rd-search-input">Recherche</label>
+{% endif %}
               </div>
               <button class="button mdi mdi-magnify" type="submit"></button>
             </form>
           </div>
           <div class="blog-aside-item">
+{% if langSelector == "Français" %}
             <h6>About Me</h6>
             <p>I specialize in delivering cutting-edge software solutions and expert IT consulting services, ensuring that your business not only meets but exceeds its technological goals with innovation, efficiency, and seamless integration.</p>
             <a class="button button-xs button-default-outline" href="/about-me">learn more</a>
+{% else %}
+            <h6>À mon sujet</h6>
+            <p>Je me spécialise dans la production de solutions logicielles de pointe et de services de conseil informatiques experts, garantissant que votre entreprise non seulement atteint, mais dépasse ses objectifs technologiques avec l'innovation, l'efficacité et une intégration transparente.</p>
+            <a class="button button-xs button-default-outline" href="/fr/about-me">En apprendre davantage</a>
+{% endif %}
           </div>
         </div>
       </div>
