@@ -194,7 +194,7 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/contacts";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Me joindre";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render('compuhelp/contacts.html.twig', $parameters);
@@ -209,10 +209,10 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/terms";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Conditions d'utilisation du site Web";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
-        return $this->render('compuhelp/terms.html.twig', $parameters);
+        return $this->render('compuhelp/terms-fr.html.twig', $parameters);
     }
 
     #[Route('/fr/privacy-policy', name: 'politique')]
@@ -224,10 +224,10 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/privacy-policy";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Politique de confidentialité";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
-        return $this->render('compuhelp/privacy-policy.html.twig', $parameters);
+        return $this->render('compuhelp/privacy-policy-fr.html.twig', $parameters);
     }
 
 }

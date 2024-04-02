@@ -140,8 +140,8 @@ class MainController extends AbstractController
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
+        $parameters['langSelectorURL'] = "/fr/search-results";
+        $parameters['title'] = "Search Results";
         $parameters['quote'] = "REQUEST A QUOTE";
 
         return $this->render("compuhelp/search-results.html.twig", $parameters);
@@ -151,10 +151,6 @@ class MainController extends AbstractController
     public function services(EntityManagerInterface $entityManager): Response
     {
         $parameters=[];
-        $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
-        $parameters['quote'] = "REQUEST A QUOTE";
         $repository = $entityManager->getRepository(Service::class);
 
         $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
@@ -189,6 +185,10 @@ class MainController extends AbstractController
         $parameters['breadcrumbs'] = $breadcrumbs;        
         $parameters['activepage'] = "Page";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
+        $parameters['langSelector'] = "Français";
+        $parameters['langSelectorURL'] = "/fr/services";
+        $parameters['title'] = "Services";
+        $parameters['quote'] = "REQUEST A QUOTE";
 
         return $this->render("compuhelp/" . $page, $parameters);
     }
@@ -202,8 +202,8 @@ class MainController extends AbstractController
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
+        $parameters['langSelectorURL'] = "/fr/contacts";
+        $parameters['title'] = "Contact Me";
         $parameters['quote'] = "REQUEST A QUOTE";
 
         return $this->render('compuhelp/contacts.html.twig', $parameters);
@@ -217,8 +217,8 @@ class MainController extends AbstractController
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
+        $parameters['langSelectorURL'] = "/fr/terms";
+        $parameters['title'] = "Terms of Use";
         $parameters['quote'] = "REQUEST A QUOTE";
 
         return $this->render('compuhelp/terms.html.twig', $parameters);
@@ -232,8 +232,8 @@ class MainController extends AbstractController
         $parameters['activepage'] = "Pages";
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "Français";
-        $parameters['langSelectorURL'] = "/fr/about-me";
-        $parameters['title'] = "About Me";
+        $parameters['langSelectorURL'] = "/fr/privacy-policy";
+        $parameters['title'] = "Privacy Policy";
         $parameters['quote'] = "REQUEST A QUOTE";
 
         return $this->render('compuhelp/privacy-policy.html.twig', $parameters);

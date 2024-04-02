@@ -1,17 +1,20 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}Contacts{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block page %}
 
       <!-- Breadcrumbs-->
       <section class="breadcrumbs-custom bg-image">
         <div class="shell">
-          <p class="heading-1 breadcrumbs-custom-title">Contacts</p>
+          <p class="heading-1 breadcrumbs-custom-title">{{title}}</p>
           <ul class="breadcrumbs-custom-path">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Pages</a></li>
-            <li class="active">Contacts</li>
+{% if langSelector == "Français" %}
+            <li><a href="/">Home</a></li>
+{% else %}
+            <li><a href="/fr/accueil">Accueil</a></li>
+{% endif %}
+            <li class="active">{{title}}</li>
           </ul>
         </div>
       </section>
@@ -21,39 +24,63 @@
         <div class="shell shell-bigger">
           <div class="range range-ten range-50 range-sm-center range-lg-justify">
             <div class="cell-sm-9 cell-md-6">
-              <h3>Contact me</h3>
+              <h3>{{title}}</h3>
               <hr class="divider divider-left divider-default"/>
+{% if langSelector == "Français" %}
               <p class="big">You can contact me any way that is convenient for you. I are available via phone or email. You can also use a quick contact form below.</p>
+{% else %}
+              <p class="big">Vous pouvez me contacter de la manière qui vous convient. Je suis disponible par téléphone ou par e-mail. Vous pouvez également utiliser le formulaire de contact rapide ci-dessous.</p>
+{% endif %}
               <!-- RD Mailform-->
               <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="/email">
                 <div class="range range-20">
                   <div class="cell-sm-6">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-name">First name</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-name">Prénom</label>
+{% endif %}
                       <input class="form-input" id="form-1-name" type="text" name="first-name" data-constraints="@Required"/>
                     </div>
                   </div>
                   <div class="cell-sm-6">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-last-name">Last name</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-last-name">Nom</label>
+{% endif %}
                       <input class="form-input" id="form-1-last-name" type="text" name="last-name" data-constraints="@Required"/>
                     </div>
                   </div>
                   <div class="cell-sm-6">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-email">E-mail</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-email">Courriel</label>
+{% endif %}
                       <input class="form-input" id="form-1-email" type="email" name="email" data-constraints="@Email @Required"/>
                     </div>
                   </div>
                   <div class="cell-sm-6">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-phone">Phone</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-phone">Téléphone</label>
+{% endif %}
                       <input class="form-input" id="form-1-phone" type="text" name="phone" data-constraints="@Numeric @Required"/>
                     </div>
                   </div>
                   <div class="cell-xs-12">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-subject">Subject</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-subject">Sujet</label>
+{% endif %}
                       <input class="form-input" id="form-1-message" type="text" name="subject" data-constraints="@Required"/>
                     </div>
                   </div>
@@ -65,7 +92,11 @@
                   </div>
                   <div class="cell-xs-12 offset-custom-1">
                     <div class="form-button">
+{% if langSelector == "Français" %}
                       <button class="button button-primary" type="submit">send message</button>
+{% else %}
+                      <button class="button button-primary" type="submit">Envoyer</button>
+{% endif %}
                     </div>
                   </div>
                 </div>
@@ -75,12 +106,20 @@
               <div class="column-aside">
                 <div class="range">
                   <div class="cell-xs-10 cell-sm-6 cell-md-12">
-                    <h6>E-mail </h6>
+{% if langSelector == "Français" %}
+                    <h6>E-mail</h6>
+{% else %}
+                    <h6>Courriel</h6>
+{% endif %}
                     <hr class="divider-thin"/>
                     <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-email-open"></span><span><a href="mailto:info@compuhelp-enterprises.ca">info@compuhelp-enterprises.ca</a></span></article>
                   </div>
                   <div class="cell-xs-10 cell-sm-6 cell-md-12">
+{% if langSelector == "Français" %}
                     <h6>Phone</h6>
+{% else %}
+                    <h6>Téléphone</h6>
+{% endif %}
                     <hr class="divider-thin"/>
                     <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-phone"></span>
                       <ul class="list-comma">
@@ -89,11 +128,19 @@
                     </article>
                   </div>
                   <div class="cell-xs-10 cell-sm-6 cell-md-12">
+{% if langSelector == "Français" %}
                     <h6>Opening hours </h6>
                     <hr class="divider-thin"/>
                     <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-calendar-clock"></span>
                       <ul class="list-0">
                         <li>Mon–Fri: 9:00 am–6:00 pm</li>
+{% else %}
+                    <h6>Heures d'ouverture</h6>
+                    <hr class="divider-thin"/>
+                    <article class="box-inline"><span class="icon icon-md-smaller icon-primary mdi mdi-calendar-clock"></span>
+                      <ul class="list-0">
+                        <li>Lundi au vendredi : 9:00 - 18:00</li>
+{% endif %}
                       </ul>
                     </article>
                   </div>
