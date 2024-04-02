@@ -1,15 +1,19 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}About Me{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block page %}
   <!-- Breadcrumbs-->
   <section class="breadcrumbs-custom bg-image">
     <div class="shell">
-      <p class="heading-1 breadcrumbs-custom-title">About Me</p>
+      <p class="heading-1 breadcrumbs-custom-title">{{title}}</p>
       <ul class="breadcrumbs-custom-path">
+{% if langSelector == "Français" %}
         <li><a href="/">Home</a></li>
-        <li class="active">About Me</li>
+{% else %}
+        <li><a href="/fr/accueil">Accueil</a></li>
+{% endif %}
+        <li class="active">{{title}}</li>
       </ul>
     </div>
   </section>
@@ -23,19 +27,31 @@
             <div class="cell-sm-6 cell-lg-12"><img src="{{asset('images/compuhelp/rene.lanteigne.jpg')}}" alt="" width="420" height="420"/>
             </div>
             <div class="cell-sm-6 cell-lg-12 text-sm-left">
+{% if langSelector == "Français" %}
               <h6>Get in Touch</h6>
+{% else %}
+              <h6>Contactez moi</h6>
+{% endif %}
               <!-- RD Mailform-->
               <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="/email">
                 <div class="range range-20">
                   <div class="cell-sm-12">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-name">First name</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-name">Prénom</label>
+{% endif %}
                       <input class="form-input" id="form-1-name" type="text" name="name" data-constraints="@Required"/>
                     </div>
                   </div>
                   <div class="cell-sm-12">
                     <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                       <label class="form-label-outside" for="form-1-email">E-mail</label>
+{% else %}
+                      <label class="form-label-outside" for="form-1-email">Courriel</label>
+{% endif %}
                       <input class="form-input" id="form-1-email" type="email" name="email" data-constraints="@Email @Required"/>
                     </div>
                   </div>
@@ -47,13 +63,21 @@
                   </div>
                   <div class="cell-xs-12 offset-custom-1">
                     <div class="form-button">
+{% if langSelector == "Français" %}
                       <button class="button button-primary" type="submit">send message</button>
+{% else %}
+                      <button class="button button-primary" type="submit">Envoyer</button>
+{% endif %}
                     </div>
                     <div class="text-center" >
                       <ul class="inline-list-xs p-5 g-5">
                         <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-facebook" href="https://www.facebook.com/rene.lanteigne.1"></a></li>
                         <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-twitter" href="https://twitter.com/jatrade35"></a></li>
+{% if langSelector == "Français" %}
                         <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-linkedin" href="https://www.linkedin.com/in/rene-lanteigne/"></a></li>
+{% else %}
+                        <li><a class="icon icon-sm-bigger icon-gray-1 mdi mdi-linkedin" href="https://www.linkedin.com/in/rene-lanteigne/?locale=fr_FR"></a></li>
+{% endif %}
                       </ul>
                     </div>  
                   </div>
@@ -65,31 +89,52 @@
         <div class="cell-lg-6">
           <div class="range range-120">
             <div class="cell-xs-12">
+{% if langSelector == "Français" %}
               <div class="heading-5">Owner Consultant</div>
               <h3>René Lanteigne</h3>
               <div class="divider divider-default"></div>
               <p class="text-spacing-sm">My professional journey reflects a lifetime of diverse experiences and a relentless pursuit of knowledge. It all began in 1980, at the age of 14, when I delved into the world of computer programming. Fast forward to 1982, and I secured my first role as a computer technical support agent at the Ottawa School Board of Education. My path took unexpected turns, including a stint in digital electronics engineering and small engine mechanics, showcasing my curiosity and adaptability.</p>
-              <p class="text-spacing-sm">Over the years, I've worn many hats – from VP of HR, Marketing, and Sales to roles in education as a Course Supervisor. In 2002, fueled by a passion for technology, I founded CompuHelp Enterprises, a company dedicated to assisting individuals with their software and hardware challenges. I've contributed to diverse industries, from real estate and construction to software development in the aerospace industry at CAE, where I spent over a decade as a software developper and test engineer. I then transitionned to Software Product Management where I led a team of software developers to create and maintain the OMNIalert mass notification system. In 2024, I embarked on a new chapter, bringing my wealth of experience to Formatio as the VP of IT Operations, further solidifying my commitment to innovation and leadership in the tech sector.</p>
+              <p class="text-spacing-sm">Over the years, I've worn many hats - from VP of HR, Marketing, and Sales to roles in education as a Course Supervisor. In 2002, fueled by a passion for technology, I founded CompuHelp Enterprises, a company dedicated to assisting individuals with their software and hardware challenges. I've contributed to diverse industries, from real estate and construction to software development in the aerospace industry at CAE, where I spent over a decade as a software developper and test engineer. I then transitionned to Software Product Management where I led a team of software developers to create and maintain the OMNIalert mass notification system. In 2024, I embarked on a new chapter, bringing my wealth of experience to Formatio as the Director of IT Operations, further solidifying my commitment to innovation and leadership in the tech sector.</p>
+{% else %}
+              <div class="heading-5">Propriétaire Consultant</div>
+              <h3>René Lanteigne</h3>
+              <div class="divider divider-default"></div>
+              <p class="text-spacing-sm">Mon parcours professionnel reflète une vie d'expériences diverses et une recherche incessante de connaissances. Tout a commencé en 1980, à l’âge de 14 ans, lorsque je me suis plongé dans le monde de la programmation informatique. Avance rapide jusqu’en 1982, et j’ai obtenu mon premier rôle d’agent de soutien technique informatique au Conseil scolaire d’Ottawa. Mon parcours a pris des tournants inattendus, notamment un passage dans l'ingénierie électronique numérique et la mécanique de petits moteurs, démontrant ma curiosité et ma capacité d'adaptation.</p>
+              <p class="text-spacing-sm">Au fil des années, j'ai porté de nombreus chapeaux - de vice-président des ressources humaines, du marketing et des ventes à des rôles dans l'éducation en tant que superviseur de cours. En 2002, animé par une passion pour la technologie, j'ai fondé Les entreprises CompuHelp, une société dédiée à aider les individus à relever leurs défis informatiques tant au niveau logiciels et matériels. J'ai contribué à divers secteurs, de l'immobilier et de la construction au développement de logiciels dans l'industrie aérospatiale chez CAE, où j'ai passé plus d'une décennie en tant que développeur de logiciels et ingénieur de test. J'ai ensuite évolué vers la gestion de produits logiciels où j'ai dirigé une équipe de développeurs de logiciels pour créer et maintenir le système de notification de masse OMNIalert. En 2024, je me suis lancé dans un nouveau chapitre, apportant ma richesse d'expérience à Formatio en tant que directeur des opérations TI, renforçant ainsi mon engagement envers l'innovation et le leadership dans le secteur technologique.</p>
+{% endif %}
               <div class="range text-center range-md range-30 range-xxs-center">
                 <div class="cell-xxs-6 cell-xs-4">
                   <div class="progress-bar-circle" data-value="0.75" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+{% if langSelector == "Français" %}
                   <div class="heading-5">Programming</div>
+{% else %}
+                  <div class="heading-5">Programmation</div>
+{% endif %}
                 </div>
                 <div class="cell-xxs-6 cell-xs-4">
                   <div class="progress-bar-circle" data-value="0.50" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+{% if langSelector == "Français" %}
                   <div class="heading-5">Strategy</div>
+{% else %}
+                  <div class="heading-5">Strategie</div>
+{% endif %}
                 </div>
                 <div class="cell-xxs-6 cell-xs-4">
                   <div class="progress-bar-circle" data-value="0.25" data-gradient="#1cd8c9, #1cd8c9" data-empty-fill="rgb(242,243,249)" data-size="140" data-thickness="6"><span class="radial">5</span></div>
+{% if langSelector == "Français" %}
                   <div class="heading-5">Design</div>
+{% else %}
+                  <div class="heading-5">Conception</div>
+{% endif %}
                 </div>
               </div>
             </div>
             <div class="cell-xs-12">
               <div class="range range-70">
                 <div class="cell-sm-6">
+{% if langSelector == "Français" %}
                   <h6>Skills</h6>
-                  <p>Software Engineering, Product Management, Change Management, IT Architecture<br class="veil reveal-xl-block"/> strategy, communication, coaching, SCRUM
+                  <p>Software Engineering, Product Management, Change Management, IT Architecture,<br class="veil reveal-xl-block"/>strategy, communication, coaching, SCRUM
                   </p>
                 </div>
                 <div class="cell-sm-6">
@@ -100,6 +145,20 @@
                     <li>2022 — Scrum Master</li>
                     <li>2017 — Lean Six-Sigma Black Belt</li>
                     <li>2015 — Agile Product Manager</li>
+{% else %}
+                  <h6>Compétences</h6>
+                  <p>Génie logiciel, gestion de produits, gestion du changement, architecture informatique,<br class="veil reveal-xl-block"/>stratégie, communication, coaching, SCRUM
+                  </p>
+                </div>
+                <div class="cell-sm-6">
+                  <h6>Certification</h6>
+                  <ul class="list list-xxs text-spacing-sm">
+                    <li>2023 — Developpeur Professionnel Android Meta</li>
+                    <li>2022 — Leader Agile</li>
+                    <li>2022 — Scrum Master</li>
+                    <li>2017 — Ceinture noir Lean Six-Sigma</li>
+                    <li>2015 — Gestionnaire de produit Agile</li>
+{% endif %}
                   </ul>
                 </div>
               </div>
@@ -111,7 +170,7 @@
   </section>
 
   {% if not testimonials is empty   %}
-    <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="2" />
+    <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="2" langSelector="{{langSelector}}" />
   {% endif %}
   <!-- CTA Gradient-->
   <section class="section section-md text-center text-sm-left bg-gray-darker">
@@ -120,10 +179,17 @@
         <div class="cell-xl-8">
           <div class="box-cta box-cta-inline">
             <div class="box-cta-inner">
+{% if langSelector == "Français" %}
               <h3 class="box-cta-title">Do you need a consultation?</h3>
               <p>I specialize in delivering cutting-edge software solutions and expert IT consulting services, ensuring that your business not only meets but exceeds its technological goals with innovation, efficiency, and seamless integration.</p>
             </div>
             <div class="box-cta-inner"><a class="button button-primary" href="https://calendly.com/jatrade35-r40/30min" target="_blank" >Schedule a free consultation</a></div>
+{% else %}
+              <h3 class="box-cta-title">Besoin d'une consultation ?</h3>
+              <p>Je me spécialise dans la production de solutions logicielles de pointe et de services de conseil informatiques experts, garantissant que votre entreprise non seulement atteint, mais dépasse ses objectifs technologiques avec l'innovation, l'efficacité et une intégration transparente.</p>
+            </div>
+            <div class="box-cta-inner"><a class="button button-primary" href="https://calendly.com/jatrade35-r40/30min" target="_blank" >Planifiez une consultation gratuite</a></div>
+{% endif %}
           </div>
         </div>
       </div>

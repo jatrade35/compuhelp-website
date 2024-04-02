@@ -53,7 +53,7 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $ha3key;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/about-me";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Qui suis-je ?";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/about-me.html.twig", $parameters);

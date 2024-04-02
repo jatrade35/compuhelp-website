@@ -1,4 +1,4 @@
-{% props testimonials = null, layout = null %}
+{% props testimonials = null, layout = null, langSelector = "Français" %}
 
 <!-- Testimonials-->
 
@@ -16,7 +16,11 @@
   <section class="section section-lg text-center bg-{{bg}}">
     <div class="shell shell-{{shell}}">
     {% if layout == 2 %}<div class="range range-50 range-sm-center"><div class="cell-sm-11 cell-md-10 cell-xl-7 cell-xxl-6">{% endif %}
+{% if langSelector == "Français" %}
       <h3>Testimonials</h3>
+{% else %}
+      <h3>Témoignages</h3>
+{% endif %}
       <div class="divider divider-default"></div>
       {% if testimonials|length > 1 %}
       <!-- Owl Carousel-->
