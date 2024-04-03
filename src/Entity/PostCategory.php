@@ -16,7 +16,10 @@ class PostCategory
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Name = null;
+    private ?string $name_en = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $name_fr = null;
 
     #[ORM\OneToMany(targetEntity: Post::class, mappedBy: 'category')]
     private Collection $posts;

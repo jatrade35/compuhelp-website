@@ -21,6 +21,9 @@ class Paragraph
     #[ORM\JoinColumn(nullable: false)]
     private ?Post $post = null;
 
+    #[ORM\Column(length: 2)]
+    private ?string $language = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -53,6 +56,18 @@ class Paragraph
     public function setPost(?Post $post): static
     {
         $this->post = $post;
+
+        return $this;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->language;
+    }
+
+    public function setLanguage(string $language): static
+    {
+        $this->language = $language;
 
         return $this;
     }

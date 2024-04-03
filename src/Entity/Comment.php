@@ -23,9 +23,6 @@ class Comment
     #[ORM\Column(length: 255, options:["default"=>""])]
     private ?string $avatar = null;
 
-    #[ORM\Column(type: Types::TEXT, options:["default"=>""])]
-    private ?string $content = null;
-
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'replies')]
     #[ORM\JoinColumn(nullable: true)]
     private ?self $comment = null;
@@ -40,9 +37,13 @@ class Comment
     #[ORM\Column(type: Types::DATETIME_MUTABLE, options:["default"=>"CURRENT_TIMESTAMP"])]
     private ?\DateTimeInterface $datetimeposted = null;
 
+    #[ORM\OneToMany(targetEntity: CommentLang::class, mappedBy: 'comment', orphanRemoval: true)]
+    private Collection $commentLangs;
+
     public function __construct()
     {
         $this->replies = new ArrayCollection();
+        $this->commentLangs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,5 +189,35 @@ class Comment
         }
 
         return $age;
+    }
+
+    /**
+     * @return Collection<int, CommentLang>
+     */
+    public function getCommentLangs(): Collection
+    {
+        return $this->commentLangs;
+    }
+
+    public function addCommentLang(CommentLang $commentLang): static
+    {
+        if (!$this->commentLangs->contains($commentLang)) {
+            $this->commentLangs->add($commentLang);
+            $commentLang->setComment($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommentLang(CommentLang $commentLang): static
+    {
+        if ($this->commentLangs->removeElement($commentLang)) {
+            // set the owning side to null (unless already changed)
+            if ($commentLang->getComment() === $this) {
+                $commentLang->setComment(null);
+            }
+        }
+
+        return $this;
     }
 }

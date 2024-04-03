@@ -17,7 +17,10 @@ class Post
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $title_en = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $title_fr = null;
 
     #[ORM\Column(length: 100)]
     private ?string $author = null;

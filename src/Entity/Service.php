@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ServiceRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -18,22 +20,15 @@ class Service
     private ?string $icon = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
-
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $text = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $imagepath = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $description = null;
+    #[ORM\OneToMany(targetEntity: ServiceLang::class, mappedBy: 'service', orphanRemoval: true)]
+    private Collection $serviceLangs;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $salesPitch = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $quote = null;
+    public function __construct()
+    {
+        $this->serviceLangs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -52,7 +47,7 @@ class Service
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(String $language): ?string
     {
         return $this->title;
     }
@@ -120,6 +115,36 @@ class Service
     public function setQuote(string $quote): static
     {
         $this->quote = $quote;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ServiceLang>
+     */
+    public function getServiceLangs(): Collection
+    {
+        return $this->serviceLangs;
+    }
+
+    public function addServiceLang(ServiceLang $serviceLang): static
+    {
+        if (!$this->serviceLangs->contains($serviceLang)) {
+            $this->serviceLangs->add($serviceLang);
+            $serviceLang->setService($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServiceLang(ServiceLang $serviceLang): static
+    {
+        if ($this->serviceLangs->removeElement($serviceLang)) {
+            // set the owning side to null (unless already changed)
+            if ($serviceLang->getService() === $this) {
+                $serviceLang->setService(null);
+            }
+        }
 
         return $this;
     }

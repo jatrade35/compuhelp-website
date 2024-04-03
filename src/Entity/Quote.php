@@ -17,6 +17,9 @@ class Quote
     #[ORM\OneToOne(inversedBy: 'quote', cascade: ['persist', 'remove'])]
     private ?Post $post = null;
 
+    #[ORM\Column(length: 2)]
+    private ?string $language = null;
+
     #[ORM\Column(length: 255)]
     private ?string $author = null;
 
