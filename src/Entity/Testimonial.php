@@ -47,9 +47,13 @@ class Testimonial
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getContent(string $language): ?string
     {
-        return $this->content;
+        $filter = $this->testimonialLangs->filter(function($testimonialLang) use ($language){
+            return $testimonialLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getContent();
     }
 
     public function setContent(string $content): static
@@ -71,9 +75,13 @@ class Testimonial
         return $this;
     }
 
-    public function getPosition(): ?string
+    public function getPosition(string $language): ?string
     {
-        return $this->position;
+        $filter = $this->testimonialLangs->filter(function($testimonialLang) use ($language){
+            return $testimonialLang->getLanguage() == $language;
+        });
+        
+        return $filter->first()->getPosition();
     }
 
     public function setPosition(?string $position): static

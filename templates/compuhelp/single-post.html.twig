@@ -4,7 +4,6 @@
 
 {% block page %}
 
-{% set datetime = post.getTimePosted() %}
 {% set image = asset(post.imagePath) %}
 
 {% if langSelector == "Français" %}
@@ -12,6 +11,8 @@
 {% else %}
   {% set language = "fr" %}
 {% endif %}
+
+{% set datetime = post.getTimePosted(language) %}
 
 <!-- Single post-->
 <section class="section section-lg bg-white">

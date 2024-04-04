@@ -17,8 +17,10 @@
     <div class="shell shell-{{shell}}">
     {% if layout == 2 %}<div class="range range-50 range-sm-center"><div class="cell-sm-11 cell-md-10 cell-xl-7 cell-xxl-6">{% endif %}
 {% if langSelector == "Français" %}
+    {% set language = "en" %}
       <h3>Testimonials</h3>
 {% else %}
+    {% set language = "fr" %}
       <h3>Témoignages</h3>
 {% endif %}
       <div class="divider divider-default"></div>
@@ -35,11 +37,11 @@
                 {% if layout ==1 %}<div class="quote-boxed-aside">{% endif %}<img class="quote-{{quotestyle}}-image" src="{{image}}" alt="" width="210" height="210"/>{% if layout ==1 %}</div>{% endif %}
         		{% if layout ==1 %}<div class="quote-boxed-main">{% endif %}
                 <div class="quote-{{quotestyle}}-text">
-                    <p>{{testimonial.content}}</p>
+                    <p>{{testimonial.getContent(language)}}</p>
                 </div>
                 <div class="quote-{{quotestyle}}-meta">
                     <p class="quote-{{quotestyle}}-cite">{{testimonial.author}}</p>
-                    <p class="quote-{{quotestyle}}-small">{{testimonial.position}}</p>
+                    <p class="quote-{{quotestyle}}-small">{{testimonial.getPosition(language)}}</p>
                 </div>
         		{% if layout ==1 %}</div>{% endif %}
             </article>

@@ -7,6 +7,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use \IntlDateFormatter;
+
 
 #[ORM\Entity(repositoryClass: PostRepository::class)]
 class Post
@@ -119,14 +121,34 @@ class Post
         return $this;
     }
 
-    public function getDatetimePosted(string $language = "en"): ?\DateTimeInterface
+    public function getDatetimePosted(): ?\DateTimeInterface
     {
         return $this->datetimePosted;
     }
 
-    public function getTimePosted(): ?string
+    public function getTimePosted(string $language = "en"): ?string
     {
-        return $this->datetimePosted->format('M, j Y \a\t g:i a');
+        if($language == "en")
+        {
+            $fmt = new IntlDateFormatter(
+                'en_CA',
+                IntlDateFormatter::MEDIUM,
+                IntlDateFormatter::MEDIUM,
+                'UTC',
+                IntlDateFormatter::GREGORIAN,
+                "MMM d Y 'at' h:mm a");
+        }
+        else
+        {
+            $fmt = new IntlDateFormatter(
+                'fr_CA',
+                IntlDateFormatter::MEDIUM,
+                IntlDateFormatter::MEDIUM,
+                'UTC',
+                IntlDateFormatter::GREGORIAN,
+                "d MMM Y 'à' H'h'mm");
+        }
+        return datefmt_format($fmt, $this->datetimePosted);
     }
 
     public function setDatetimePosted(\DateTimeInterface $datetimePosted): static
@@ -179,7 +201,6 @@ class Post
      */
     public function getParagraphs(string $language = "en"): Collection
     {
-        $filter = null;
         $filter = $this->paragraphs->filter(function($paragraph) use ($language){
             return $paragraph->getLanguage() == $language;
         });
