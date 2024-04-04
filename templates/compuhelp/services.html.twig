@@ -5,10 +5,14 @@
   <!-- Breadcrumbs-->
   <section class="breadcrumbs-custom bg-image">
     <div class="shell">
-      <p class="heading-1 breadcrumbs-custom-title">Services</p>
+      <p class="heading-1 breadcrumbs-custom-title">{{title}}</p>
       <ul class="breadcrumbs-custom-path">
-        <li><a href="/">{{title}}</a></li>
-        <li class="active">Services</li>
+{% if langSelector == "Français" %}
+        <li><a href="/">Home</a></li>
+{% else %}
+        <li><a href="/fr/accueil">Accueil</a></li>
+{% endif %}
+        <li class="active">{{title}}</li>
       </ul>
     </div>
   </section>

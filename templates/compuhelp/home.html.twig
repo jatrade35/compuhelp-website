@@ -45,7 +45,7 @@
       </div>
       <div class="range range-50 range-xs-center offset-custom-2">
       {% for service in services %}
-        <twig:compuhelp-service service="{{service}}" />
+        <twig:compuhelp-service service="{{service}}" language="{{language}}"/>
       {% endfor %}
       </div>
     </div>
@@ -109,7 +109,7 @@
           <div class="row" style="display:flex;flex-direction:row;justify-content:space-evenly;margin-top:40px;" >
             {% for post in recent_posts %}
               {% set image = asset(post.imagePath) %}
-              <twig:compuhelp-postblog link="/blog?post={{post.id}}" image="{{image}}" category="{{post.category.getName(language)}}" title="{{post.getTitle(language)}}" datetime="{{post.getTimePosted('fr')}}" langSelector="{{langSelector}}" /> 
+              <twig:compuhelp-postblog link="/blog?post={{post.id}}" image="{{image}}" category="{{post.category.getName(language)}}" title="{{post.getTitle(language)}}" datetime="{{post.getTimePosted(language)}}" langSelector="{{langSelector}}" /> 
             {% endfor %}
           </div>
         </div>

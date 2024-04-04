@@ -1,12 +1,12 @@
-{% props service %}
+{% props service = null, language = "en" %}
 
 <div class="cell-xs-10 cell-md-4 cell-lg-3">
     <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical thumbnail-classic-primary">
     <div class="thumbnail-classic-icon unit-left"><span class="icon mdi {{service.icon}}"></span></div>
     <div class="thumbnail-classic-caption unit-body">
-        <h6 class="thumbnail-classic-title">{{service.title}}</h6>
+        <h6 class="thumbnail-classic-title">{{service.getTitle(language)}}</h6>
         <hr class="divider divider-default divider-sm" />
-        <p class="thumbnail-classic-text">{{service.text}}</p>
+        <p class="thumbnail-classic-text">{{service.getText(language)}}</p>
     </div>
     </div>
 </div>
