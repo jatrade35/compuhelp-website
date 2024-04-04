@@ -9,10 +9,9 @@
 <!-- Post modern-->
 <article class="post-modern">
     <div class="post-modern-aside">
-        {% set datetime = post.getTimePosted() %}
+        {% set datetime = post.getTimePosted(language) %}
         {% set authorImg = asset(post.authorImagePath) %}
         {% set postImg = asset(post.imagePath) %}
-
         <time>{{datetime}}</time>
         <figure class="post-modern-avatar-wrap"><img class="post-modern-avatar" src="{{authorImg}}" alt="" width="108" height="108"/>
         </figure>
@@ -20,11 +19,13 @@
     </div>
 {% if langSelector == "Français" %}
     <div class="post-modern-main"><a class="post-modern-image" href="/blog?post={{post.id}}"><img src="{{postImg}}" alt="" width="870" height="580"/></a>
-{% else %}
-    <div class="post-modern-main"><a class="post-modern-image" href="/fr/blog?post={{post.id}}"><img src="{{postImg}}" alt="" width="870" height="580"/></a>
-{% endif %}
         <div class="post-modern-body">
         <h5 class="post-modern-title"><a href="/blog?post={{post.id}}">{{post.getTitle(language)}}</a></h5>
+{% else %}
+    <div class="post-modern-main"><a class="post-modern-image" href="/fr/blog?post={{post.id}}"><img src="{{postImg}}" alt="" width="870" height="580"/></a>
+        <div class="post-modern-body">
+        <h5 class="post-modern-title"><a href="/fr/blog?post={{post.id}}">{{post.getTitle(language)}}</a></h5>
+{% endif %}
         <p style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden;">{{post.getParagraphs(language)|first.content}}</p>
         <div class="post-modern-footer">
             <div>
@@ -35,7 +36,11 @@
             <div>
             <ul class="post-modern-info">
                 <li><span class="icon mdi mdi-eye"></span><span>{{post.views}}</span></li>
+{% if langSelector == "Français" %}
                 <li><a href="/blog?post={{post.id}}"><span class="icon mdi mdi-comment"></span><span>{{post.commentCount}}</span></a></li>
+{% else %}
+                <li><a href="/fr/blog?post={{post.id}}"><span class="icon mdi mdi-comment"></span><span>{{post.commentCount}}</span></a></li>
+{% endif %}
             </ul>
             </div>
         </div>
