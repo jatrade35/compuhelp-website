@@ -1,14 +1,22 @@
-{% props post %}
+{% props post = null, langSelector = "Français" %}
+
 {% set imagepath = asset(post.imagepath)%}
 
 <!-- Post-light -->
 <div class="cell-xs-10 cell-sm-6 post-light-wrap">
   <article class="post-light">
     <div class="unit unit-horizontal">
+{% if langSelector == "Français" %}
       <div class="unit-left"><a href="/blog?post={{post.id}}"><img src="{{imagepath}}" alt="" width="120" height="80"/></a></div>
       <div class="unit-body">
-        <p class="post-light-title"><a href="/blog?post={{post.id}}">{{post.title}}</a></p>
-        <time class="post-light-time">{{post.getTimePosted()}}</time>
+        <p class="post-light-title"><a href="/blog?post={{post.id}}">{{post.getTitle("en")}}</a></p>
+        <time class="post-light-time">{{post.getTimePosted("en")}}</time>
+{% else %}
+      <div class="unit-left"><a href="/fr/blog?post={{post.id}}"><img src="{{imagepath}}" alt="" width="120" height="80"/></a></div>
+      <div class="unit-body">
+        <p class="post-light-title"><a href="/fr/blog?post={{post.id}}">{{post.getTitle("fr")}}</a></p>
+        <time class="post-light-time">{{post.getTimePosted("fr")}}</time>
+{% endif %}
       </div>
     </div>
   </article>

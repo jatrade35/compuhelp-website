@@ -29,7 +29,10 @@ class Post
     private ?\DateTimeInterface $datetimePosted = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $breadcrumb = null;
+    private ?string $breadcrumb_en = null;
+
+    #[ORM\Column(length: 100)]
+    private ?string $breadcrumb_fr = null;
 
     #[ORM\Column(length: 100)]
     private ?string $imagePath = null;
@@ -78,14 +81,28 @@ class Post
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getTitle(string $language = "en"): ?string
     {
-        return $this->title;
+        if($language == "en")
+        {
+            return $this->title_en;
+        }
+        else
+        {
+            return $this->title_fr;
+        }
     }
 
-    public function setTitle(string $title): static
+    public function setTitle(string $title, string $language = "en"): static
     {
-        $this->title = $title;
+        if($language == "en")
+        {
+            $this->title_en = $title;
+        }
+        else
+        {
+            $this->title_fr = $title;
+        }
 
         return $this;
     }
@@ -102,7 +119,7 @@ class Post
         return $this;
     }
 
-    public function getDatetimePosted(): ?\DateTimeInterface
+    public function getDatetimePosted(string $language = "en"): ?\DateTimeInterface
     {
         return $this->datetimePosted;
     }
@@ -119,14 +136,28 @@ class Post
         return $this;
     }
 
-    public function getBreadcrumb(): ?string
+    public function getBreadcrumb(string $language = "en"): ?string
     {
-        return $this->breadcrumb;
+        if($language == "en")
+        {
+            return $this->breadcrumb_en;
+        }
+        else
+        {
+            return $this->breadcrumb_fr;
+        }
     }
 
-    public function setBreadcrumb(string $breadcrumb): static
+    public function setBreadcrumb(string $breadcrumb, string $language = "en"): static
     {
-        $this->breadcrumb = $breadcrumb;
+        if($language == "en")
+        {
+            $this->breadcrumb_en = $breadcrumb;
+        }
+        else
+        {
+            $this->breadcrumb_fr = $breadcrumb;
+        }
 
         return $this;
     }
@@ -146,12 +177,16 @@ class Post
     /**
      * @return Collection<int, Paragraph>
      */
-    public function getParagraphs(): Collection
+    public function getParagraphs(string $language = "en"): Collection
     {
-        return $this->paragraphs;
+        $filter = null;
+        $filter = $this->paragraphs->filter(function($paragraph) use ($language){
+            return $paragraph->getLanguage() == $language;
+        });
+        return $filter;
     }
 
-    public function addParagraph(Paragraph $paragraph): static
+    public function addParagraph(Paragraph $paragraph, string $language = "en"): static
     {
         if (!$this->paragraphs->contains($paragraph)) {
             $this->paragraphs->add($paragraph);

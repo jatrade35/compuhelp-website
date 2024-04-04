@@ -1,11 +1,15 @@
 {% props link = null, image = null, category = null, title = null, datetime = null, langSelector = "Français" %}
-<div class="" >
+<div style="max-width:30%;">
     <article class="post-blog"><a class="post-blog-image" href="{{link}}"><img
             src="{{image}}" alt="" width="570" height="auto" /></a>
-        <div class="post-blog-caption">
+        <div class="post-blog-caption" style="height:275px !important" >
         <div class="post-blog-caption-header">
             <ul class="post-blog-tags">
+{% if langSelector == "Français" %}
             <li><a class="button-tags" href="{{link}}">{{category}}</a></li>
+{% else %}
+            <li><a class="button-tags" href="/fr{{link}}">{{category}}</a></li>
+{% endif %}
             </ul>
             <ul class="post-blog-meta">
 {% if langSelector == "Français" %}

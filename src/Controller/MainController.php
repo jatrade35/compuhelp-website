@@ -28,7 +28,7 @@ class MainController extends AbstractController
             $parameters = ['preloader_class'=>"rd-navbar-fixed-linked", 'header_class'=>"breadcrumbs-custom-wrap bg-gray-darker"];
             $parameters['ha3key'] = $_ENV['HA3_KEY'];
             $repository = $entityManager->getRepository(Service::class);
-            $parameters['services'] = $repository->findAll();
+            $parameters['services'] = $repository->findAllByLanguage('en');
             $repository = $entityManager->getRepository(Post::class);
             $parameters['recent_posts'] = $repository->findBy( 
                                                                 [],
@@ -89,6 +89,7 @@ class MainController extends AbstractController
                 $breadcrumbs = true;
 
                 $parameters['post'] = $post;
+                $parameters['langSelectorURL'] = "/fr/blog?post=" . $postId;
                 $parameters['recentposts'] = $repository->getRecentPosts(["p.id != " . $post->getId()],4);
             }
             else

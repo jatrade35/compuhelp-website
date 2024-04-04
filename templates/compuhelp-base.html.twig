@@ -22,7 +22,11 @@
   <![endif]--> 
 {% endblock %}
 {% if breadcrumbs %}
-  {% set posttitle = post.title %}
+  {% if langSelector == "Français" %}
+    {% set posttitle = post.getTitle("en") %}
+  {% else %}
+    {% set posttitle = post.getTitle("fr") %}
+  {% endif %}
   {% set postauthor = post.author %}
   {% set image = asset(post.imagepath) %}
 {% else %}

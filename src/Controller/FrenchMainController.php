@@ -80,6 +80,7 @@ class FrenchMainController extends AbstractController
                 $breadcrumbs = true;
 
                 $parameters['post'] = $post;
+                $parameters['langSelectorURL'] = "/blog?post=" . $postId;
                 $parameters['recentposts'] = $repository->getRecentPosts(["p.id != " . $post->getId()],4);
             }
             else

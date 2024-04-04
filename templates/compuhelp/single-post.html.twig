@@ -1,11 +1,17 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}René's Blog{% endblock %}
+{% block title %}{{title}}{% endblock %}
 
 {% block page %}
 
 {% set datetime = post.getTimePosted() %}
 {% set image = asset(post.imagePath) %}
+
+{% if langSelector == "Français" %}
+  {% set language = "en" %}
+{% else %}
+  {% set language = "fr" %}
+{% endif %}
 
 <!-- Single post-->
 <section class="section section-lg bg-white">
@@ -20,7 +26,7 @@
             </div>
           </li>
         </ul>
-        {% for paragraph in post.paragraphs %}
+        {% for paragraph in post.getParagraphs(language) %}
           {% if loop.index == 1 %}
             <p class="big">{{paragraph.content}}</p><img src="{{image}}" alt="" width="870" height="580"/>
           {% endif %}
@@ -31,41 +37,65 @@
         {% endfor %}
       </article>
       <div class="section-md">
+{% if langSelector == "Français" %}
         <p class="h3-alternate">Comments</p>
+{% else %}
+        <p class="h3-alternate">Commentaires</p>
+{% endif %}
         <div class="comment-group">
             {% for comment in post.comments %}
               {% set avatar = asset(comment.avatar) %}
-              {% set datetime = comment.getAge() %}
+              {% set datetime = comment.getAge(language) %}
               <twig:compuhelp-comment datetime="{{datetime}}" author="{{comment.author}}" avatar="{{avatar}}" content="{{comment.content}}" replies="{{comment.replies}}" />
             {% endfor %}
         </div>
       </div>
       <div class="section-lg">
+{% if langSelector == "Français" %}
         <p class="h3-alternate">Send a Comment</p>
+{% else %}
+        <p class="h3-alternate">Envoyer un commentaire</p>
+{% endif %}
         <!-- RD Mailform-->
         <form class="rd-mailform" data-form-output="form-output-global" data-form-type="contact" method="post" action="/email">
           <div class="range range-20">
             <div class="cell-sm-6">
               <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                 <label class="form-label-outside" for="form-comment-name">First name</label>
+{% else %}
+                <label class="form-label-outside" for="form-comment-name">Prénom</label>
+{% endif %}
                 <input class="form-input" id="form-comment-name" type="text" name="name" data-constraints="@Required"/>
               </div>
             </div>
             <div class="cell-sm-6">
               <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                 <label class="form-label-outside" for="form-comment-last-name">Last name</label>
+{% else %}
+                <label class="form-label-outside" for="form-comment-last-name">Nom</label>
+{% endif %}
                 <input class="form-input" id="form-comment-last-name" type="text" name="last-name" data-constraints="@Required"/>
               </div>
             </div>
             <div class="cell-sm-6">
               <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                 <label class="form-label-outside" for="form-comment-email">E-mail</label>
+{% else %}
+                <label class="form-label-outside" for="form-comment-email">Courriel</label>
+{% endif %}
                 <input class="form-input" id="form-comment-email" type="email" name="email" data-constraints="@Email @Required"/>
               </div>
             </div>
             <div class="cell-sm-6">
               <div class="form-wrap form-wrap-validation">
+{% if langSelector == "Français" %}
                 <label class="form-label-outside" for="form-comment-phone">Phone</label>
+{% else %}
+                <label class="form-label-outside" for="form-comment-phone">Téléphone</label>
+{% endif %}
                 <input class="form-input" id="form-comment-phone" type="text" name="phone" data-constraints="@Numeric @Required"/>
               </div>
             </div>
@@ -77,17 +107,25 @@
             </div>
             <div class="cell-xs-12 offset-custom-1">
               <div class="form-button">
+{% if langSelector == "Français" %}
                 <button class="button button-primary" type="submit">send comment</button>
+{% else %}
+                <button class="button button-primary" type="submit">Envoyer un commentaire</button>
+{% endif %}
               </div>
             </div>
           </div>
         </form>
       </div>
       <div class="section-sm">
+{% if langSelector == "Français" %}
         <p class="h3-alternate">Recent Posts </p>
+{% else %}
+        <p class="h3-alternate">Articles récents </p>
+{% endif %}
         <div class="range range-30 range-lg-50">
           {% for post in recentposts %}
-            <twig:compuhelp-postlight post="{{post}}"/> 
+            <twig:compuhelp-postlight post="{{post}}" langSelector="{{langSelector}}" /> 
           {% endfor %}
         </div>
       </div>
@@ -101,16 +139,27 @@
 <div class="shell">
   <div class="range range-50 range-sm-center">
     <div class="cell-sm-9 cell-md-7 cell-lg-6">
+{% if langSelector == "Français" %}
       <h3 class="text-center">NewsLetter</h3>
       <p>Keep up with our always upcoming product features and technologies. <br/> Enter your e-mail and subscribe to our newsletter.</p>
+{% else %}
+      <h3 class="text-center">Infolettre</h3>
+      <p>Tenez-vous au courant des fonctionnalités et technologies de nos produits toujours à venir. <br/> Entrez votre courriel et abonnez-vous à notre newsletter.</p>
+{% endif %}
       <!-- RD Mailform: Subscribe-->
       <form class="rd-mailform rd-mailform-inline rd-mailform-sm rd-mailform-inline-modern" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="/email">
         <div class="rd-mailform-inline-inner">
           <div class="form-wrap">
             <input class="form-input" type="email" name="email" data-constraints="@Email @Required" id="subscribe-form-email-1"/>
+{% if langSelector == "Français" %}
             <label class="form-label" for="subscribe-form-email-1">Enter your e-mail</label>
           </div>
           <button class="button form-button button-sm button-primary" type="submit">Subscribe</button>
+{% else %}
+            <label class="form-label" for="subscribe-form-email-1">Entrez votre courriel</label>
+          </div>
+          <button class="button form-button button-sm button-primary" type="submit">Abonnez-vous</button>
+{% endif %}
         </div>
       </form>
     </div>

@@ -24,7 +24,7 @@
       <div class="range range-ten range-50 range-sm-90 range-sm-center range-lg-justify">
         <div class="cell-sm-9 cell-md-6 blog-modern-main text-center">
           {% for postObject in posts %}
-            <twig:compuhelp-postmodern post="{{postObject}}" />
+            <twig:compuhelp-postmodern post="{{postObject}}" langSelector="{{langSelector}}" />
           {% endfor %}
           {% if postCount == count %}
             {% set newCount = count + 3 %}

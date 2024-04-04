@@ -47,27 +47,51 @@ class Service
         return $this;
     }
 
-    public function getTitle(String $language): ?string
+    public function getTitle(string $language = "en"): ?string
     {
-        return $this->title;
+        foreach($this->serviceLangs as $serviceLang)
+        {
+            if($serviceLang->getLanguage() == $language)
+            {
+                return $serviceLang->getTitle(); 
+            }
+        }
+        return "";
     }
 
-    public function setTitle(string $title): static
+    public function setTitle(string $title, string $language = "en"): static
     {
-        $this->title = $title;
-
+        foreach($this->serviceLangs as $serviceLang)
+        {
+            if($serviceLang->getLanguage() == $language)
+            {
+                $serviceLang->setTitle($title); 
+            }
+        }
         return $this;
     }
 
-    public function getText(): ?string
+    public function getText(string $language = "en"): ?string
     {
-        return $this->text;
+        foreach($this->serviceLangs as $serviceLang)
+        {
+            if($serviceLang->getLanguage() == $language)
+            {
+                return $serviceLang->getText(); 
+            }
+        }
+        return "";
     }
 
-    public function setText(string $text): static
+    public function setText(string $text, string $language = "en"): static
     {
-        $this->text = $text;
-
+        foreach($this->serviceLangs as $serviceLang)
+        {
+            if($serviceLang->getLanguage() == $language)
+            {
+                $serviceLang->setText($text); 
+            }
+        }
         return $this;
     }
 

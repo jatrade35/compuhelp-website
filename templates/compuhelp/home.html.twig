@@ -10,6 +10,7 @@
         <div class="range range-50 range-sm-center">
           <div class="cell-sm-10 cell-lg-9">
 {% if langSelector == "Français" %}
+{% set language = 'en' %}
             <h1>TechSavvy Solutions</h1>
             <p class="big">Compuhelp! Enterprises is a one-person company created with the idea of bringing you multipurpose and flexible IT
             Solutions. With a wealth of experience in the field, René Lanteigne offers a personalized and hands-on approach to address all your IT needs.
@@ -17,6 +18,7 @@
             He is also a veteran software designer, developer and database administrator. He uses various innovative technologies that make your work not only
             easier but more productive without unnecessary coding.</p><a class="button button-primary" href="/about-me">learn more</a>
 {% else %}
+{% set language = 'fr' %}
             <h1>Solutions à la fine pointe de la technologie</h1>
             <p class="big">Les entreprises Compuhelp! est une compagnie unipersonnelle créée avec l'idée de vous offrir des solutions informatiques polyvalentes et flexibles.
             Fort d'une riche expérience dans le domaine, René Lanteigne vous propose une approche personnalisée et pratique pour répondre à tous vos besoins informatiques.
@@ -104,13 +106,10 @@
           <h3>Derniers articles du blog</h3>
 {% endif %}
           <div class="divider divider-default"></div>
-          <!-- Owl Carousel-->
-          <div class="owl-carousel owl-carousel-team owl-carousel-inset" data-items="1" data-sm-items="2"
-            data-lg-items="3" data-stage-padding="15" data-loop="true" data-margin="30" data-mouse-drag="false"
-            data-dots="true">
+          <div class="row" style="display:flex;flex-direction:row;justify-content:space-evenly;margin-top:40px;" >
             {% for post in recent_posts %}
               {% set image = asset(post.imagePath) %}
-              <twig:compuhelp-postblog link="/blog?post={{post.id}}" image="{{image}}" category="{{post.category.name}}" title="{{post.title}}" datetime="{{post.getTimePosted()}}" /> 
+              <twig:compuhelp-postblog link="/blog?post={{post.id}}" image="{{image}}" category="{{post.category.getName(language)}}" title="{{post.getTitle(language)}}" datetime="{{post.getTimePosted('fr')}}" langSelector="{{langSelector}}" /> 
             {% endfor %}
           </div>
         </div>

@@ -34,14 +34,28 @@ class PostCategory
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(string $language = "en"): ?string
     {
-        return $this->Name;
+        if($language == "en")
+        {
+            return $this->name_en;
+        }
+        else
+        {
+            return $this->name_fr;
+        }
     }
 
-    public function setName(string $Name): static
+    public function setName(string $Name, string $language = "en"): static
     {
-        $this->Name = $Name;
+        if($language == "en")
+        {
+            $this->name_en = $name;
+        }
+        else
+        {
+            $this->name_fr = $name;
+        }
 
         return $this;
     }
