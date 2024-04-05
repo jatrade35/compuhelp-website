@@ -32,7 +32,11 @@
     <div class="shell shell-bigger">
       <div class="range range-ten range-50 range-sm-center range-lg-justify">
         <div class="cell-sm-8 cell-lg-4"> 
+{% if langSelector == "Français" %}
           <h3>About this Service</h3>
+{% else %}
+          <h3>Concernant ce service</h3>
+{% endif %}
           <div class="divider divider-default"></div>
           <p>{{service.getDescription(language)}}</p>
           <!-- Quote minimal-->
@@ -64,9 +68,15 @@
           <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
             <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-thumb-up-outline"></span></div>
             <div class="thumbnail-classic-caption unit-body">
+{% if langSelector == "Français" %}
               <h6 class="thumbnail-classic-title">Individual Approach</h6>
               <hr class="divider divider-default divider-sm"/>
               <p class="thumbnail-classic-text">I use an individual approach to each client and I never offer you a set of standard decisions for your business.</p>
+{% else %}
+              <h6 class="thumbnail-classic-title">Approche individuelle</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">J'utilise une approche individuelle pour chaque client et je ne vous propose jamais un ensemble de décisions standards pour votre entreprise.</p>
+{% endif %}
             </div>
           </div>
         </div>
@@ -74,9 +84,15 @@
           <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
             <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-account-multiple"></span></div>
             <div class="thumbnail-classic-caption unit-body">
+{% if langSelector == "Français" %}
               <h6 class="thumbnail-classic-title">Extensive Expertise</h6>
               <hr class="divider divider-default divider-sm"/>
               <p class="thumbnail-classic-text">Whether its designing, software development, database administration, marketing or server maintenance/migration, I am ready to help you with a personalized IT solution to suit your needs.</p>
+{% else %}
+              <h6 class="thumbnail-classic-title">Une vaste expertise</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">Qu'il s'agisse de conception, de développement de logiciels, d'administration de bases de données, de marketing ou de maintenance/migration de serveurs, je suis prêt à vous aider avec une solution informatique personnalisée adaptée à vos besoins.</p>
+{% endif %}
             </div>
           </div>
         </div>
@@ -84,9 +100,15 @@
           <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
             <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-headset"></span></div>
             <div class="thumbnail-classic-caption unit-body">
+{% if langSelector == "Français" %}
               <h6 class="thumbnail-classic-title">Online Support</h6>
               <hr class="divider divider-default divider-sm"/>
               <p class="thumbnail-classic-text">I answer every online support request within 24 hours and help you solve any issue you may have with my products and services.</p>
+{% else %}
+              <h6 class="thumbnail-classic-title">Support en ligne</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">Je réponds à chaque demande d'assistance en ligne dans les 24 heures et vous aide à résoudre tout problème que vous pourriez rencontrer avec mes produits et services.</p>
+{% endif %}
             </div>
           </div>
         </div>
@@ -94,9 +116,15 @@
           <div class="thumbnail-classic unit unit-sm-horizontal unit-md-vertical">
             <div class="thumbnail-classic-icon unit-left"><span class="icon mdi mdi-credit-card"></span></div>
             <div class="thumbnail-classic-caption unit-body">
+{% if langSelector == "Français" %}
               <h6 class="thumbnail-classic-title">Various Payment Methods</h6>
               <hr class="divider divider-default divider-sm"/>
               <p class="thumbnail-classic-text">I provide a variety of payment methods that include Paypal, Visa/Mastercard debit and credit cards and others.</p>
+{% else %}
+              <h6 class="thumbnail-classic-title">Différents modes de paiement</h6>
+              <hr class="divider divider-default divider-sm"/>
+              <p class="thumbnail-classic-text">Je propose une variété de méthodes de paiement, notamment Paypal, les cartes de débit et de crédit Visa/Mastercard et autres.</p>
+{% endif %}
             </div>
           </div>
         </div>
@@ -104,18 +132,23 @@
     </div>
   </section>
 
-  <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="1" />
+  <twig:compuhelp-testimonials testimonials="{{testimonials}}" layout="1" langSelector="{{langSelector}}" />
 
   <section class="section section-lg bg-white">
     <div class="shell shell-bigger">
       <div class="range range-ten range-50 range-sm-center range-lg-justify">
         <div class="cell-sm-9 cell-md-5 cell-xl-5">
+{% if langSelector == "Français" %}
           <h3>Frequently Asked Questions</h3>
+{% else %}
+          <h3>Foire aux questions</h3>
+{% endif %}
           <!-- Bootstrap collapse-->
           <div class="panel-group panel-group-custom panel-group-corporate" id="accordion1" role="tablist" aria-multiselectable="false">
             <!-- Bootstrap panel-->
             <div class="panel panel-custom panel-corporate">
               <div class="panel-heading" id="accordion1Heading1" role="tab">
+{% if langSelector == "Français" %}
                 <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse1" aria-controls="accordion1Collapse1" >Do you work mostly on-site or remote?
                     <div class="panel-arrow"></div></a>
                 </div>
@@ -123,12 +156,22 @@
               <div class="panel-collapse collapse in" id="accordion1Collapse1" role="tabpanel" aria-labelledby="accordion1Heading1">
                 <div class="panel-body">
                   <p>I find that remote work is a lot more efficient than working on-site. That said, in some cases on-site work is preferable and so I also do on-site work. After all, technology is moving mind-numbingly fast. It’s my job to guarantee your company is always on the leading edge of technological leveraging.</p>
+{% else %}
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse1" aria-controls="accordion1Collapse1" >Travaillez-vous principalement sur place ou à distance ?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse in" id="accordion1Collapse1" role="tabpanel" aria-labelledby="accordion1Heading1">
+                <div class="panel-body">
+                  <p>Je trouve que le travail à distance est beaucoup plus efficace que le travail sur place. Cela dit, dans certains cas, le travail sur site est préférable et je fais donc également du travail sur site. Après tout, la technologie évolue à une vitesse stupéfiante. C’est mon travail de garantir que votre entreprise soit toujours à la pointe de l’exploitation technologique.</p>
+{% endif %}
                 </div>
               </div>
             </div>
             <!-- Bootstrap panel-->
             <div class="panel panel-custom panel-corporate">
               <div class="panel-heading" id="accordion1Heading2" role="tab">
+{% if langSelector == "Français" %}
                 <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse2" aria-controls="accordion1Collapse2">What industries do you specialize in?
                     <div class="panel-arrow"></div></a>
                 </div>
@@ -136,12 +179,22 @@
               <div class="panel-collapse collapse" id="accordion1Collapse2" role="tabpanel" aria-labelledby="accordion1Heading2">
                 <div class="panel-body">
                   <p>I have worked with a wide range of companies. The industries I've worked in include (but certainly aren’t limited to): Real Estate, UCaaS, Aerospace, Education, E-Commerce, Non-Profit, Publishing, Municpal Government, Advertising, Chiropractic, etc.</p>
+{% else %}
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse2" aria-controls="accordion1Collapse2">Dans quels secteurs vous spécialisez-vous ?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse2" role="tabpanel" aria-labelledby="accordion1Heading2">
+                <div class="panel-body">
+                  <p>J'ai travaillé avec un large éventail d'entreprises. Les secteurs dans lesquels j'ai travaillé comprennent (sans s'y limiter) : l'immobilier, l'UCaaS, l'aérospatiale, l'éducation, le commerce électronique, les organisations à but non lucratif, l'édition, le gouvernement municipal, la publicité, la chiropratique, etc.</p>
+{% endif %}
                 </div>
               </div>
             </div>
             <!-- Bootstrap panel-->
             <div class="panel panel-custom panel-corporate">
               <div class="panel-heading" id="accordion1Heading3" role="tab">
+{% if langSelector == "Français" %}
                 <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse3" aria-controls="accordion1Collapse3">How can I utilize your Business IT Solutions?
                     <div class="panel-arrow"></div></a>
                 </div>
@@ -149,12 +202,22 @@
               <div class="panel-collapse collapse" id="accordion1Collapse3" role="tabpanel" aria-labelledby="accordion1Heading3">
                 <div class="panel-body">
                   <p>I've created comprehensive packages that fulfill all of your Business IT needs. And depending on the size of your company, you can choose the package that has the amount of Help Desk, On-Site Management hours, Software and Web design and expert consultation as you want... or your budget allows.</p>
+{% else %}
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse3" aria-controls="accordion1Collapse3">Comment puis-je utiliser vos solutions informatiques d'entreprise ?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse3" role="tabpanel" aria-labelledby="accordion1Heading3">
+                <div class="panel-body">
+                  <p>J'ai créé des packages complets qui répondent à tous vos besoins informatiques d'entreprise. Et en fonction de la taille de votre entreprise, vous pouvez choisir le forfait comprenant le nombre d'heures de service d'assistance, d'heures de gestion sur site, de conception de logiciels et de sites Web et de conseils d'experts comme vous le souhaitez... ou si votre budget le permet.</p>
+{% endif %}
                 </div>
               </div>
             </div>
             <!-- Bootstrap panel-->
             <div class="panel panel-custom panel-corporate">
               <div class="panel-heading" id="accordion1Heading4" role="tab">
+{% if langSelector == "Français" %}
                 <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse4" aria-controls="accordion1Collapse4">Will I benefit from professional Business IT?
                     <div class="panel-arrow"></div></a>
                 </div>
@@ -162,6 +225,15 @@
               <div class="panel-collapse collapse" id="accordion1Collapse4" role="tabpanel" aria-labelledby="accordion1Heading4">
                 <div class="panel-body">
                   <p>The real answer is... Every business benefits from receiving my IT Solutions. If you want to differentiate your company in the market, you require the best possible foundation to make it a reality.</p>
+{% else %}
+                <div class="panel-title"><a class="collapsed" role="button" data-bs-toggle="collapse" data-bs-parent="#accordion1" href="#accordion1Collapse4" aria-controls="accordion1Collapse4">Vais-je bénéficier d’une informatique d’entreprise professionnelle ?
+                    <div class="panel-arrow"></div></a>
+                </div>
+              </div>
+              <div class="panel-collapse collapse" id="accordion1Collapse4" role="tabpanel" aria-labelledby="accordion1Heading4">
+                <div class="panel-body">
+                  <p>La vraie réponse est... Chaque entreprise bénéficie de mes solutions informatiques. Si vous souhaitez différencier votre entreprise sur le marché, vous avez besoin des meilleures bases possibles pour en faire une réalité.</p>
+{% endif %}
                 </div>
               </div>
             </div>
