@@ -49,49 +49,41 @@ class Service
 
     public function getTitle(string $language = "en"): ?string
     {
-        foreach($this->serviceLangs as $serviceLang)
-        {
-            if($serviceLang->getLanguage() == $language)
-            {
-                return $serviceLang->getTitle(); 
-            }
-        }
-        return "";
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getTitle();
     }
 
     public function setTitle(string $title, string $language = "en"): static
     {
-        foreach($this->serviceLangs as $serviceLang)
-        {
-            if($serviceLang->getLanguage() == $language)
-            {
-                $serviceLang->setTitle($title); 
-            }
-        }
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        $filter->first()->setTitle($title);
+  
         return $this;
     }
 
     public function getText(string $language = "en"): ?string
     {
-        foreach($this->serviceLangs as $serviceLang)
-        {
-            if($serviceLang->getLanguage() == $language)
-            {
-                return $serviceLang->getText(); 
-            }
-        }
-        return "";
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getText();
     }
 
     public function setText(string $text, string $language = "en"): static
     {
-        foreach($this->serviceLangs as $serviceLang)
-        {
-            if($serviceLang->getLanguage() == $language)
-            {
-                $serviceLang->setText($text); 
-            }
-        }
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        $filter->first()->setText($text);
+  
         return $this;
     }
 
@@ -107,39 +99,63 @@ class Service
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function getDescription(string $language): ?string
     {
-        return $this->description;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getDescription();
     }
 
     public function setDescription(string $description): static
     {
-        $this->description = $description;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
 
+        $filter->first()->setDescription($description);
+  
         return $this;
     }
 
-    public function getSalesPitch(): ?string
+    public function getSalesPitch(string $language): ?string
     {
-        return $this->salesPitch;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getSalesPitch();
     }
 
     public function setSalesPitch(string $salesPitch): static
     {
-        $this->salesPitch = $salesPitch;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
 
+        $filter->first()->setSalesPitch($salesPitch);
+  
         return $this;
     }
 
-    public function getQuote(): ?string
+    public function getQuote(string $language): ?string
     {
-        return $this->quote;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getQuote();
     }
 
     public function setQuote(string $quote): static
     {
-        $this->quote = $quote;
+        $filter = $this->serviceLangs->filter(function($serviceLang) use ($language){
+            return $serviceLang->getLanguage() == $language;
+        });
 
+        $filter->first()->setQuote($quote);
+  
         return $this;
     }
 

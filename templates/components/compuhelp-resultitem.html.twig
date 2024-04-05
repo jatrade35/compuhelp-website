@@ -6,7 +6,7 @@
 	</h5>
 	<p>...{% for token in tokenparts %}{% if token|lower == searchterm %}<span class="search">{{token}}</span>{% else %}{{token}}{% endif %}{% endfor %}...</p>
 	<p class="match">
-{% if langSelector == "Français" %}
+{% if langSelector == "en" %}
 		<em>Terms matched: {{count}} - URL: {{href}}</em>
 {% else %}
 		<em>Termes correspondant: {{count}} - URL: {{href}}</em>

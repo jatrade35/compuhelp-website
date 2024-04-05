@@ -75,9 +75,13 @@ class Comment
         return $this;
     }
 
-    public function getContent(): ?string
+    public function getContent(string $language): ?string
     {
-        return $this->content;
+        $filter = $this->commentLangs->filter(function($commentLang) use ($language){
+            return $commentLang->getLanguage() == $language;
+        });
+
+        return $filter->first()->getContent();
     }
 
     public function setContent(string $content): static

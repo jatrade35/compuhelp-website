@@ -1,17 +1,28 @@
 {% extends 'compuhelp-base.html.twig' %}
 
-{% block title %}{{service.title}}{% endblock %}
+{% if langSelector == "Français" %}
+  {% set language = "en" %}
+{% else %}
+  {% set language = "fr" %}
+{% endif %}
+
+{% block title %}{{service.getTitle(language)}}{% endblock %}
 
 {% block page %}
 
   <!-- Breadcrumbs-->
   <section class="breadcrumbs-custom bg-image">
     <div class="shell">
-      <p class="heading-1 breadcrumbs-custom-title">{{service.title}}</p>
+      <p class="heading-1 breadcrumbs-custom-title">{{service.title(language)}}</p>
       <ul class="breadcrumbs-custom-path">
+{% if langSelector == "Français" %}
         <li><a href="/">Home</a></li>
         <li><a href="/services">Services</a></li>
-        <li class="active">{{service.title}}</li>
+{% else %}
+        <li><a href="/fr/accueil">Accueil</a></li>
+        <li><a href="/fr/services">Services</a></li>
+{% endif %}
+        <li class="active">{{service.getTitle(language)}}</li>
       </ul>
     </div>
   </section>
@@ -23,12 +34,16 @@
         <div class="cell-sm-8 cell-lg-4"> 
           <h3>About this Service</h3>
           <div class="divider divider-default"></div>
-          <p>{{service.description}}</p>
+          <p>{{service.getDescription(language)}}</p>
           <!-- Quote minimal-->
           <article class="quote-minimal">
-            <p class="quote-minimal-text">{{service.quote}}</p>
+            <p class="quote-minimal-text">{{service.getQuote(language)}}</p>
           </article>
-          <p>{{service.salesPitch}}</p><a class="button button-primary" href="/contacts">request a quote now</a>
+{% if langSelector == "Français" %}
+          <p>{{service.getSalesPitch(language)}}</p><a class="button button-primary" href="/contacts">{{quote}}</a>
+{% else %}
+          <p>{{service.getSalesPitch(language)}}</p><a class="button button-primary" href="/fr/contacts">{{quote}}</a>
+{% endif %}
         </div>
         <div class="cell-lg-5 text-center">
           <div class="image-position-01">

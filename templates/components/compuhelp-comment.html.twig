@@ -1,4 +1,4 @@
-{% props datetime = null, author = null, avatar = null, content = null,  replies = null %}
+{% props datetime = null, author = null, avatar = null, content = null,  replies = null, langSelector = "Français" %}
 
 <!-- Comment-->
 <article class="comment">
@@ -21,7 +21,11 @@
     {% set avatar = asset(reply.avatar) %}
     {% set datetime = reply.getAge() %}
     <div class="comment-group">
-      <twig:compuhelp-comment datetime="{{datetime}}" author="{{reply.author}}" avatar="{{avatar}}" content="{{reply.content}}" />
+    {% if langSelector == "François" %}
+      <twig:compuhelp-comment datetime="{{datetime}}" author="{{reply.author}}" avatar="{{avatar}}" content="{{reply.content("en")}}" />
+    {% else %}
+      <twig:compuhelp-comment datetime="{{datetime}}" author="{{reply.author}}" avatar="{{avatar}}" content="{{reply.content("fr")}}" />
+    {% endif %}
     </div>
   {% endfor %}
 {% endif %}

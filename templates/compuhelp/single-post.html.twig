@@ -47,7 +47,7 @@
             {% for comment in post.comments %}
               {% set avatar = asset(comment.avatar) %}
               {% set datetime = comment.getAge(language) %}
-              <twig:compuhelp-comment datetime="{{datetime}}" author="{{comment.author}}" avatar="{{avatar}}" content="{{comment.content}}" replies="{{comment.replies}}" />
+              <twig:compuhelp-comment datetime="{{datetime}}" author="{{comment.author}}" avatar="{{avatar}}" content="{{comment.getContent(language)}}" replies="{{comment.replies}}" />
             {% endfor %}
         </div>
       </div>

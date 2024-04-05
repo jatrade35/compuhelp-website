@@ -133,7 +133,7 @@ class FrenchMainController extends AbstractController
         $parameters['ha3key'] = $_ENV['HA3_KEY'];;
         $parameters['langSelector'] = "English";
         $parameters['langSelectorURL'] = "/search-results";
-        $parameters['title'] = "Accueil";
+        $parameters['title'] = "Résultats de recherche";
         $parameters['quote'] = "DEMANDEZ UNE SOUMISSION";
 
         return $this->render("compuhelp/search-results.html.twig", $parameters);

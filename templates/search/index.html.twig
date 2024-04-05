@@ -1,27 +1,47 @@
 <div id="search-results">
     {% if quickresult %}
-        <div class='search-quick-result'>Quick Results</div>
+        {% if language == "en" %}
+            <div class='search-quick-result'>Quick Results</div>
+        {% else %}
+            <div class='search-quick-result'>Résultats rapides</div>
+        {% endif %}
     {% endif %}    
     <ol class="search_list">
         {% if count == 0  %}
             <li>
                 <div class="search_error">
+        {% if language == "en" %}
                     No results found for <span class="search">{{search_term}}</span>
+        {% else %}
+                    Aucun résultats trouvés <span class="search">{{search_term}}</span>
+        {% endif %}
                 </div>
             </li>
 
         {% else %}
             {% for resultItem in resultItems %}
-                <twig:compuhelp-resultitem  title="{{resultItem.title}}" tokenparts="{{resultItem.token}}" count="{{resultItem.count}}" href="{{resultItem.href}}" searchterm="{{search_term|lower}}"/>
+                <twig:compuhelp-resultitem  title="{{resultItem.title}}" tokenparts="{{resultItem.token}}" count="{{resultItem.count}}" href="{{resultItem.href}}" searchterm="{{search_term|lower}}" language="{{language}}" />
             {% endfor %}
             {% if quickresult %}
-                <li class="search_all">
-                    <a href='/search-results?s={{s}}&filter=*.html' class="search_submit">
-                        {% if sum_of_results > 1 %}
-                            See all {{sum_of_results}} results
-                        {% else %}
-                            See full result
-                        {% endif %}
+                {% if language == "en" %}
+                    No results found for <span class="search">{{search_term}}</span>
+                    <li class="search_all">
+                        <a href='/search-results?s={{s}}&filter=*.html' class="search_submit">
+                            {% if sum_of_results > 1 %}
+                                See all {{sum_of_results}} results.
+                            {% else %}
+                                See full result
+                            {% endif %}
+                {% else %}
+                    Aucun résultats trouvés <span class="search">{{search_term}}</span>
+                    <li class="search_all">
+                        <a href='/fr/search-results?s={{s}}&filter=*.html' class="search_submit">
+                            {% if sum_of_results > 1 %}
+                                Consulter tous les {{sum_of_results}} résultats.
+                            {% else %}
+                                Consulter le résultat complet
+                            {% endif %}
+                {% endif %}
                     </a>
                 </li>
             {% endif %}
