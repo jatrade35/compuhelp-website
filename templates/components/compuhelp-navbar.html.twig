@@ -67,11 +67,13 @@
         <div class="rd-navbar-aside-right rd-navbar-collapse">
           <!-- RD Navbar Search-->
           <div class="rd-navbar-search"><a class="rd-navbar-search-toggle" data-rd-navbar-toggle=".rd-navbar-search" href="#"><span></span></a>
+{% if langSelector == "Français" %}
             <form class="rd-search" action="/search-results" data-search-live="rd-search-results-live" method="GET">
               <div class="form-wrap">
-{% if langSelector == "Français" %}
                 <label class="form-label form-label" for="rd-navbar-search-form-input">Search...</label>
 {% else %}
+            <form class="rd-search" action="/fr/search-results" data-search-live="rd-search-results-live" method="GET">
+              <div class="form-wrap">
                 <label class="form-label form-label" for="rd-navbar-search-form-input">Rechercher...</label>
 {% endif %}
                 <input class="rd-navbar-search-form-input form-input" id="rd-navbar-search-form-input" type="text" name="s" autocomplete="off" />
@@ -79,7 +81,11 @@
               </div>
               <button class="rd-search-form-submit mdi mdi-magnify"></button>
             </form>
+{% if langSelector == "Français" %}
           </div><a class="button button-sm button-default-outline" href="/contacts">{{quote}}</a>
+{% else %}
+          </div><a class="button button-sm button-default-outline" href="/fr/contacts">{{quote}}</a>
+{% endif %}
         </div>
       </div>
     </nav>
